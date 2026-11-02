@@ -1,0 +1,135 @@
+﻿title: Mo_Start_Day2
+---
+<<declare $mo_playing_cards to false>>
+<<declare $mo_friends to false>>
+<<declare $mo_waddles_enemies to false>>
+
+<<if $mo_playing_cards is false and $mo_friends is false and $mo_waddles_enemies is false>>
+    Mort: I can't say that I find it pleasant to be seeing you again so soon.
+    Mort: Please don't take offense.
+        -> You: *smile stupidly* Non taken!
+            Mort: *in a mocking, high pitched voice* Non taken!
+        -> You: Mrs. Mort, I must insist that you comply and answer my questions truthfully.
+            Mort: It depends.
+            You: ...
+            You: It depends on what?
+            Mort: On whether or not the others were truthful.
+            Mort: I would find it rather annoying to be the only one who is putting their neck on the line.
+                -> You: Why would you be putting your neck on the line if you didn't do anything wrong.
+                    Mort: Seems like we won't know for sure until the grand reveal in the end.
+                    Mort: Exciting stuff.
+                -> You: Huh, I never really took into consideration that they could be lying.
+                    Mort: Glad I could be of service in that way.
+                -> You: I have a nose for the truth, Mrs. Mort.
+                    Mort: I can tell.
+                    Mort: *looks at your nose disapprovingly*
+    You: *You shake you head and compose yourself*
+    You: We've got a mystery to solve.
+    Mort: It's funny how Waddles manages to hunt us from the grave, isn't it?
+<<elseif $mo_playing_cards is true or $mo_friends is true or $mo_waddles_enemies is true>>
+    Mort: This would be a great place to leave it off.
+<<endif>>
+ -> You: \[playing cards\] Do these playing cards belong to you? <<if $mo_playing_cards is false and $playing_cards is true>>
+    <<jump Mo_PlayingCards>>
+ -> You: Is there anyone in the circus that you feel close to? <<if $mo_friends is false>>
+    <<jump Mo_Friends>>
+ -> You: Did the deceased have any enemies that you were aware of? <<if $mo_waddles_enemies is false>>
+    <<jump Mo_WaddlesEnemies>>
+ -> You: I agree, Let's pick up where we left off again tomorrow.
+    Mort: If you insist. *rolls her eyes*
+===
+
+title: Mo_PlayingCards
+---
+<<set $mo_playing_cards to true>>
+
+<<declare $mo_borrowed to false>>
+<<declare $mo_stolen to false>>
+
+<<if $mo_borrowed is false and $mo_stolen is false>>
+    Mort: *tries to snatch them from you*
+    You: *pull the cards away last second*
+    Mort: Where did you find these? I have been looking for them everywhere.
+    You: As you might be able to gather from the context in which the current conversation is taking place, I have found this set of cards whiles searching the crime scene.
+    Mort: But that is impossible, I don't recall being at the crime scene.
+    You: That's what I would say as well if I was the murderer.
+    Mort: Very funny, detective. Who says that you did not indeed were the one to snuff old Waddles out like a candle?
+    You: *prolonged eye contact*
+    Mort: *prolonged eye contact*
+<<elseif $mo_borrowed is true xor $mo_stolen is true>>
+    Mort: *starts to tap her fingers in wait*
+<<else>>
+    <<jump Mo_Start_Day2>>
+<<endif>>
+    -> You: Did you borrow the cards to anyone else? <<if $mo_borrowed is false>>
+        <<jump Mo_Borrowed>>
+    -> You: Is it possible that the cards were stolen from you? <<if $mo_stolen is false>>
+        <<jump Mo_Stolen>>
+===
+
+title: Mo_Friends
+---
+<<set $mo_friends to true>>
+
+Mort: Are we talking about closeness in proximity or emotionally.
+You: Ehm, ehm... Both!
+Mort: Hm, Poppet enjoys to be close to me, way to close for my comfort. I think she does that with everyone though.
+Mort: It is a little bit creepy if you ask me. 
+Mort: Gives me the heebie jeebies.
+Mort: But if we were to talk about friendships, I do find Teddy very fun to be around.
+    -> You: That's nice. What do you like about Teddy?
+        Mort: He looks really funny. Have you met him and his hat? 
+        Mort: Sometimes he even falls over, because the hat is too heavy for him.
+        Mort: Bahahahah *doubles over and holds her stomach, laughing*
+        Mort: *wipes a tear from her eye as she calms down*
+        Mort: Ah, I like Teddy.
+<<jump Mo_Start_Day2>>
+===
+
+title: Mo_WaddlesEnemies
+---
+<<set $mo_waddles_enemies to true>>
+
+Mort: Would you feign surprise if I told you that he did?
+Mort: Of course he had enemies. He was terribly annoying and constantly parading about as if he ran this place.
+Mort: He should be grateful to have lived such a long life, considering how much of a nuisance he was.
+You: My files tell me that he was a mere 35 years of age.
+Mort: Exactly.
+<<jump Mo_Start_Day2>>
+===
+
+title: Mo_Borrowed
+---
+<<set $mo_borrowed to true>>
+
+Mort: I never lend my belongings to anyone, given that all of them are infused with magic of some sort.
+Mort: Alright, maybe "never" and "anyone" are quite strong words. 
+Mort: I'm a selfish detective. I do share.
+Mort: For instance, I handed Teddy some of my handkerchiefs to help with his sniffles.
+Mort: The cards are just not the kind of item I would hand of to the untrained, as they are not to me meddled with.
+    -> You: Why are your cards not to be meddled with?
+        Mort: *smirks in a sinister way*
+        Mort: 
+        Mort:
+        You: *shudder*
+<<jump Mo_PlayingCards>>
+===
+
+title: Mo_Stolen
+---
+<<set $mo_stolen to true>>
+Mort: That does sound like something that Waddles would have done.
+Mort: But why don't I believe it? Something is telling me that that is not what happened.
+Mort: *paces up and down*
+Mort: *stops* abruptly*
+Mort: The cards were in Waddles wagon because he confiscated them from me. There, mystery solved.
+    -> You: Did you just make that up?
+        Mort: No, it happened a couple of days ago, when I was in the middle of winning my round of poker.
+        Mort: That silly penguin with his silly hat interrupted me with his loud and incessant knocking.
+        Mort: I believe he would have knocked down the whole door, but since it was just Waddles we are talking about here, all I heard were those weird flopping sounds that his flippers made on the brass door.
+        Mort: *shudders*
+        Mort: He yet again complained about the noise and took the cards with him into his den.
+        Mort: Darn it, I really wished I could have strangled the smug grin off of his face, ut it appears I am late to the party.
+        Mort: Talking of late, *yawns* are we done here soon?
+<<jump Mo_PlayingCards>>
+===

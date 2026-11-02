@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cae5af2f3c62f54bb9245cb40ae2bdb, type: 3}
+  m_Name: Note_Sheets
+  m_EditorClassIdentifier: 
+  id: 0
+  itemName: Note Sheets
+  infoText: 
+  info1: There is an even chance of this being simple chicken scratch as for it being
+    drafts for a new trumpet solo.
+  info2: 
+  info3: 
+  info4: 
+  info5: 
+  info6: 
+  day: 2
+  variableName: note_sheets
+  itemIcon: {fileID: -6912073338118889331, guid: c016e7c8469e20245a88930877d381e5, type: 3}

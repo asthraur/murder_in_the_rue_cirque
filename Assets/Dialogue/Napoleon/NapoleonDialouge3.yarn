@@ -1,0 +1,236 @@
+﻿
+title: Na_Start_Day3
+---
+<<declare $nap_flyer to false>>
+<<declare $nap_mortsstuff to false>>
+
+
+Napoleon: Detectiiive! 
+Napoleon: Gods, your face is unreadable... Pray, what do you got?
+    -> You: You look  better than yesterday.
+Napoleon: A big day ahead. We can leave what remains of good old Waddles in the dust of history…
+Napoleon: And return to what we once were—balloon animals, jokes, acrobatics, magic, children laughing, the crowd cheering.
+Napoleon: *He does not appear the least bit excited.*
+    -> You: I did hear you're back to your usual routine. <<if $mo_circus_regular is true>>
+    -> You: *Try to look encouraging* As you should.
+Napoleon: Ah, the show must go on. my dear detective.
+Napoleon:  I should scarce have lasted a month in this profession were I willing to shutter the curtains for every <i>small</i> misfortune.
+<<wait  1>>
+You: Small??... someone died...?
+Napoleon: And they shall remain just as deceased whether or not Eduard makes a balloon animal.
+Napoleon: Besides, tonight we welcome a new member to the troupe. I’d rather not frighten off our fresh trumpet penguin— They’re more skittish than I expected, I must admit.
+You: Congratulation on getting done with the reumes!
+You: And yet... what are these? *You gesture toward his desk, still buried beneath an expanse of inscrutable papers.*
+Napoleon: *nonchalantly* Backup résumés for the next blank spot.
+Napoleon: I assume you do plan on giving me a name?
+    -> You: I do indeed. Are you ready to hear it?
+      <<jump Nap_FinalVerdict>>
+    -> You: I want to talk about some things I discoverd. *tap on your suitcase*
+        <<jump Nap_DayThree_Questions>>
+
+===
+title: Nap_FinalVerdict
+---
+<<declare $verdict_true to false>>
+
+Napoleon: *Leans forward, resting his chin on his hands.* Pray, who did it?
+    -> You: It surprises no one that it was Eduard who...
+        You: suffocated poor Mr. Waddles to death.
+        Napoleon: Ah. I always assumed him to be a <i>harmless</i> kind of madman.
+        Napoleon: *Pauses, a flicker of sadness in his eyes* The audience adored him. What a shame.
+    -> You: You might not believe this, but it was Teddy who...
+        You: wrapped his paws around your trumpeter's neck... and pressed. Until he was-
+        Napoleon: *Lifting a hand* Alright, alright, I grasp the image.
+        Napoleon:  I can't say I'm shocked. The little menace always unsettled me-far too cheerful for my taste.
+        Napoleon: *Pauses, sighing.* The audience adored him. What a shame.
+            <<set $verdict_true to true>>
+    -> You: Your magician's final trick...
+        You: was making short work of her colleague's breath.
+        Napoleon: *Arching an eyebrow* Her first one that actually worked, eh?
+        Napoleon: *Pauses, a flicker of sadness in his eyes* The audience adored her. What a shame.
+    -> You: Your acrobat’s final, breathtaking act...
+        You: ...was to strike his colleague with such speed and force that he never stood a chance.
+        Napoleon: *Lifts an eyebrow* Widget sad, Widget kills. It seems.
+        Napoleon: *sighs, a flicker of sadness in his eyes* The audience adored him. What a shame.
+    -> You: Behind that mask lurked not just an ostrich...
+        You: —but a cold-blooded murderer, one who pressed her colleague’s throat until—
+        Napoleon: *Lifting a hand* Alright, alright, I grasp the image.
+        Napoleon: I can’t say I’m surprised. The very fact that she agreed to perform in that absurd mask should have been warning enough.
+        Napoleon: *Pauses, a flicker of sadness in his eyes* The audience adored her. What a shame.
+    -> You: You might have thought you had me fooled...
+        You: But I saw right through the façade of the warm, caring manager. You killed the poor old Waddles in cold blood.
+        Napoleon: *Blanks* façade of the warm, caring manager?
+        Napoleon: *Sighs* I am doomed to work with clowns. Very well, detective—you’ve seen through me.
+Napoleon: *Claps his hands together once* Well, that was fast and efficient. I'll be sure to hire your services again when the next trumpet-penguin turns up dead.
+-> You: ... What?
+Napoleon: *Gazes grimly at the stack of trumpet-playing penguin résumés next too his desk* They tend to do that, don't they?
+
+
+===
+title: Nap_DayThree_Questions
+---
+<<declare $nap_clown_nose to false>>
+
+Napoleon: *Leans back and looks at you expectantly*
+    -> You: \[flyer\] Someone was very unpleased about mr. Waddles and Eduards´two man show...*show the flyer* <<if $nap_flyer is false and $crumpled_flyer is true>>
+        <<jump Nap_Flyer>>
+    -> You:I keep finding Ms.Mort's belonging in Mr. Waddles cabin... <<if $nap_mortsstuff is false>> 
+        Napoleon: Hm. Mort misplaces her belonging all the time. It happens on the stage sometimes. very amusing.
+        Napoleon: Unsure how much you can use it against her.
+            <<set $nap_mortsstuff to true>>
+            <<jump Nap_DayThree_Questions>>
+    -> You: \[clown nose\] I have a feeling this is not a part of Mr. Waddles costum. <<if $clown_nose is true and $nap_clown_nose is false>>
+        <<jump Nap_ClownNose>>
+    -> You: *close your notebook, then your suitcase with a clap. lean on the desk dramatically * I am ready to make the arrest.
+        Napoleon: *Blinks* My dear detective, you are a private investigator. You have no authority to arrest someone.
+        Napoleon: But I appreciate the enthuthiasm.
+        <<jump Nap_FinalVerdict>> 
+===
+title: Nap_ClownNose
+---
+<<set $nap_clown_nose to true>>
+
+Napoleon: *Examines the nose* 
+Napoleon: The assumption checks out—this isn't his. And whoever it belonged to must have put up quite a fight to lose it...
+<<wait  1>>
+Napoleon: *Raises an eyebrow* Just aanouncing observations, detective. Im not implying anything.
+You: I made the same observation.
+Napoleon: Have you asked our clowns about it?
+Napoleon: …The literal clowns, mind you, not the entire crew.
+    -> You: Mr. Eduard claims its not his, insists it bears no relevance to the case.
+        You: I thought it rather noble of him not to lay the blame upon his partner.
+        Napoleon: Perhaps, though I suspect he simply cannot recall whether his partner is another clown or a wrestling mouse.
+        Napoleon: That said, the young man may have a point. Have you spoken with little Teddy?
+        You: He argues that both he and his partner still possess their noses, and thus, it must belong to another.
+        Napoleon: Quite so. It may astound you, detective, but clown noses are not exceedingly rare commodities.
+        Napoleon: Which leads us to consider the possibility that Eduard speaks the truth—that it is, indeed, unrelated. What say you?
+            -> You: I think hes right.
+                You: Then again, we lack the full picture as of yet.
+            -> You: I don't agree.
+                You: Then again, we lack the full picture as of yet.
+        Napoleon: *nods thoughtfully
+        <<jump Nap_DayThree_Questions>>
+
+===
+title: Nap_Flyer
+---
+Napoleon: *frowns, reaching for the torn flyer* Their what now?
+Napoleon: *He scans the flyer swiftly, his brow furrowing.* Mmmhmm...
+Napoleon: *He sets the flyer aside, his lips pressed tightly together* I never authorized this. *taps the flyer with his fingers* It was scheduled for this afternoon.
+Napoleon: *sighs*  In normal circumstances, I’d be furious. But, well... Waddles is dead, and the show is cancelled.
+Napoleon: *He reads aloud from the flyer* "First stage appearance of the Lost Souls of Theatre, inviting you to celebrate music, poetry, and death."
+Napoleon:  The "death" part, at least, checks out.
+You: Eduard was looking forward to this. He claims Waddles was, too.
+Napoleon: He likely was. This looks right up his alley. And trust me, you can’t force Waddles to do anything his heart is not invested in.
+Napoleon: You found it torn? In the wagon?
+You: I did.
+    -> You: Any idea why someone might be so unsettled about it?  
+        Napoleon: <i>i</i> for one, would have been unsettled enough to find out about a performance being planned and advertised without my knowledge.
+        Napoleon: But beyond the organizational issues... perhaps someone simply grew weary of the melancholic pretentiousness.
+        Napoleon: *He ponders for a moment, then continues* Perhaps someone else wanted in.
+    -> You: Perhaps Waddles had a change of heart.  
+        Napoleon: *thinks* It’s possible. These two are not the easiest to work with among my crew.
+Napoleon: *sighs* You know... I’m almost saddened now.
+Napoleon: Eduard’s been paired with young Teddy since day one. Always too lost in his own world to ever ask for a change, I suppose... Or even comment on anything at all.
+Napoleon: Curious, given Teddy's over-the-top enthusiasm.
+Napoleon: And Waddles always preferred working alone. Always. According to his resume…
+Napoleon: Which I seem to have lost.
+Napoleon: So, this... was a big deal. I’d have been proud had I been their father.*smiles*
+Napoleon: *His expression turns resolute* But I am their boss. So... *he throws the flyer into the trash with a precise shot* The show would have been cancelled, anyway.
+    <<set $nap_flyer to true>>
+    <<jump Nap_DayThree_Questions>>
+
+
+===
+title: Extras
+---
+
+Napoleon: *Leans back and looks at you expectantly*
+    -> You: \[flyer\] Someone was very unpleased about mr. Waddles and Eduards´two man show...*show the flyer* <<if $nap_flyer is false and $crumpled_flyer is true>>
+        <<jump Nap_Flyer>>
+    -> You:I keep finding Ms.Mort's belonging in Mr. Waddles cabin... <<if $nap_mortsstuff is false>> 
+        Napoleon: Hm. Mort misplaces her belonging all the time. It happens on the stage sometimes. very amusing.
+        Napoleon: Unsure how much you can use it against her.
+        <<set $nap_mortsstuff to true>>
+        <<jump Nap_DayThree_Questions>>
+    -> You: I found this clown nose. <<if $clown_nose is true and $nap_clown_nose is false>>
+        <<jump Nap_Flyer>>
+    -> You: *close your notebook, then your suitcase with a clap. lean on the desk dramatically * I am ready to make the arrest.
+        Napoleon: *Blinks* My dear detective, you are a private investigator. You have no authority to arrest someone.
+        Napoleon: But I appreciate the enthutiasm.
+        <<jump Nap_FinalVerdict>> 
+==
+---
+Napoleon: *frowns, reaching for the torn flyer* Their what now?
+Napoleon: *He scans the flyer swiftly, his brow furrowing.* Mmmhmm...
+Napoleon: *He sets the flyer aside, his lips pressed tightly together* I never authorized this. *taps the flyer with his fingers* It was scheduled for this afternoon.
+Napoleon: *sighs*  In normal circumstances, I’d be furious. But, well... Waddles is dead, and the show is cancelled.
+Napoleon: *He reads aloud from the flyer* "First stage appearance of the Lost Souls of Theatre, inviting you to celebrate music, poetry, and death."
+Napoleon:  The "death" part, at least, checks out.
+You: Eduard was looking forward to this. He claims Waddles was, too.
+Napoleon: He likely was. This looks right up his alley. And trust me, you can’t force Waddles to do anything his heart is not invested in.
+Napoleon: You found it torn? In the wagon?
+You: I did.
+    -> You: Any idea why someone might be so unsettled about it?  
+        Napoleon: <i>i</i> for one, would have been unsettled enough to find out about a performance being planned and advertised without my knowledge.
+        Napoleon: But beyond the organizational issues... perhaps someone simply grew weary of the melancholic pretentiousness.
+        Napoleon: *He ponders for a moment, then continues* Perhaps someone else wanted in.
+    -> You: Perhaps Waddles had a change of heart.  
+        Napoleon: *thinks* It’s possible. These two are not the easiest to work with among my crew.
+Napoleon: *sighs* You know... I’m almost saddened now.
+Napoleon: Eduard’s been paired with young Teddy since day one. Always too lost in his own world to ever ask for a change, I suppose... Or even comment on anything at all.
+Napoleon: Curious, given Teddy's over-the-top enthusiasm.
+Napoleon: And Waddles always preferred working alone. Always. According to his resume…
+Napoleon: Which I seem to have lost.
+Napoleon: So, this... was a big deal. I’d have been proud had I been their father.*smiles*
+Napoleon: *His expression turns resolute* But I am their boss. So... *he throws the flyer into the trash with a precise shot* The show would have been cancelled, anyway.
+    <<set $nap_flyer to true>>
+    <<jump Nap_DayThree_Questions>>
+---
+
+    Napoleon: *Sighs* This can have more than one reason, you know.
+    Napoleon: I had to search his pocket once because I knew without a doubt that my newly disapeard ring would be just there waiting for me.
+    Napoleon: He tried to resist. Random circus visitors were wathing. That was a humilating sigh.
+    Napoleon: *Pauses* For him.
+        -> You: What happened next?
+            Napoleon: I found the ring, of course. And a considerable amount of cookie cramps. *Looks disgusted*
+        -> You: What if it wasnt in his pockets?
+            Napoleon: Oh I would have left the scene.. as fast as I could...
+            Napoleon: ... To check his wagon.
+            Napoleon: Anyway. I found the ring, And a considerable amount of cookie cramps. *Looks disgusted*
+        Napoleon: Told him next time this happens I'll break his leg...
+        <<wait  1>>
+        Napoleon: Ah, dont give me that detective look. I woulnt have gone farer than getting a leg.
+        Napoleon: He didny need a leg to play his trumpet.
+        You: Understandable.
+    Napoleon: Anyhow... *leans back in his chair* What had the old crow stuffed in his nest?
+    -> You: I have found many belongings of Ms. Mort in the crime scene. 
+        <<jump Nap_Mort>>
+
+<<set $nap_clown_nose to true>>
+
+Napoleon: *Examines the nose* Some would say it's the missing piece of Waddle's costume.
+Napoleon: The assumption checks out—this isn't his. And whoever it belonged to must have put up quite a fight to lose it...
+<<wait  1>>
+Napoleon: *Raises an eyebrow* Just aanouncing observations, detective. Im not implying anyhing.
+You: I made the same observation.
+Napoleon: Have you asked our clowns about it?
+Napoleon: …The literal clowns, mind you, not the entire crew.
+    -> You: Mr. Eduard claims its not his, insists it bears no relevance to the case.
+        You: I thought it rather noble of him not to lay the blame upon his partner.
+        Napoleon: Perhaps, though I suspect he simply cannot recall whether his partner is another clown or a wrestling mouse.
+        Napoleon: That said, the young man may have a point. Have you spoken with little Teddy?
+        You: He argues that both he and his partner still possess their noses, and thus, it must belong to another.
+        Napoleon: Quite so. It may astound you, detective, but clown noses are not exceedingly rare commodities.
+        Napoleon: Which leads us to consider the possibility that Eduard speaks the truth—that it is, indeed, unrelated. What say you?
+            -> You: I think hes right.
+                You: Then again, we lack the full picture as of yet.
+            -> You: I don't agree.
+                You: Then again, we lack the full picture as of yet.
+        Napoleon: *nods thoughtfully
+
+title: Nap_MortsStuff
+Napoleon: Hm. Mort misplaces her belonging all the time. It happens on the stage sometimes. very amusing.
+Napoleon: Unsure how much you can use it against her.
+
+===

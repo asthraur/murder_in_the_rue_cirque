@@ -1,0 +1,130 @@
+﻿
+title: IntroStart
+position: 1,-186
+---
+
+<<declare $cause_death_var to false>>
+<<declare $locked_room_var to false>>
+<<declare $waddles_musician_var to false>>
+
+<<declare $russian_classic to false>>
+<<declare $honey_brittle to false>>
+<<declare $parting_letter to false>>
+<<declare $waddles_portrait to false>>
+<<declare $morts_hat to false>>
+<<declare $handkerchief to false>>
+<<declare $fancy_figurine to false>>
+
+
+<<declare $cookie_box to false>>
+<<declare $pocket_mirror to false>>
+<<declare $comb to false>>
+<<declare $playing_cards to false>>
+<<declare $broken_trumpet to false>>
+<<declare $new_trumpet to false>>
+<<declare $fancy_gloves to false>>
+<<declare $key to false>>
+
+<<declare $clown_nose to false>>
+<<declare $crumpled_flyer to false>>
+<<declare $magic_wand to false>>
+<<declare $pocket_watch to false>>
+
+Napoleon: Ah, there you are. Right on time. That's a promising sign. #line:paper.
+Napoleon: I am Napoleon, the manager here. We've been corresponding.
+    -> You: Nice to finally meet you after reading... a considerable amount of letters.
+    -> You: *Stare vaguely into the void and blink twice.*
+    -> You: Mmhmm.
+    -> You: I already know what to do.
+        <<jump Intro_Skip>>
+Napoleon: ... Right.
+Napoleon: I assume you've read the file I sent. Any questions before you begin your investigation?
+You: I would like to review some details... 
+<<jump Intro_Questions>>
+
+===
+title:Intro_Questions
+---
+
+Napoleon: *Taps his fingers on his leg* Make it quick.
+    
+    -> You:The victim was a musician? <<if $waddles_musician_var is false>>
+        <<jump Waddles_Musician>>
+    -> You:This happened in a locked wagon? <<if $locked_room_var is false>>
+        <<jump Locked_Room>>
+    -> You:Remind me, how did he die again? <<if $cause_death_var is false>>
+        <<jump Cause_Death>>
+    -> You: Thank you. Anything else I should keep in mind? <<if $cause_death_var and $locked_room_var and $waddles_musician_var>>
+    <<jump Intro_Info>>
+===
+title: Waddles_Musician
+---
+
+Napoleon: In a manner of speaking. The man possessed a trumpet. Whether one could truly say he played it, however... well, that is a matter of perspective.
+Napoleon: He was the newest addition to our team. We were trying to rid him of his unfortunate tendency to rehearse at the most ungodly hours. Was not going well.
+    -> You: Was he easy to work with?
+        Napoleon: *Shrugs* No one had to <i>work</i> with him, per se. It was a one-man music performance.
+        You: Let us talk about something else.
+        <<set $waddles_musician_var to true>>
+        <<jump Intro_Questions>>
+
+===
+title: Locked_Room
+---
+
+Napoleon: Yes, that's the problem. Or rather, one of them. 
+Napoleon: It was the big wagon we use for costume storage and repairs. The circus members rotate responsibility for it each month. 
+Napoleon: Everyone wants the space, but no one wants the upkeep.
+You: Let us talk about something else.
+<<set $locked_room_var to true>>
+<<jump Intro_Questions>>
+===
+
+title: Cause_Death
+---
+
+Napoleon: As for the cause of death… We called a doctor. He took one look at the wagon from a safe distance and asked me to poke the body. 
+Napoleon: Then he made his grand pronouncement: <i>Yes, quite dead.</i>
+Napoleon: Turned out the doctor is afraid of clowns.
+    -> You: I am afraid of clowns too.
+    -> You: I find clowns quite interesting.
+    Napoleon: *His stare is back to the papers and he not listening* You are going to love it here. 
+You: That means we have no information as to how the victim was murdered?
+Napoleon: *Looks up at you again* The good doctor just informed us that it was not in fact natural.
+Napoleon: I didn’t see any obvious injuries. No wounds, nothing. 
+Napoleon: Some bruising around the neck, but considering how absurdly tight that man wore his tie, well… who’s to say?
+You: Let us talk about something else.
+<<set $cause_death_var to true>>
+<<jump Intro_Questions>>
+===
+title: Intro_Info
+---
+
+Napoleon: That's the gist of it. You have three days-I've a report to file and a circus to run. We're moving on soon. Time is a luxury we do not have.
+Napoleon: You are free to question everyone-myself included, however you need to wait after I am done auditioning for our dearly departed trumpeter's replacement.
+Napoleon: Should be over by the end of the day.
+You: *nod*
+Napoleon: Our Training schedules are tight, though. Each performer is available once per day, so make sure your questions are worth their time.
+Napoleon: I have arranged for them to come by one by one. You'll start with the clowns.
+Napoleon: *Pauses* The literal ones. Not the entire crew.
+Napoleon: Take a look at the crime scene while you wait.
+Napoleon: *He snaps open his pocket watch, tapping a finger against the casing.* Very well. I think we are done here. Do you have questions, detective?
+    -> You: How's business?
+        Napoleon: Fancy a spot? If you can play the trumpet, you're more than welcome
+    -> You: What if an outsider did it?
+        Napoleon: have you seen the bunch? i'm surprised we don't have more dead bodies in more wagons.
+You: Nothing more at the moment, thank you.
+Napoleon: Splendid. Here's your key. *Hands you a small rusty key with his... picture on it*
+You: Nice key. May I ask why it has your picture on it?
+Napoleon: *stares at you blankly* Because it's my key to one of my wagons in my circus camp.
+Napoleon: Off you go, now. The sooner you solve this, the sooner I can stop losing sleep over it… and the sooner you can get away from these clowns.
+You: See you in the afternoon, then.
+
+===
+
+title: Intro_Skip
+---
+Napoleon: See you in the afternoon, then.
+===
+
+

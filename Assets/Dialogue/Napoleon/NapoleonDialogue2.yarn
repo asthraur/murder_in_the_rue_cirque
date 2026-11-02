@@ -1,0 +1,150 @@
+﻿
+title: Na_Start_Day2
+---
+Napoleon: Detective. A sigh for the sore eye.
+Napoleon: *He looks drained, dark circles under his eyes. Several precarious towers of paper teeter on the table.*
+    -> You: You look dreadful.
+    -> You: *Gestures toward the stacks of paper* resumes?
+Napoleon: *sighs* And more. The local journalists have caught wind of the murder.
+Napoleon: I am attempting to persuade them to keep it under wraps. In exchange, I have granted them an exclusive—interviews, photographs, the whole act.
+Napoleon:  I am also investigating their pasts. I have learned that it's always useful to have some leverage over a journalist…*pauses, then waves a hand* But yes, resumes as well.
+    -> You: …Your career as a circus manager taught you that?
+        Napoleon: *grins* People who join a traveling circus tend to be troublemakers. I have a reputation to uphold.
+        Napoleon:  I can’t fully control my crew. The least I can do is control the press.
+    -> You: How is it going?
+        Napoleon: *Makes a vague gesture* Splendidly. I have quite enough on that kid with his ridiculous mustache to ensure he never writes another word in print…
+        Napoleon: *stops abruptly* Oh, the trumpet penguin auditions? Not going great.
+Napoleon: But enough about me and my clowns… *Pours tea from a delicate kettle, its handle shaped like a clown’s nose.*
+Napoleon: Do you have any news for- ah. excuse my manners. would you like some tea?
+-> You: Please, thank you. 
+    Napoleon: *Napoleon slowly pours tea in a second cup, and slides it towards you*
+    Napoleon: I'm out of sugar and milk. Poppet thinks I don't know that's her. *sighs* 
+-> You: Not at the moment, thank you very much.
+Napoleon: Very well. Now... *leans back and look at you* How close have we got to the cold hands of justice?
+    <<jump NapNewsDayTwo>>
+
+===
+title: NapNewsDayTwo
+---
+<<declare $nap_gloves to false>>
+<<declare $nap_monkeyheist to false>>
+<<declare $nap_monkey_secret to false>>
+
+-> You: \[fancy gloves\]I believe these belong to you.<<if $fancy_gloves is true and $nap_gloves is false>>
+    <<jump Nap_Gloves>>
+-> You: \[learned about the monkey heist\] I have some... interesting information about your monkeys.<<if $nap_monkeyheist is false>>
+    <<jump Nap_Monkeys>>
+-> You: I was wondering if the murderer could be from the victim's past... <<if $nap_waddles_actor is false>>
+        <<jump Nap_BrokenHearts>>
+-> You: *Close your notebook and pack the suitcase. There’s nothing more to say.*
+        <<jump Nap_DayTwo_End>>
+      <<if ($fancy_gloves is false or $nap_gloves is true) and  $nap_monkeyheist is true and $nap_waddles_actor is true>>  
+<<jump Ed_Day3_End>>  
+    <<endif>> 
+
+===
+title: Nap_Gloves
+---
+Napoleon: *looks at the pair of velvet glove in your hands* they indeed do. *Narrows his eyes* And they remain in dire need of repair.
+You: Mr. Waddles doesn’t seem like a man who has patience for needlework.
+Napoleon: Mr. Waddles never had much patience for anything that wasn’t Mr. Waddles. 
+Napoleon: But I had hoped he might, at the very least, possess the good sense to annoy someone else enough to do that.
+Napoleon: *Waves a hand dismissively* Return them when the case is closed, if you would be so kind. Someone will take over the cabin in due course.
+Napoleon: *to himself* I should hope it is Teddy. The little thing has the eyes of a hawk.
+You: You truly believe anyone would willingly enter that wagon? After what happened?
+Napoleon: *Shrugs* The body is gone, and Waddles’ belongings shall follow, once your work is done. We leave these things behind when we move forward.
+Napoleon: People come and go. The wagons remain. Live long enough on the road, and you learn that well enough.
+Napoleon: *claps his hands* Now... What else do we have?
+<<set $nap_gloves to true>>
+<<jump NapNewsDayTwo>>
+
+===
+title: Nap_Monkeys
+---
+
+Napoleon: They are always interesting.
+Napoleon: *leans forward slightly* But what of them now? Are they the ones we were seeking?
+    -> You: they are certainly troublemakers, 
+        You: But the details need not concern you.  
+            Napoleon: *Curiously narrows his eyes* I am their superior, detective. If something stirs within this camp, it very much does concern me.
+            -> You: They broke Mr. Waddles' trumpet...  
+                You: They wanted to replace it at the night of the murder and failed, leaving behind a trail of incompetence.  
+                Napoleon: *his eyebrows rise dramatically* I see.
+                -> You:  But they did try, in their own misguided way. Their hearts were, at least, in the right place.  
+                    You: They were only trying to protect themselves <i>and</i> one another.  
+                -> You: They have broken into the crime scene. I do not believe their story.
+                    You: They are hiding something and covering for each other.
+                Napoleon: Indeed. They do have one another's backs. Sometimes... rather literally. It is a necessary bond when you find yourself thrust into the air, vulnerable and at the mercy of another's grip.
+                Napoleon: *with a sigh* But, heavens above, why break the poor man's trumpet? 
+                Napoleon: Then again... perhaps the real question is why it had not been broken sooner.
+                    -> You: I can not say I understood his reasoning.
+                    -> You: It was an accident. Widget simply wished to try the trumpet.  
+                        Napoleon: *blinks* Widget wanted to play the trumpet?
+                        Napoleon: Well, do you think he might be suitable for the position? *taps the pile of resumes, half-smiling*
+                        You: Wont be less pleasant than Mr. Waddles' tunes, from what I heard.
+                        Napoleon: Next we shall have Eduard performing fiery feats—jumping through rings of flame, it's time to change things around here. *muses aloud* But tell me, detective...
+                        Napoleon: Are we clearing their names of suspicion?
+                        -> You: I still think they are hiding something. One of them at least. That can't be the whole story.
+                            Napoleon: I for one will be surprised if Widget has a secret unbeknown to Poppet.
+                        -> You: They’re fools, but harmless ones, at that.  
+                            Napoleon: Once, I might have said the same of all my crew. But I now know—at least one of them is far from harmless.
+                    Napoleon: Well then, detective, thank you for spilling your tea. *his eyes twinkle* Is there anything more you wish to share?
+                        <<set $nap_monkeyheist to true>>   
+                        <<jump NapNewsDayTwo>>           
+            -> You: Its most likely non related to the case.
+                You: You need to ask them yourself, it's not my place to tell.
+                Napoleon: *Laughs* Poppet can’t keep a secret for more than twelve hours.
+                Napoleon: But I can respect one who knows how to hold their tongue. I shan't press you.
+                Napoleon: So, are we removing their names from the list of suspects? Or are you merely declaring them innocence in the matter I’m yet to hear about?
+                    -> You: I still think they are hiding something. One of them at least.
+                        Napoleon: I’d be utterly surprised if Widget carries a secret that Poppet is unaware of.
+                    -> You: They are fools. But they are harmless.
+                        Napoleon: Once, I might have said the same of all my crew. But I now know—at least one of them is far from harmless.
+                    Napoleon: Shame you're not spilling your tea. *his eyes twinkle* Is there anything more you wish to share?
+                     <<set $nap_monkeyheist to true>>   
+                    <<jump NapNewsDayTwo>> 
+===
+title: Nap_BrokenHearts
+---
+Napoleon: *Raises an eyebrow* 
+You: He used to be an actor of some sort, from what I heard. Maybe he’s broken a heart or two?
+Napoleon: lets his head fall back as he laughs Broken a heart or... gods.
+Napoleon: I very much doubt that would be the case. Then again, what do I know.
+Napoleon: I was not exactly the target audience of the man's charm.
+Napoleon: Regardless, we did a quick inquiry before engaging your service. None of the locals have spotted an unfamiliar face that day.
+Napoleon: As much as it pains me to admit, the killer is among us.
+    -> You: I understand. Hard to believe someone you know is capable of such an act.
+    -> You: I never asked—do you have suspects?
+Napoleon: *is mindlessly rolling a resume* Hm? Yes, no. I can pretty much believe every single one of them capable of such an act...
+    -> You: But you are not naming names.
+Napoleon: *rolls a resume and taps it on the table* You might have figured out, dear detective,
+Napoleon: That Waddle wasn’t exactly the most popular of the bunch.
+Napoleon: I can count at least two motives for every one of them—silencing the trumpet rehearsals being the shared one.
+Napoleon: *leans back* but I won’t, because I’m biased. Last thing I want is to ruin your investigation.
+Napoleon: I hope it’s someone with an easy-to-refill job.
+Napoleon: I wonder, by the way... how did you know about Waddle’s past career?
+Napoleon: I don’t recall giving you his resume...
+Napoleon: *to himself* Don’t even know where it is.
+    -> You: I’m discreet about my sources.
+        Napoleon: *grins* I can respect that.
+        Napoleon: I also think it was Poppet. Right? Don’t answer if you don’t want to.
+    -> You: Poppet seems to be quite informed about your employees.
+        Napoleon: Ah, knew it.
+Napoleon: *opens his arms* I do regular performance reviews with them, you see. How they’ve been doing, how it was received, how they feel...
+Napoleon: Now with Poppet...
+Napoleon: The tables turn. I feel like a kitten being psychoanalyzed.
+You: I can imagine that. 
+Napoleon: Can you now? 
+<<wait 1>>
+Napoleon: Aside from tracing Waddle's trail of broken heart... What else do we have to discuss?
+<<set $nap_waddles_actor to true>>
+<<jump NapNewsDayTwo>>
+===
+title: Nap_DayTwo_End
+---
+Napoleon: *Drumming a steady rhythm on the wooden desk with his fingernails* Please, tell me you have more.
+You: I fear that is all for today.
+Napoleon: *Sighs* Very well. Fortunate, then, that I planned for three days.
+Napoleon: Let us hope fortune favors you more on the morrow.
+Napoleon: You have the key, and you know the drill. Turn that wagon inside out—there must be something.
+===

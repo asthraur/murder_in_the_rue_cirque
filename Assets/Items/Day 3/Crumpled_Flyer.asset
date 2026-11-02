@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cae5af2f3c62f54bb9245cb40ae2bdb, type: 3}
+  m_Name: Crumpled_Flyer
+  m_EditorClassIdentifier: 
+  id: 0
+  itemName: Crumpled Flyer
+  infoText: 
+  info1: A flyer depicting an upcoming two man show, starring the late Mr. Waddles
+    and Eduard the clown. Looks like it was carelessly crumpled up and tossed away.
+  info2: 
+  info3: 
+  info4: 
+  info5: 
+  info6: 
+  day: 3
+  variableName: crumpled_flyer
+  itemIcon: {fileID: 21300000, guid: 3c01aece224a06a4f8cc47a341a5402b, type: 3}

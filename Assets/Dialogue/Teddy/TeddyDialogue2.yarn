@@ -1,0 +1,198 @@
+﻿title: Te_Start_Day2
+---
+<<declare $te_brocken_trumpet to false>>
+<<declare $te_new_trumpet to false>>
+<<declare $te_comb to false>>
+<<declare $te_fancy_gloves to false>>
+<<declare $te_pocket_mirror to false>>
+<<declare $te_playing_cards to false>>
+
+<<if $te_brocken_trumpet is false and $te_new_trumpet is false and $te_comb is false and $te_fancy_gloves is false and $te_pocket_mirror is false and $te_playing_cards is false>>
+    Teddy: You are back, you are back! *jumps up and down excitedly, his pointy hat bobbing from side to side*
+    Teddy: Would you like to eat some honey brittle and watch me juggle?
+    You: I am awfully sorry, Teddy, but I'm working right now.
+    Teddy: Again? But you already did that yesterday.
+    Teddy: It's my turn to choose an activity.
+        ->You: Not a single soul seems to be taking this investigation seriously. *breathes out heavily*
+            Teddy: Oh, darn it. I did not mean to make you upset. We can do your activity again if it is so important to you.
+            You: The matter at hand should be of importance to you as well.
+            Teddy: Why is that?
+            You: As of right now, we cannot say for sure who the next victim will be.
+            <<wait  1>>
+            Teddy: *shudders*
+            Teddy: scary.
+        -> You: *with a trembling voice* I thought we had fun yesterday?
+            Teddy: Oh no, no, no, no. Don't be upset! Yes, yes! We had so much fun! Let's do it again right now.
+            Teddy: *exhales* 
+    You: Perfect. Welcome to round two of interrogations in the case of the mysterious murder of Mr. Waddles.
+    You: *flourishes coat in a dramatic motion*
+    Teddy: *Prolonged excited clapping*
+    Teddy: Alright, let's see if I can come up with interesting questions like the ones you asked yesterday.
+    <<wait  1>>
+    Teddy:  hmmmmmmmmmmmmmmm... *taps chin*
+        -> You: Excuse me Teddy, but I am the detective. I am asking the questions.
+            Teddy: You cannot always get your way, Sir. *shakes head in disapproval*
+            Teddy: It is important to meet people halfway1 Someone has said that before, I'm certain.
+        -> You: *eagerly move from foot to foot* How exciting! I've never been the one questioned.
+    Teddy: *in a though voice* First things first: Did or did you not find snacks today?
+        -> You: \[cookie tin\] Yes, I found a tin of cookies among the belongings of the deceased. <<if $cookie_box is true>>
+            Teddy: *startled* This is really, really important! Don't hold back valuable information like that.
+            Teddy: I will let you get away with it this one time if you pay the fine.
+                -> You: *give him one cookie*
+                    Teddy: *chewing and munching*
+                    <<wait  2>>
+                    Teddy: It is lovely to do business with you.
+                -> You: *refuse to give him a cookie*
+                    You: I am afraid I can't hand out evidence like it was some afternoon snack.
+                    Teddy: Hm, I see.
+                    Teddy: *proceeds to scribble something down on a notepad*
+        -> You: No, Mr. Waddles did't seem to have a sweet tooth.
+            Teddy: *gasp* Maybe that was the reason for his death!
+            Teddy: I think we are really close to solving the puzzle now.
+            You: If you say so.
+    Teddy: You wouldn't believe it, but this actually leads perfectly into my next question!
+    Teddy: Do you think the killer is still among us? *scary jazz hands*
+        -> You: Of course I do. Who else could have done it?
+            Teddy: *visibly shaken* So you don't trust us.
+            You: No, not in the slightest.
+            Teddy: Not even a itsy bitsy teeny tiny bit?
+            You: I am afraid not even that, Teddy.
+            Teddy: But why?
+            You: I don't mean to sound judgemental, so I will simply remain quiet.
+            Teddy: Hmm.. I guess you have the right to do so. There is nothing Officer Teddy could do to stop you.
+            You: So you are an officer now?
+            Yes: *smiles proudly*
+        -> You: Maybe not. They could have left by now, but the wagon is our only clue.
+            Teddy: Yes, yes our only clue. *nods eagerly*
+    Teddy: Since we are colleagues now, you should tell me about all of the exciting things you've found today, so we can make up stories as to how they've ended up there!  
+<<elseif $te_brocken_trumpet is false or $te_new_trumpet is false or $te_comb is false or $te_fancy_gloves is false or $te_pocket_mirror is false or $te_playing_cards is false>>
+    Teddy: Oh I can smell the truth right around the corner!
+<<else>>
+    <<jump Te_Conclusion>>
+<<endif>>
+    -> You: My apologies, but I don't feel comfortable sharing such sensitive information with a third party.
+        Teddy: Bummer.
+        <<jump Te_Conclusion>>
+    -> You: \[broken trumpet\] What secrets does this broken trumpet carry do you think? <<if $te_brocken_trumpet is false and $broken_trumpet is true>>
+        <<jump Te_BrokenTrumpet>>
+    -> You: \[brand new trumpet\] This trumpet doesn't look like it has ever been played before. Very suspicious considering the occupation of its alleged owner. <<if $te_new_trumpet is false and $new_trumpet is true>>
+        <<jump Te_NewTrumpet>>
+    -> You: \[comb\] Did Mr. Waddles have any hair he could have used one of these combs for? <<if $te_comb is false and $comb is true>>
+        <<jump Te_Comb>>
+    -> You: \[fancy gloves\] While these gloves certainly fit the images of the grand Mr. Waddles, they do have fingers of which he possessed none. Any theories, Teddy? <<if $te_fancy_gloves is false and $fancy_gloves is true>>
+        <<jump Te_FancyGloves>>
+    -> You: \[pocket_mirror\] What do we think about Fingerprints on the mirror of the flippered man? <<if $te_pocket_mirror is false and $pocket_mirror is true>>
+        <<jump Te_PocketMirror>>
+    -> You: \[playing cards\] I'm most certain that these are the playing cards of Mrs. Mort. Did she tell you how they ended up at the crime scene? <<if $te_playing_cards is false and $playing_cards is true>>
+        <<jump Te_PlayingCards>>
+===
+
+title: Te_BrokenTrumpet
+---
+<<set $te_brocken_trumpet to true>>
+
+Teddy: *ponders intently*
+<<wait  1>>
+Teddy: I have broken one of Eduards nice figurines once. I was scared that he might get angry or upset if he found out, so I threw it into the abyss.
+Teddy: It worked out great and he never found out. *he looks proud*
+Teddy: ...
+Teddy: Please don't tell Eduard I said that.
+You: *you pretend to lock your lips shut and throw away the key.*
+Teddy: *claps* Good, good!
+<<jump Te_Start_Day2>>
+===
+
+title: Te_NewTrumpet
+---
+<<set $te_new_trumpet to true>>
+
+Teddy: That's odd. I always thought he liked to play the trumpet.
+Teddy: I can't believe I feel for his charade. *he looks really upset with himself.
+You: Cheer up ,Teddy. I don't think Mr. Waddles lied about being a trumpeter. He wouldn't have been employed here if he didn't play it.
+Teddy: You are just saying that to cheer me up.
+You: Yes, that is what I said. But that doesn't mean my words don't carry truth.
+Teddy: Truth yes. We must move on from this dead end and explore different possibilities!
+Teddy: *enthusiastically raises a finger to the sky*
+<<jump Te_Start_Day2>>
+===
+
+title: Te_Comb
+---
+<<set $te_comb to true>>
+
+Teddy: Uuuuh that is a fun question, Mr. Detective!
+Teddy: I've never seen him without his top hat, so there is no way to tell for sure.
+Teddy: What I do know for sure though, is that Eduard doesn't have any hair. I checked when he was asleep.
+Teddy: Wait, this means that Waddles must have been bald too!
+You: Why?
+Teddy: Because he and Eduard talked sometimes.
+You: I do not believe hair loss to be contagious, Teddy. Otherwise you would be effected as well, considering how much time you spend with Mr. Eduard.
+Teddy: How do you know I'm not?
+<<wait  2>>
+You: I see.
+<<jump Te_Start_Day2>>
+===
+
+title: Te_FancyGloves
+---
+<<set $te_fancy_gloves to true>>
+
+Teddy: Oh, they look like the ones that Mr. Napoleon wears! Maybe he lost them...
+Teddy: *gasp*
+Teddy: ...maybe he lost them while he strangled Waddles.
+Teddy: Oh golly gosh, I always knew that nothing good could come out of having fingers. "To much responsibility" is what my mom always used to say.
+<<wait  2>>
+You: I think you are jumping to conclusions.
+Teddy: Wait, I thought a conclusion was what we wanted. *he gives you an utterly confused look*
+You: Yes, but not by jumping at every red herring.
+Teddy: When did the herring get involved? Was he a friend of Waddles?
+You: Forget about the herring. Let's move on.
+Teddy: As you wish! *he makes a little bow*
+Teddy: Napoleon always says that the costumer is king.
+<<jump Te_Start_Day2>>
+===
+
+title: Te_PocketMirror
+---
+<<set $te_pocket_mirror to true>>
+
+Teddy: *thinking*
+<<wait  2>>
+Teddy: I don't really know much about mirror, since they seem to be sprouting up way out of my reach.
+Teddy: Honestly, I don't even know what I look like for the most part.
+Teddy: I've only ever seen my reflection in a puddle.
+Teddy: *hesitant* Do you think I could take a look into this one?
+Teddy: *sways anxiously*
+You: *looks at his sticky little paws*
+Teddy: *looks at you expectantly*
+You: *a bead of sweat runs down your face*
+Teddy: *breathes heavily*
+You: *slowly opens the suitcase and reaches for the mirror*
+Teddy: Ah.. ahh...
+Teddy: ACHOOOOOOOOOOOOO!
+You: *closes the suitcase* I wouldn't want to smudge the prints.
+Teddy: *sniffles into a colorful handkerchief* Makes sense.
+<<jump Te_Start_Day2>>
+===
+
+title: Te_PlayingCards
+---
+<<set $te_playing_cards to true>>
+
+Teddy: That is just really mean. I can't believe Mort would participate in a friendly game night without me.
+Teddy: She knows how much I like to play cards.
+Teddy: I will tell her apiece of my mind the next time we cross paths. *angry dumpling noises*
+You: Did Mrs. Mort often play tabletop games with the late Mr. Waddles?
+Teddy: No, I've never seen them exchange a single friendly word. But that is what makes this betrayal all the more shocking.
+Teddy: Gee, you think you know a guy.
+<<jump Te_Start_Day2>>
+===
+
+title: Te_Conclusion
+---
+Teddy: Alright, that's all for today! You can be the detective again tomorrow!
+Teddy: It is much more fun if we both take turns, don't you think?
+You: Yes, I see you tomorrow.
+<<wait  3>>
+You: Wait!
+===

@@ -1,0 +1,371 @@
+title: Ed_Start_Day1
+---
+// Day One
+<<declare $clown_duo_var=false>>
+<<declare $eduard_actor_var=false>>
+<<declare $Eduard_Murderday=false>>
+<<declare $secret_friends_var=false>>
+<<declare $eduard_letter_var=false>>
+<<declare $breast_packet_var=false>>
+<<declare $eduard_victimsday_var=false>>
+<<declare $eduard_alibi_var=false>>
+<<declare $eduard_waddles_talk_var=false>>
+<<declare $suspisious_activity_var=false>>
+<<declare $eduard_clown_var=false>>
+<<declare $eduards_day_var=false>>
+
+
+???: I see death has brought new people to our small miserable camp.
+???: At least you're not here for a laugh. Well, hopefully.
+    -> You: *look at him up and down* Even if I were, you don't <i>exactly</i> seem like the man for it.
+        ???: *not a single muscle moves in his face* haha.
+        -> You: I'm investigating Mr. Waddles' murder, as I trust you have guessed.
+            You: and I would like to ask a few question, Mister...
+            Eduard: *Eyes so cold he could have been another dead body* Eduard.
+            You: Very well. Let's see, Mr. Eduard...
+        <<jump Eduard_Questions_1>>
+    -> You: I'm not. I'm here to investigate the murder.
+        You: and I would like to ask a few question, Mister...
+        Eduard: *Eyes so cold he could have been another dead body* Eduard.
+        You: Very well. Let's see, Mr. Eduard...
+        <<jump Eduard_Questions_1>>
+
+===
+
+title: Eduard_Questions_1
+---
+<<declare $eduard_day_var to false>>
+
+
+    -> You: Tell me about your duties in the circus. You're a... clown. Right? <<if $eduard_clown_var is false>>
+        <<jump Eduard_Clown>>
+    -> You: Shall we talk about the late Mr. Waddles? <<if $eduard_waddles_talk_var is false>>
+        Eduard: Do I have a choice?
+        You: No. 
+        Eduard: Thought so. Well, then.
+        Eduard: We were'nt actually close. But I admit I did find his taste in fashion and literature quite exquisite.
+        Eduard: Not that the bar is too high around here.
+            <<jump Eduard_Victim>>
+    -> You: I would like to ask a few question about the day of the murder.<<if $eduard_day_var is false>>
+        <<jump Eduard_Murderday>>
+    -> You: I believe that concludes our discussion for today, Mr. Eduard. I appreciate your cooperation.
+        Eduard:  Splendid. Should you require my assistance again, do feel free to forget all about it.       
+===
+
+title: Eduard_Clown
+---
+
+Eduard: I'm a... clown. That's right. *looks disgusted* I do clown things, I suppose. You know how it is.
+    -> You don't like it here, I assume?
+    -> *wait patiently for him to go on*
+    Eduard: I have to make a fool out of myself before strangers, people I neither know nor care about,
+    Eduard: And don’t even get me started on the wretched balloon animals.
+    Eduard: One good thing about this hell on earth is the cakes. We get free cakes.
+    -> You: You don't look like you have a sweet tooth.
+    -> You: Cakes do make life seem more pleasant.
+    Eduard: What? Oh no I detest cake.
+    Eduard: But at least I can shove it into the little fellow’s mouth and silence him for a brief moment.
+    <<set $eduard_clown_var to true>>
+        -> You: The little fellow?
+            Eduard: *Waves dismissively* Large pointy hat?
+            You: You must be talking about young Teddy.
+            Eduard: Whatever.
+            You: I wonder what makes you feel so miserable here, unlike your young partner.
+            <<jump Eduard_Actor_DayOne>>
+        -> You: You don't sound like you are having an awful amount of fun in here.
+            <<jump Eduard_Actor_DayOne>>
+
+===
+
+title: Eduard_Actor_DayOne
+---
+
+Eduard: Well... This life of misery wrapped in shiny papers and glitter is not exactly my career choice.
+Eduard: It's a temporary solution as I prepare myself for my dream career. *raises one eyebrow and looks at you expectantly* 
+    -> You: A ticket collector?
+    -> You: The ultimate clown?
+    -> You: *smile and nod humbly* A detective.
+    Eduard: What? Why would I... No.
+    Eduard: An actor. You see, I am convinced that I am destined for the stage...
+    Eduard: But not like this. Not for this relentless parade of screaming kids, cheap balloons, and crushed dreams.
+    Eduard: But a <i>true</i> stage. With velvet curtains, spotlight warming my skin, and an audience of intellectuals looking at me with bated breath.
+    Eduard: That is my calling, my prophecy.
+    -> You: ... I can see that.
+    Eduard: *is not listening. Stares vaguely into the distance*
+    Eduard: Alas, no amount of face paint can hide the pain of regret.  
+    -> You: Do your colleagues know how you truly feel about your shared existence?
+        Eduard: *Arching a brow* No. I am exceptionally good at hiding it.
+    -> You: Does anyone else in the circus share your ambitions?
+        Eduard: Why would I know?
+    -> You: And how exactly are you preparing yourself here?
+    Eduard: Are we here to discuss aspirations, detective? Or shall we untangle a few more of my traumas while we’re at it?
+        <<set $eduard_actor_var to true>>
+        <<jump Eduard_Questions_1>>
+
+===
+
+title: Eduard_Victim
+---
+<<declare $secret_friends to false>>
+<<set $eduard_waddles_talk_var to true>>
+
+<<if $secret_friends_var is false and $breast_packet_var is false and $eduard_letter_var is false>>
+    -> You: I was actually told that you knew him a great deal. 
+    <<jump Secret_Friends>>
+<<elseif $secret_friends_var is true or $breast_packet_var is true or $eduard_letter_var is true >>
+    Eduard: More questions about Waddles? Old man was not that complicated.
+    -> You: Do you happen to know where Mr. Waddles kept the key to his wagon? <<if $breast_packet_var is false>> 
+        <<jump Breast_Packet>>
+    -> You: \[letter\] Did Mr. Waddles appear to be fulfilled with his job here? <<if $parting_letter is true and $eduard_letter_var is false>>
+        <<jump Letter>>
+    -> You: Enough for now. Let's move on.
+        <<jump Eduard_Questions_1>>
+<<endif>>
+===
+
+title: Secret_Friends
+---
+Eduard: What, myself and old Waddles? I hardly know whether that is his given name or his surname.
+    -> ... An excellent question, indeed.
+    -> Curious. Other members of the circus seemed rather convinced of your friendship.
+    Eduard: He was more <i>tolerable</i> than some, I shall grant him that.
+    Eduard: But we were not *what you can see of his face gets twisted, as if he's smelling something rotten* friends.
+    Eduard: ... I don't think he had any. *pauses*
+    Eduard: I suppose that made two of us.
+    You: ...
+    You: Right.
+        <<set $secret_friends_var to true>> 
+        <<jump Eduard_Victim>>
+===
+
+title: Breast_Packet
+---
+
+Eduard: His Key? Oh I do, in his breast packet.
+-> You: And why would you know that?
+-> You: That was a random question. I had not expected you to possess an answer.
+Eduard: I assumed it to be common knowledge. The man smoked like a chimney, you see. He kept his cigarettes in that very pocket.
+Eduard: And the key would slip out <i>every time</i> he reached for a smoke. Without fail.
+Eduard: Good taste in attire, but his garments did need more pockets.
+<<set $breast_packet_var to true>> 
+<<jump Eduard_Victim>>
+
+
+===
+
+title: Letter
+---
+
+Eduard: Are any of us?
+-> you: Teddy seems quite content  with his job.
+Eduard: Teddy?
+-> You: *Gesture near your waist, moving your hand up and down* Yes, the little fellow?
+Eduard: ...
+-> You: Large hat?
+Eduard: Oh, I recall.
+Eduard: *blinks* He works here? I was under the impression he just <i>hangs around.</i>
+-> You: He does indeed work here.
+-> You: But returning to Mr. Waddles...
+Eduard: Right. Well, old Waddles enjoyed playing his trumpet, and here he could play his trumpet as much as he wanted.
+Eduard: More than he should have, if you ask me.
+Eduard: Thus, I would say... not a bad life.
+Eduard: Apart from the way it ended.
+Eduard: *adds melancholically* Though some of us might, in the end, find ourselves wishing for an exit as swift and clean as that of poor old Waddles.
+-> You:  As it happens, I have evidence that he was intending to leave the circus.
+Eduard: Oh. This is entirely new to me.
+Eduard: Pray, indulge my curiosity... *for the first time, there is a spark of interest in his eyes*
+Eduard: how do you know that?
+    -> You: *show him the letter*
+        Eduard: *takes a quick look. Then slowly nods* And people call <i>me</i> dramatic. 
+        Eduard: He might yet have lived had he handed over this sooner. *chuckles dryly* A breath too late, a step too slow... such is the fickle nature of life.
+    -> You: I fear that is all I can share on the subject.
+        Eduard: Oh.
+        Eduard: *the blank look returns to his face* as you wish, <i>Detective</i>.
+    <<set $eduard_letter_var to true>> 
+    <<jump Eduard_Victim>>
+===
+
+title: Eduard_Murderday
+---
+<<set $eduard_day_var to true>>
+
+<<if $suspisious_activity_var is true and $eduards_day_var is true>>
+    <<jump Eduard_Questions_1>>
+<<endif>>
+
+<<if $suspisious_activity_var is false and $eduards_day_var is false>>
+
+        -> You: First thing first... Do you happen to know how Mr. Waddles spent the last day of his life? 
+        Eduard: Do you think I have nothing to do with my time except following others about?
+        Eduard: I do not have a clue what some random circus member I barely knew might have been done with his time.
+        Eduard: He could have been practicing trumpet in his wagon. Or next to <i>my</i> wagon, which seemed to bring him a certain pleasure.
+        Eduard: Or perhaps he was strolling the circus camp, puffing on his cigarette and shouting at the children peeking through the fence.
+        Eduard: For which I would have been most grateful, kids these days really lack discipline.
+        Eduard: And discipline, my good detective, is best acquired through suffering- such as being shouted at.
+        Eduard: He might have been reading near the firepit, by the cooking area as well, seemed to be his favorite spot to read.
+        Eduard: I, however, prefer to remain within the comfort of my own wagon, but to each their own...
+        Eduard: *stops abruptly * again, I have far better ways to spend my time than playing watchman over others.
+            -> You: ... I see.
+            -> You: A shame you could not have provided more information.
+            Eduard: *nods* 
+            -> You: And what did your... day of the unfortunate event entail?
+                <<jump Eduards_Day>>
+            -> You: Did you perhaps notice anything unusual that day?
+                <<jump Suspisious_Activity>>
+<<elseif $suspisious_activity_var is true xor $eduards_day_var is true>>
+Eduard: Can we move on?
+You: In a minute, Mr. Eduard.
+<<endif>>
+    -> You: Did you perhaps notice anything unusual that day? <<if $suspisious_activity_var is false>>
+        <<jump Suspisious_Activity>>
+    -> You: Might I inquire-what did your... day of the unfortunate event entail? <<if $eduards_day_var is false>>
+        <<jump Eduards_Day>>
+
+
+===
+
+title: Suspisious_Activity
+---
+Eduard: Define <i>unusual</i>, if you must.
+Eduard: It was much like any other wretched day in this place-bleak, monotonous, and utterly devoid of vitality.
+Eduard: You start your day with the same people, train with the same people, and seek refuge in your wagon from the same people.
+Eduard: However, that newspaper kid was around that day. Talking to our Manager. A rather curious sight.
+You: Curious in what regard?
+Eduard: Napoleon does not <i>converse</i> . We share that particular trait.
+Eduard: He prefers to write letters. volumes of them, in fact.
+    -> You: I rather enjoy writing as well.
+        Eduard: A man of culture, I see.
+    -> You: Letters are a waste of time. I prefer a more direct approach.
+        Eduard: Not everyone is blessed with the art of wielding a quill.
+Eduard: At any rate... I believe he wanted a replacement for our trumpeter as soon as possible.
+Eduard: I saw him handing over a recruitment advertisement... for a trumpet penguin...
+    You: A trumpet penguin?
+    Eduard: Correct. That’s what they do, right? Wield a trumpet and be <i>deeply</i> annoying about it.
+        You: Didn't you already have a... *look at the victim's picture* trumpet penguin?
+        Eduard: Correct. A particularly insufferable one.
+        You: And you failed to mention this sooner because...?
+        Eduard: *shrugs* it didn't seem relevant.
+        <<if $eduard_letter_var is true>>
+            Eduard: Wait a moment. He wished to resign. What if...
+            Eduard: *he looks excited for a brief moment.*
+            You: Well?
+            Eduard: Nevermind. *immediately feigns indifference* I don't indulge in gossip.
+            You: I have the distinct impression that you, in fact, very much <i>do</i> enjoy gossip.
+            Eduard: *dryly* very observant. 
+            Eduard: Try applying those keen skills to solving the case, my dear detective.
+        <<endif>>
+        You: Going forward, I insist that you withhold nothing.
+        You: Anything could be relevant. And this, in particular, seems significant.
+        Eduard: Glad to be of service. *he does not, in fact, appear the least bit glad to be of service* 
+        <<set $suspisious_activity_var to true>>         
+        <<jump Eduard_Murderday>>  
+===
+
+title: Eduards_Day
+---
+<<declare $eduard_russian_classic to false>>
+
+Eduard: *breathes out theatrically * Are not all days riddled with unfortunate events?
+Eduard: If you refer to the day of the murder, however...
+Eduard: *looks like he is genuinely  trying to remember* I think I ate a sandwich...
+Eduard: Thereafter, I trained for the latest routine Napoleon insists I must master. An utterly preposterous sequence of movements.
+Eduard: Had to make many notes as it's in desperate need of some adjustments- if we want to avoid breaking our necks for a laugh. 
+Eduard: Poppet assures me it is worthwhile...
+    -> You: Who's this Poppet?
+        Eduard: Oh, she is one of our acrobats. Likes baking too. A fine lady, I suppose. 
+        Eduard: Albeit a bit intimidating. 
+        -> You: intimidating how?
+            Eduard: *Gestures at you* Like this. Questions. Lots of question. Sometimes won't even wait for an answer.
+            Eduard: That woman could tell me my own life story back, and I wouldn’t be able to tell which version is true.
+    -> You: *Say nothing. You'll meet this Poppet soon anyway.*
+        Eduard: You haven’t talked to Poppet yet, have you? You have the look of someone who hasn’t faced her yet. 
+        Eduard: She’s nice enough. But somehow... unnerving.
+         -> You: Unnerving how?
+            Eduard: *Gestures at you* Like this. Questions. Lots of question. Sometimes won't even wait for an answer.
+            Eduard: That woman could tell me my own life story back, and I wouldn’t be able to tell which version is true.
+    Eduard: As I was saying... Poppet says what we do as it brings joy to the masses. Napoleon justifies our toil with a simpler truth: it sells.
+    Eduard: If there is one trait I must admire in the man, it is how bleakly frank he is about our sole purpose: making money.
+    Eduard: *sighs heavily, looking aggrieved*
+You: Where you training for this routine alone?
+Eduard: *thinks* Unlikely, as it was a performance intended for two...
+Eduard: If memory serves, my partner was... *demonstrates a big hat with hand gestures*
+You: Teddy.
+Eduard: Was that his name?
+Eduard: you are acquainted with the fellow.
+You: Anything else of note?
+Eduard: Errr... No. Not really. Hm... No, not particularly. Our days here are endless in length, yet curiously devoid of devoid of true variety or diversion.
+    -> You: \[weird russian novel\] Since you mention diversions... Do you recognize this book? <<if $russian_classic is true and $eduard_russian_classic is false>>
+        Eduard: *gets paler, if even possible* I... may.
+        -> You: It's a yes or no question.
+            Eduards: Alright alright. I do. 
+        -> You: Are you even <i>smart</i> enough to comprehend such a work?
+            Eduard:  ... What, pray tell, is that supposed to mean?
+            Eduard: You think I choose my literature for the sake of pretentiousness rather than quality? *gestures dismissively*
+        Eduard: ...It's mine, yes.
+        You: Can you guess where I found it?
+        Eduard: *visibly uneasy* The scene of the crime.
+            -> You: You <i>are</i> smart!
+                Eduard: *gives you a dirty look*
+            -> You: Indeed. Which leads me to wonder...
+            Edaurd: I am well aware this does not put me in a good light. *Shifts weight from one foot to another nervously*
+            Eduard: Very well. I gave it to him-I even delivered it personally, just yesterday.
+            Eduard: *Opens his arms theatrically* See? I am an honest man.
+                -> You: Honest would have been revealing this without me holding the book under your nose.
+                -> You: *dryly* A most admirable quality, I'm sure.
+                Eduard: I am <i>fully</i> aware that some will seek to pin this misfortune upon me. *his face darkens* Yet I assure you, simply because I find beauty in sorrow, in suffering, in death...
+                <<wait  1>>
+                Eduard: *Leans forward a bit* ...does not mean I would bring them upon others.
+                Eduard: So yes... *tosses a coin in the air and catches it lazily*
+                Eduard: I neglected to mention my short visit.
+                Eduard: But... The man was alive and well when I departed. <i>Defiantly</i> alive enough to read!
+                Eduard: look at the folded pages! *points to the book in your hands and almost cries*
+                Eduard: I would <i>never</i> do such a thing to a book. I use a bookmark.
+                Eduard: like a civilized human being.
+                Eduard: If you doubt me... you need only inspect my collection... *gestures towards his wagon, almost begging*
+                You: You wish me to examine <i>all</i> of your books for folded pages? I have not the time.
+                Eduard: *confused* All my books? I own, perhaps, six.
+                Eduard: Seven if we count this one.
+                Eduard: *Collects himself* Regardless. I simply sought to do something nice for the poor old Waddles. He once found me reading and, to my great surprise, inquired about the book.
+                Eduard: You must understand-among this company, few express interest in anything beyond food or sword swallowing.
+                Eduard: I rather appreciated his curiosity. I would not have harmed the man.*his voice deepens.*
+                    -> You: Very well. But I shall keep my eye on you.
+                    -> You: You do not have to fear if your conscience is unburdened.
+                Eduard: *nods, lips pressed into a thin line* noted.
+                    <<set $eduards_day_var to true>>
+                    <<jump Eduard_Alibi>>
+    -> You: I see.
+        <<set $eduards_day_var to true>>
+        <<jump Eduard_Alibi>>
+===
+title: Eduard_Alibi
+---
+You: Let's get closer to the time of the murder. What did you do in the afternoon?
+Eduard: I went back to my wagon to read. That's what I do in the afternoon, when people leave me alone.
+    -> You: What were you reading?
+    -> You: You read <i>every</i>afternoon? One would assume a life in the circus offers more excitement.
+    Eduard: One would be right. That’s precisely why I stay in my wagon and read.
+    Eduard: It was actually a very underrated russian classic: "The Light at the End of the Tunnel is Just Another Train"
+    Eduard: It's a great read. Not too many characters. Some say it isn't a Russian classic unless you require notes to keep track of the names...
+        -> You: *try to interrupt him*
+        -> You: *Let him continue*
+        Eduard: And I don’t disagree. But sometimes I do appreciate smaller company within the pages of my book.
+        Eduard:  In fact, I finished it last night. Along with a bottle of vodka. And my will to live.
+            -> You: *try to interrupt him*
+            -> You: *Let him continue*
+            Eduard: I preferred the author’s previous work, however... "The Factory Closed, but We Kept Working". 
+            Eduard: Napoleon adores that one too. Though I suspect for very different reasons. He categorizes it as <i>self help and inspiration</i>.
+            Eduard: Ah *blinks, as if suddenly recalling the unfortunate circumstances they are in* You’re humoring me by letting me ramble. Do you read, detective?
+            -> You:  I am, in fact, illiterate.
+                <<wait  2>>
+                Eduard: *stares blankly* You've been... taking notes.
+                You: I merely pretend to. 
+                Eduard: ... I can't tell if you're joking or not.
+                <<set $eduard_alibi_var to true>>
+                <<jump Eduard_Murderday>>
+            -> You: I don’t have time for that. Crimes to solve, people to arrest.
+                Eduard: Bills to pay?
+                -> You: *nod*
+                Eduard: *nodes. For the first time there is a hint of compassion in his eyes* 
+                <<set $eduard_alibi_var to true>>
+                <<jump Eduard_Murderday>>
+===

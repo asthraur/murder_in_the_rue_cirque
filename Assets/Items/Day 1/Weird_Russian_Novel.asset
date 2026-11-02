@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cae5af2f3c62f54bb9245cb40ae2bdb, type: 3}
+  m_Name: Weird_Russian_Novel
+  m_EditorClassIdentifier: 
+  id: 6
+  itemName: Weird Russian Novel
+  infoText: 'The cover reads: "The Shenanigans of a Depressed, Russian Man in Winter.
+    By the looks of it, this seems to be russian classic of some sorts.'
+  info1: 'The cover reads: "The Shenanigans of a Depressed, Russian Man in Winter".'
+  info2: 
+  info3: 
+  info4: 
+  info5: 
+  info6: 
+  day: 1
+  variableName: russian_classic
+  itemIcon: {fileID: 21300000, guid: 457f8453377845c44b91e3647769daa7, type: 3}

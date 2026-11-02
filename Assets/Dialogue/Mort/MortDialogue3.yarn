@@ -1,0 +1,83 @@
+﻿title: Mo_Start_Day3
+---
+<<declare $mo_morts_hat to false>>
+<<declare $mo_magic_wand to false>>
+<<declare $mo_circus_regular  to false>>
+
+<<if $mo_morts_hat is false and $mo_magic_wand is false and $mo_circus_regular is false>>
+    Mort: Finally the last day of this burdensome quest has come.
+    Mort: Can't say I'll miss it.
+    Mort: Let'S keep this short. I've got some important business to catch up on. *yawns*
+    You: Alright then. Only a few more questions to go. *chuckles*
+    Mort: *blink*
+<<elseif $mo_morts_hat is false or $mo_magic_wand is false or $mo_circus_regular is false>>
+    Mort: Don't be shy. Ask what you want to ask.
+<<endif>>
+    -> You: \[top hat\] This doesn't happen to be yours by any chance? <<if $mo_morts_hat is false and $morts_hat is true>>
+        <<jump Mo_MortsHat>>
+    -> You: \[magic wand\] Did you lose this? <<if $mo_magic_wand is false and $magic_wand is true>>
+        <<jump Mo_MagicWand>>
+    -> You: Has the circus is resumed it's regular activities, yet? <<if $mo_circus_regular is false>>
+        <<jump Mo_CircusRegular>>
+    -> You: That would be all. Thank so much for your..
+        Mort: *has already vanished behind a circus tent*
+===
+
+title: Mo_MortsHat
+---
+<<set $mo_morts_hat to true>>
+Mort: *blinks twice*
+Mort: How did you get that? I didn't give you permission to go snooping around in my wagon.
+You: I've found it at the crime scene, Mrs. Mort.
+Mort: ...very funny. Nw out with it! Who let you into my wagon? Was it Poppet?
+Mort: Gods, she always to terribly nosy. She constantly has that ong neck of hers in other peoples business.
+You: I wasn't kidding. I really did find the hat in the wagon of the late Mr. Waddles. It was pushed up to the very end of a clothing rack.
+Mort: I don't recall getting it mended. I don't think it was damaged...
+Mort: Or was it?
+Mort: No, no I think I would remember that.
+Mort: No wonder the nights felt more quiet recently. I assumed it to be due to old Waddles' departure, but it turns out there were more blessings than one.
+Mort: To bad I need to take it back with me. It can't be left in the wrong hands. *looks you up and down*
+You: You can pick it up from me when the investigation is completed.
+Mort: What do you nee dit for? It won't whisper the name of the murderer to you, if that is what you are hoping for.
+You: *you look startled at being caught red handed*
+Mort: But I guess I can do with a few more moments od quiet.
+<<jump Mo_Start_Day3>>
+===
+
+title: Mo_MagicWand
+---
+<<set $mo_magic_wand to true>>
+
+Mort: Oh, thanks. I must have lost that again.
+Mort: Glad I don't need to go an search for it this time. It seems to find the weirdest hiding spots as of late.
+You: The wagon of a dead man sure is a strange place to lose something.
+Mort: So is was in Waddles wagon? Strange, I don't recall leaving it there..
+<<wait  1>>
+Mort: ..or ever being in there for that matter.
+Mort: What do you think how it ended up in there.
+You: Well, I believe you to have dropped it while strangling the light of the late Mr. Waddles eyes. But tat is still a working theory and I'm open to different interpretations on your part.
+Mort: Hmmm...
+<<wait  1>>
+Mort: I'm not sure I can deny your accusation with full certainty. I might have done it and simply forgotten about it. There is just no way to really tell.
+Mort: *smiles sinisterly*
+Mort: Now I'm intrigued as to what your investigation will result in.
+You: *shudders*
+<<jump Mo_Start_Day3>>
+===
+
+title: Mo_CircusRegular
+---
+<<set $mo_circus_regular to true>>
+
+Mort: We haven't played any shows since your arrival. But Napoleon did tell everyone that the training is to be resumed and that "the show must go on".
+Mort: *rolls her eyes*
+Mort: This morning he announced a show for tonight though.
+You: That is very soon. Mr. Waddles isn't even in the ground yet.
+Mort: I don't know what else you expected. I don't think his death affected anyone much if at all.
+Mort: I'm pretty sure we were just on pause because the trumpet penguin castings were still being held.
+Mort: But it looks like a replacement Waddles has been found now. I just hope he less of a nuisance.
+Mort: I wonder how long this one will make it.
+YOu: Excuse me?
+Mort: What?
+<<jump Mo_Start_Day3>>
+===

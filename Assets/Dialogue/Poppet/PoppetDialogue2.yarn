@@ -1,0 +1,481 @@
+﻿title: Po_Start_Day2
+---
+<<declare $po_apron to false>>
+<<declare $po_widget_2 to false>>
+
+<<if $po_apron is false and $po_widget_2 is false>>
+    Poppet: Oh my goodness, I'm so glad to see you darling. I was just talking to Teddy about the whole investigation ordeal and how very exciting I am finding it so far.
+    Poppet: It is not everyday that a cold-blooded murder happens in our midst after all.
+    Poppet: But you wouldn't be able to sympathize with that, my dear detective. I must assume that this is your daily bread and butter and our Waddles is just another name on your unending list of lives lost under mysterious circumstances.
+    Poppet: My acrobatic ambitions were not the only reason I decided to join the circus, you know. *she stares musingly into the distance*
+    Poppet: Life can get quite monotone if one is borne into wealth.
+    Poppet: This right here seemed as good a way as any to experience some adventures. And would you look at that..
+    Poppet: I love it when it turns out I was right all along.
+    Poppet: Ha, I would love to see mothers face right now.
+    Poppet: ...
+    Poppet: Excuse my babbling. I am sure you did not bless me with you presence to listen to my idle ramblings.
+    Poppet: Let's talk about more pressing matters.
+<<elseif $po_apron is true xor $po_widget_2 is true>>
+    Poppet: You are quite hard to read. I wonder which questions you are still holding back.
+<<endif>>
+    -> You: I didn't think to ask about it yesterday, but why are you wearing this apron? <<if $po_apron is false>>
+        <<jump Po_Apron>>
+    -> You: Can you tell me a little bit more about Mr. Widget? <<if $po_widget_2 is false>>
+        <<jump Po_Widget2>>
+    -> You: That should conclude todays interrogation. Please meet me here again tomorrow.
+        Poppet: I am curios as to how this investigation will pan out to say the least.
+        Poppet: Until tomorrow then, detective.
+===
+
+title: Po_Apron
+---
+<<set $po_apron to true>>
+
+<<declare $po_enjoy_cooking to false>>
+<<declare $po_cookie_box to false>>
+
+<<if $po_enjoy_cooking is false and $po_cookie_box is false>>
+    Poppet: My, my detective. I can't believe a detail like that has escaped your trained gaze.
+    Poppet: *giggles*
+    Poppet: Oh don't make that face. I was simply making a joke.
+    Poppet: To answer your question, I have taken it upon myself to feed this bunch of strays.
+    Poppet: Sometimes I lay awake at night and wonder how they have ever managed to survive without me. It is quite sad to witness their attempts at making their own meals every now and again.
+    Poppet: Just yesterday, Mort was attempting to make herself a cup of warm milk and somehow managed to turn it all into ashes.
+    Poppet: That is a magic trick in and of itself if you ask me. I was quite impressed.
+    Poppet: But Teddy helps me by chopping vegetables sometimes and he does do a good job at it.
+<<elseif $po_enjoy_cooking is true xor ($po_cookie_box is true or $cookie_box is false)>>
+    Poppet: Waddles may have been a pill, but still we must strive for the truth.
+<<else>>
+    <<jump Po_Start_Day2>>
+<<endif>>
+    -> You: Do you enjoy cooking and baking then? <<if $po_enjoy_cooking is false>>
+        <<jump Po_EnjoyCooking>>
+    -> You: \[cookie tin\] Did you bake these cookies? <<if $po_cookie_box is false and $cookie_box is true>>
+        <<jump Po_CookieBox>>
+===
+
+title: Po_Widget2
+---
+<<set $po_widget_2 to true>>
+
+<<declare $po_defensive to false>>
+<<declare $po_pocket_mirror to false>>
+
+<<if $po_defensive is false and $po_pocket_mirror is false>>
+    Poppet: He hasn't fallen under suspicion now, has he? *she moves worriedly from one foot to the other*
+    Poppet: Widget is not a perfect angle by any means. Hell, far from it!
+    Poppet: I don't think I have ever met a person who seemed so completely engulfed in their love for themselves.
+    Poppet: Don't get me wrong, there is nothing inherently wrong with loving oneself. In the contrary - it is quite a good thing.
+    Poppet: But sometimes my dear partner gets lost in his own eyes to much to pay attention to anything else. 
+    Poppet: He is the kind of guy to fall over his own feet a worrisome amount. 
+    Poppet: I know what you are probably thinking: That is not a very ideal starting point, if you want to perform the kind of high level acrobatics that we do.
+    Poppet: But you would be mistaken! This overt self-absorption is what makes Widget such a great performer, since there is nothing that boosts his ego quite as much as the amazed "uuuhhh"'s and "ahhhh"'s coming from a captivated crowd.
+    Poppet: That being said, I can assure you that you've gotten the wrong idea if you suspect my dear brother Widget of committing the crime.
+    Poppet: Unless the crime in question happened to be looking into the mirror way to long for my liking.
+<<elseif $po_defensive is true xor $po_pocket_mirror is true xor $pocket_mirror is false>>
+    Poppet: Don't tell me you've got more questions regarding Widget. It is so boring to follow a red herring.
+<<else>>
+    <<jump Po_Start_Day2>>
+<<endif>>
+    -> You: You seem very defensive of Mr. Widget. <<if $po_defensive is false>>
+       <<jump Po_Defensive>>
+    -> You: \[pocket mirror\] You mentioned a mirror when talking about Widget's habit of looking into them. Does this one seems familiar? <<if $po_pocket_mirror is false and $pocket_mirror is true>>
+        <<jump Po_PocketMirror>>
+===
+
+title: Po_EnjoyCooking
+---
+<<set $po_enjoy_cooking to true>>
+
+Poppet: I really do! It is nice to get away from all the hubbub sometimes and just listen to the sound of your own whisk.
+Poppet: That is, of course, only for the short while before someone decides to have a quibble right in front of my kitchen window or before Waddles feels like taking his trumpet for a walk.
+Poppet: Huh.. I guess I won't have to worry about Waddles walks anymore. How bittersweet.
+<<jump Po_Apron>>
+===
+
+title: Po_CookieBox
+---
+<<set $po_cookie_box to true>>
+
+<<declare $po_cookies_waddles to false>>
+<<declare $po_cookies_guess to false>>
+
+<<if $po_cookies_waddles is false and $po_cookies_guess is false>>
+    Poppet: While I couldn't possibly remember all the remarkable biscuits and pastries I create, these do look like my doing.
+    Poppet: Very nice precision with that jam filling, dough that has been baked to perfection - a perfect medium between that melts on you tongue while still maintaining just the right amount of crumble.
+    Poppet: *she takes a deep sniff of the smell wafting from the biscuit tin and exhales in a satisfactory manner*
+    Poppet: Ah, they where even stored appropriately to retain their signature scent of sugar, spice and everything nice.
+    Poppet: *giggles*
+    Poppet: And would you look at that, it is one of my cookie-tins.
+    Poppet: Seems like we have solved the mystery of who crafted the sweet temptations.
+    Poppet: Which one of these poor fools did you convince to give it to you?
+<<elseif $po_cookies_waddles is true xor $po_cookies_guess is true>>
+    Poppet: Now out with it! Who gave you those cookies?
+<<else>>
+    <<jump Po_Apron>>
+<<endif>>
+    -> You: I have found the cookies at the crime scene and they look fresh to me. Do you remember giving them to Waddles recently? <<if $po_cookies_waddles is false>>
+        <<jump Po_CookiesWaddles>>
+    -> You: I want you to guess, who gave them to me. <<if $po_cookies_guess is false>>
+        <<jump Po_CookiesGuess>>
+===
+
+title: Po_Defensive
+---
+<<set $po_defensive to true>>
+
+<<declare $po_asking_question to false>>
+<<declare $po_comb to false>>
+
+<<if $po_asking_question is false and $po_comb is false>>
+    Poppet: How could I not be, detective? Not only is Widget a dear friend of mine, whom I would not want to miss.
+    Poppet: It is also highly likely that Napoleon is going to cancel our entire act if one of us has to leave the circus.
+    Poppet: And I can't even blame him. Who would want to keep around half of a twin monkey duo? It would be depressing to watch.
+    Poppet: Why were you asking about him anyways? Did you find something?
+    Poppet: *a bead of sweat runs down her temple*
+<<elseif $po_asking_question is true xor $po_comb is true xor $comb is false>>
+    Poppet: *she crosses her arms and looks at you defiantly*
+    Poppet: Ask your questions then, if you are this eager to do so.
+<<else>>
+    <<jump Po_Widget2>>
+<<endif>>
+-> You: I am the one who's asking the questions Mrs. Poppet. <<if $po_asking_question is false>>
+    <<jump Po_AskingQuestions>>
+-> You: \[comb\] I did find this comb which looks a lot like the one Mr. Widget is wearing in his hair. You don't happen to know anything about it per chance? <<if $po_comb is false and $comb is true>>
+    <<jump Po_Comb>>
+===
+
+title: Po_PocketMirror
+---
+<<set $po_pocket_mirror to true>>
+
+Poppet: It looks like an ordinary mirror to me. 
+-> You: You are not wrong in that observation. It is quite unremarkable.
+    Poppet: Now you are confusing me, detective. Why would you show me a cheap looking pocket mirror?
+-> You: I happened to stumble upon it while scouring the crime scene for clues and noticed some fingerprints smudging the mirror. Mr. Waddles did not possess any fingers.
+    Poppet: *gasp*
+    Poppet: You are right, that is very odd, although it is most likely nothing to worry about.
+    Poppet: Maybe Waddles was having a visitor over. Eduard does sometimes take some of his creepy books to him.
+    Poppet: He could have used it touch up his make-up - or something of that sort - and accidentally touched the glass while doing it.
+    -> You: Interesting. I will note that down.
+        Poppet: *releases a sigh of relief*
+        Poppet: Yes, please do so.
+        <<jump Po_Widget2>>
+    -> You: I don't think I buy that theory, given Mr. Widgets affection for his own reflection.
+        Poppet: *furrows her brows in an angry manner*
+        Poppet: I didn't take you as one who would be so judgemental, detective.
+        Poppet: Of course it could be Widgets fingerprints that you found on the mirror, but there is no evidence to support that claim any more than mine. 
+        Poppet: Shall we move on to a different topic?
+        -> You: I must admit that I was a bit hasty in my assumptions. My apologies. Please let us resume.
+            <<jump Po_Widget2>>
+===
+
+title: Po_CookiesWaddles
+---
+<<set $po_cookies_waddles to true>>
+
+Poppet: *she blinks confused*
+Poppet: Oh right!
+Poppet: You scared me for a moment, but now I remember again.
+Poppet: I did hand them to Waddles maybe 3 days ago. I had forgotten about it, since he usually makes a big fuss about his dislike for my baking.
+Poppet: For the longest time, it was completely lost on me why exactly he didn't enjoy about my creations. While he often went on long rambling regarding the topic, he never quite managed to actually say anything of meaning.
+Poppet: But recently he began taxing part each batch, be it scones, pies or crumpets.
+Poppet: As you can imagine, I found that very odd and at first I refused to give him any, due to how unappreciative he was of my work in the past.
+Poppet: However, I do not do well with conflict and find myself avoiding it at all costs. So I eventually gave into his demands.
+Poppet: *sighs and looks at you worriedly*
+Poppet: Say, did you find any other...
+Poppet: *she swallows in a dry throat*
+Poppet: ... boxes, like this one right here.
+    -> You: No, this box was the only one of its kind that I was able to find and I don't think there are more.
+        <<jump Po_OnlyBox>>
+    -> You: No, but maybe there is one hiding underneath all of the clutter.
+       <<jump Po_MoreBoxes>>
+===
+
+title: Po_CookiesGuess
+---
+<<set $po_cookies_guess to true>>
+
+Poppet: Hmm. that's a tough question.
+Poppet: You see, the demand for my pastries is high and I'm a very generous person.
+Poppet: I think I might have given a box of those specific cookies to Mort, Teddy and Widget.
+Poppet: Yes, if I am not mistaken, one of them must have given it to you.
+<<jump Po_CookieBox>>
+===
+
+title: Po_AskingQuestions
+---
+<<set $po_asking_question to true>>
+
+Poppet: I see, you must be employing a special interrogation tactic right now.
+Poppet: Trying to see if you can force a false confession out of me, aren't we detective? 
+Poppet: Do you want to wrap up this case so baldy? I thought we were both enjoying ourselves plenty.
+Poppet: I am offended.
+<<jump Po_Defensive>>
+===
+
+title: Po_Comb
+---
+<<set $po_comb to true>>
+
+<<declare $po_waddles_awoken to false>>
+<<declare $po_confession to false>>
+
+<<if $po_waddles_awoken is false and $po_confession is false>>
+    Poppet: You found this while searching the crime scene? How odd.
+    Poppet: *she scratches her monkey chin*
+    Poppet: Well, it certainly does look like it belongs to him, but I am clueless as to how it got were you found it.
+    Poppet: Maybe Widget lost it on the circus grounds and Waddles happened to stumble across it.
+    Poppet: He had a preference for shiny things, since he was blind as a bat without those glasses of his.
+    Poppet: For him, perhaps, it was thrilling to see the reflections of the lamplight in all of his glimmering treasures as he closed his eyes at night.
+    Poppet: Not the only similarity he shares with the dragons of old legend, in my opinion.
+    Poppet: He also did not act kindly towards anyone who'd dare interrupt his slumber.
+<<elseif $po_waddles_awoken is true xor $po_confession is true>>
+    Poppet: Any more questions, detective?
+<<else>>
+    <<jump Po_Widget2>>
+<<endif>>
+-> You: Do you know if anyone awoke Mr. Waddles in the week leading up to his murder? <<if $po_waddles_awoken is false>>
+   <<jump Po_WaddlesAwoken>>
+-> You: \[pocket mirror | comb\] You have tried to remove suspicions from Mr. Widget while two pieces of evidence connect him to the crime scene. It would be best if you told me what you really know. <<if $po_confession is false>>
+    <<jump Po_Confession>>
+===
+
+title: Po_OnlyBox
+---
+Poppet: That's a relief. I was worried to death that he might have let them go to waste.
+Poppet: What an unimaginable tragedy that would have been: perfectly fine biscuits, just slowly rotting away in their tins where a greedy man has forsaken them in his mindless pursuit of collecting more things to catch dust.
+You: To be fair, Mr. Waddles did just recently get murdered, so he might just not have gotten to that tin yet.
+Poppet: *silence*
+Poppet: Oh, that's right.
+<<jump Po_Apron>>
+===
+
+title: Po_MoreBoxes
+---
+<<declare $po_murder_investigation to false>>
+<<declare $po_clutter to false>>
+
+<<if $po_murder_investigation is false and $po_clutter is false>>
+    Poppet: Oh god, I think I'm about to be sick. 
+    Poppet: The sheer thought of my cookies being lost to all of that junk without ever fulfilling their purpose of tickling someones taste buds in just the right way...
+    Poppet: It is to much for me to handle.
+<<elseif $po_murder_investigation is true and $po_clutter is false>>
+    Poppet: *sighs* 
+    Poppet: It is all so very awful.
+<<else>>
+    <<jump Po_Apron>>
+<<endif>>
+    -> You: This is a murder investigation. <<if $po_murder_investigation is false>>
+       <<jump Po_MurderInvestigation>>
+    -> You: I noticed the unusual amount of things in Waddles possession. How did I accumulate so much? I assume the salary around here is not particularly hight.
+        <<jump Po_Clutter>>
+===
+
+title: Po_WaddlesAwoken
+---
+<<set $po_waddles_awoken to true>>
+
+<<declare $po_loud_cards to false>>
+<<declare $po_playing_cards to false>>
+<<declare $po_mort_friends to false>>
+
+<<if $po_loud_cards is false and $po_playing_cards is false and $po_mort_friends is false>>
+    Poppet: Come to think of it, there was a particular instance I remember quite well.
+    Poppet: I believe it to have been only a couple of days before the murder took place.
+    Poppet: Waddles had been awoken by the terribly loud sound of Mort shuffling her playing cards and practicing god knows which tricks.
+    Poppet: In old Waddles fashion, he grabbed his lantern and promptly marched up to Mort's wagon from where the familiar sound was emanating.
+    Poppet: He knocked thrice, according to the recollection of events which was supplied to me by Mort herself on the very next morning. She opened the door and there he stood, clad in his night gown and wearing his silly nightcap.
+    Poppet: According to my sources, he was utterly enraged and told her to cease all card-related activities at once.
+    Poppet: I can't say I blame him. But it certainly does lend into my theory of Mort being our culprit.
+<<elseif $po_loud_cards is false or $po_playing_cards is false or $po_mort_friends is false>>
+    Poppet: Is there anything else you wish to know regarding Mort? I know her fairly well.
+<<else>>
+    <<jump Po_Comb>>
+<<endif>>
+-> You: Soo you agree with Waddles, that Mort was in the wrong for practicing with her playing cards within the comfort of her own wagon? Why? <<if $po_loud_cards is false>>
+    <<jump Po_LoudCards>>
+-> You: \[playing cards\] Could these playing cards belong to Mrs. Mort? I have found them at the scene of the crime. <<if $po_playing_cards is false and $playing_cards is true>>
+    <<jump Po_PlayingCards>>
+-> You: You seem to be talking to the magician very frequently. Are the both of you friends? <<if $po_mort_friends is false>>
+   <<jump Po_MortFriends>>
+===
+
+title: Po_Confession
+---
+<<set $po_confession to true>>
+
+Poppet: *furrows her brows at you*
+Poppet: Is this supposed to be a threat? There is no need to be giving me this bad cop attitude all of a sudden.
+Poppet: Fine, I will tell you what happened on the night of the murder.
+Poppet: I know this sounds really bad right now...
+Poppet: But it will all make sense in a few moments.
+Poppet: We were playing a show two night previous to Waddles murder. It was very unremarkable and certainly nothing to write home about.
+Poppet: Widget, Waddles, Teddy and myself were gathered in the backstage area. The expression "backstage area" suggests a much grander space than the slim cranny behind the draping curtains of reality, but I digress.
+Poppet: After the show had concluded and the throngs of people began leaving the tent, Waddles decided to go out there and wave at his lingering supporters.
+Poppet: Of course non of those people had come that night to see him play the trumpet specifically, but he either didn't know or didn't care.
+-> You: I appreciate the buildup, but let's stick to the important parts of the story.
+    <<jump Po_Interrupt1>>
+-> You: *don't interrupt*
+    <<jump Po_NotInterrupt1>>
+===
+
+title: Po_MurderInvestigation
+---
+<<set $po_murder_investigation to true>>
+
+Poppet: I don't believe it to be fair, when someone tries to relativize one thing by comparing it to another.
+Poppet: There is more than enough room in my heart to grief both the loss of my baked goods and that of Waddles.
+<<jump Po_MoreBoxes>>
+===
+
+title: Po_Clutter
+---
+<<set $po_clutter to true>>
+
+Poppet: You are correct in assuming that. We are not being paid well or fairly be any means. 
+Poppet: waddles just happened to be a very eclectic person with a taste for rarities and expensive looking things.
+Poppet: His financial capabilities didn't quite match up to his tastes, as is often the case, which in turn led to him just grabbing everything he could get his greasy flippers on.
+Poppet: Most likely in a poor attempt at hiding his bruised little ego behind the sheer amount of things in his possession.
+Poppet: It is so like Waddles to remain being a nuisance to people, even after his demise.
+Poppet: My condolences to you, my dear detective. It does appear to be a bothersome task to sift through all of his clutter.
+<<jump Po_MoreBoxes>>
+===
+
+title: Po_LoudCards
+---
+<<set $po_loud_cards to true>>
+
+Poppet: Sometimes I wonder if you are even listening to me, darling. I have already told you.
+Poppet: I love Mort with all my heart but cannot stand the shear volume with which the woman plays her cards.
+<<jump Po_WaddlesAwoken>>
+===
+
+title: Po_PlayingCards
+---
+<<set $po_playing_cards to true>>
+
+Poppet: Yes, those definitely belong to Mort.
+Poppet: She told me that Waddles "confiscated the cards" after their altercation and seemed quite upset about the loss.
+Poppet: Although, I wouldn't put it past her to have lied about it.
+Poppet: *shudders*
+Poppet: One never knows who to trust in times like these and I am much rather safe than sorry.
+<<jump Po_WaddlesAwoken>>
+===
+
+title: Po_MortFriends
+---
+<<set $po_mort_friends to true>>
+
+Poppet: But of course Mort and I are friends.
+Poppet: She even allowed me to throw a burned batch of scones into that magic hat of her once and I wear that badge of honor with pride every day.
+<<jump Po_WaddlesAwoken>>
+===
+
+title: Po_Interrupt1
+---
+Poppet: A great detective like you should know the importance of details.
+Poppet: But if you insist.
+Poppet: Widget broke the trumpet by accident, while the penguin was gone on his waving mission and we tried to cover up the whole thing by replacing the broken trumpet with a new one the very next night.
+Poppet: Only we ended up stumbling across Waddles body during our little heist and unfortunately left behind some traces.
+Poppet: And now we are here.
+<<jump Po_ConcludingQuestions>>
+===
+
+title: Po_NotInterrupt1
+---
+Poppet: So as the guy left, only the three of us remained seated. I believe Teddy was enjoying some honey brittle, or maybe a crumpet. I don't know for certain, since he sometimes goes so awfully quiet, that I can't tell if he is in the room at all.
+Poppet: He might even have left together with Eduard, who can never seem to leave the performance fast enough.
+Poppet: After I had removed my mask, I proceeded to remove the extravagant show make-up beneath it. That's when I heard Widget pacing around in the small space behind me.
+Poppet: I kept a watchful eye on him through the reflection in the mirror in front of me. The troubled expression on his face worried me.
+Poppet: After a few moments of deliberation, his gaze landed upon the compact case in which the penguin transports his trumpet.
+    -> You: It is sufficient if you tell me how Widgets items ended up on the crime scene.
+        <<jump Po_Interrupt2>>
+    -> You: *don't interrupt*
+        <<jump Po_NotInterrupt2>>
+===
+
+title: Po_Interrupt2
+---
+Poppet: *sighs* You are very impatient for a detective. I bet you let details slip through the cracks all the time.
+Poppet: But if you insist:
+Poppet: Widget tried to play the trumpet and ended up accidentally breaking it in two.
+Poppet: To cover up the mishap, we bought a new trumpet the next day and planned on replacing it that night. Unfortunately someone else had decided to murder Waddles shortly before entered the crime scene.
+Poppet: Widget couldn't stop himself from looking into the mirror yet again, and tried to fix his combs before I found the body.
+Poppet: ...and I fear the rest is history.
+<<jump Po_ConcludingQuestions>>
+===
+
+title: Po_NotInterrupt2
+---
+Poppet: At that point in time I was already braced for trouble, but ultimately decided not to interrupt him.
+Poppet: Widget proceeded to open up the trumpet case, which was still unlocked due to the previous performance, and began to blow into it.
+Poppet: The sound emanating from the brass instrument filled the air with an unpleasant sound that somehow still managed to sound worlds better than whatever Waddles was doing with it.
+Poppet: What would have been an earth-shattering break through for Waddles however, seemed to frustrate Widget beyond belief.
+Poppet: He got more and more rough with the instrument as he desperately tried to elicit a pleasant sound from the trumpets mouth.
+Poppet: At some point during these escapades, he had moved out of my mirrored view. When the sounds also seized after a few minutes, I turned around only to see the tragedy that had unfolded unbeknownst to me.
+Poppet: Widget stood there, motionless, staring down at the brocken trumpet that laid in his hands.
+Poppet: I know what you are thinking know: How does one break a trumpet clean in half while trying to practice with it.
+Poppet: I couldn't tell you and Widget is not very good with words so neither could he.
+Poppet: In our desperation, we devised a plan to fix the mess.
+Poppet: We would go into town the next morning, purchase a new trumpet of the same model, and replace the broken trumpet in the suitcase with it.
+Poppet: The night of our departure to the next town seemed as good a times as any. Waddles would be asleep and unsuspecting, while the sounds of the rattling train covered up the noises of our entering.
+    -> You: Considering that Mr. Waddles was found dead, I assume that not everything went according to plan.
+        Poppet: You've got it all wrong detective. We were not the ones to kill him. We merely stumbled across the crime as we tried to cover up our own.
+    -> You: So you are telling me, that you were at the crime scene on the night of the murder, but to replace a trumpet?
+        Poppet: Yes, that is it exactly.
+Poppet: As we entered the wagon through the top hatch, the whole room lay in the gloomy glow of half a dozen lamps.
+Poppet: It was difficult to make out details, and I was squinting my eyes trying to make out the shape of the trumpet case.
+Poppet: Widget was doing the same until his eyes fell on the shiny pocket mirror. Something about his hairdo seemed to be unsatisfactory to him, as he began fiddling around with his combs and tried to put them in this way or that.
+Poppet: He only snapped out of his trance when he heard my gasp.
+Poppet: I had found Waddles laying on the ground.
+Poppet: He had blended into the carpet very nicely, so I didn't notice him at first.
+Poppet: I'm sure you can imagine our surprise and shock at the discovery and while it was not the ideal thing to do, we decided to leave the new trumpet behind and abandoned the scene at once.
+<<jump Po_ConcludingQuestions>>
+===
+
+title: Po_ConcludingQuestions
+---
+<<declare $po_authorities to false>>
+<<declare $po_killer to false>>
+<<declare $po_observations to false>>
+
+<<if $po_authorities is true or $po_killer is true or $po_observations is true>>
+    <<jump Po_Comb>>
+<<else>>
+    Poppet: You've got that questioning glimmer in you eyes again. *sighs*
+<<endif>>
+-> You: You should have informed the authorities at once. <<if $po_authorities is false>>
+    <<jump Po_Authorities>>
+-> You: I believe you killed him, as he found you breaking and entering. <<if $po_killer is false>>
+    <<jump Po_Killer>>
+-> You: Did you see anyone leave the wagon before you entered? <<if $po_observations is false>>
+    <<jump Po_Observations>>
+===
+
+title: Po_Authorities
+---
+<<set $po_authorities to true>>
+
+Poppet: Thank you, detective. I am well aware that that is what should have been done.
+Poppet: But can you imagine how suspicious that would have made us look? We broke into the mans wagon in the dead of night.
+<<jump Po_ConcludingQuestions>>
+===
+
+title: Po_Killer
+---
+<<set $po_killer to true>>
+
+Poppet: And here I was thinking that we were friends.
+Poppet: Don't expect a pastries tomorrow.
+<<jump Po_ConcludingQuestions>>
+===
+
+title: Po_Observations
+---
+<<set $po_observations to true>>
+
+Poppet: No, nothing. But the wagon was also silent as grave the whole time were there, so I find it hard to believe that anyone could still have been in there.
+Poppet: It is all very strange. YOu must believe me.
+<<jump Po_ConcludingQuestions>>
+===

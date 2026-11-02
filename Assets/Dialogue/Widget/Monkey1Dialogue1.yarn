@@ -1,0 +1,246 @@
+﻿title: Wi_Start_Day1
+position: -83,-166
+---
+
+<<declare $widg_joinedcircus=false>>
+<<declare $widg_murderday=false>>
+<<declare $widg_normalday=false>>
+<<declare $widg_victim=false>>
+
+
+
+???: *In front of you stands a slim but muscular young monkey. His frown forms a curious paradox with the stressed look in his eyes.*
+You: Hello.
+???: H... Hello.
+???: Boss said someone is coming to tell who killed Mister Waddles.
+???: Widget saw you walking round the wagon talking to others.
+???: *Gulps * Boss said you need to talk to Widget.
+You: *Take out your notebook* I take it you are Widget?
+Widget: *slightly shivers* Widget is Widget.
+You: See, Mr. Widget...
+You: As a detective investigating the case, I talk to everyone.
+    -> You: There is no reason to worry.
+        Widget: *shift his weight from one leg to another* Widget knows. It's just...
+    -> You: Only the murderer needs to worry.
+        Widget: *his eyes get bigger* Murde- ... Widget knows. It's just...
+Widget: Widget doesn’t talk face-to-face with people a lot.
+Widget: People stay down there and cheer and clap when Widgets up in the air *his face glows* is nice.
+    -> You: That does sound nice.
+        Widget: *Smiles*
+    -> You: That sounds horrible.
+        Widget: *Nods understandingly* scary for detective, safe for Widget. widget knows what widget is doing.
+You: Right. I assume you’re one of the monkey acrobats?
+You: I have some questions for you. Just getting the general idea... 
+Widget: *shift uncomfortably* widget helps the best widget can. 
+You: Let's start with a simple one. Can you tell me why you joined the circus?
+
+<<jump Widg_JoinedCircus>>
+
+===
+title: Widget_Day_One
+---
+<<declare $widge_nap_waddles to false>>
+<<declare $widge_nap to false>>
+
+
+<<if ($widg_murderday and $widg_normalday and $widg_victim)>>
+    You: You can indeed go now, Mr. Widget. Thank you for your time.
+    You: Anything you might want to share with me?
+    <<wait  1.5>>
+    You: Mr. Widget?
+    Widget: *tries to stand as tall as he can* Widget has said all there is to say.
+    <<stop>>
+<<elseif ($widg_murderday and $widg_normalday) or ($widg_murderday and $widg_victim) or ($widg_normalday and $widg_victim)>>
+    You: We are almost done Mr. Widget.
+<<else>>
+    Widget: Can Widget go now?
+    You: Just a few more minutes of your time, Mr. Widget...
+<<endif>>
+-> You: *Turn a page in your notebook* How about you tell me about your boss a bit? <<if $widge_nap is false and $widge_nap_waddles is true>>
+    <<jump Widge_Nap>>
+-> You: What does a regular circus day for you look like? <<if $widg_normalday is false>>
+    <<jump Widg_NormalDay>>
+-> You: What were you doing on the day of the murder? <<if $widg_murderday is false>>
+    <<jump Widg_MurderDay>>
+-> You: How well did you know the victim? <<if $widg_victim is false>>
+    <<jump Widg_Victim>> 
+-> You: Actually, I think that's enough for today.
+    You: Anything you might want to share with me?
+    <<wait  1.5>>
+    You: Mr. Widget?
+    Widget: *tries to stand as tall as he can* Widget has said all there is to say.
+    <<stop>>
+===
+title: Widg_Victim
+---
+<<set $widge_nap_waddles to true>>
+<<set $widg_victim to true>>
+
+Widget: *thinks* Mr. Waddles was a gentleman. Smelled nice. Had nice things. Knew many words.
+Widget: Mr. Waddles smoked a lot. Widget didn’t understand—didn’t he need his lungs to play the trumpet?
+Widget: *pauses. looks frustrated* Mr. Waddles didn’t take very good care of himself. 
+Widget: *holds his breath and flexes his muscles* Widget takes very good care of himself.
+You: I can see that Mr. Widget.
+Widget: *lets go of his breath* Wiiiiidget didn’t really know him closely. He didn’t talk to Widget as much. He was an artist. *looks wistful*
+    -> You: What you do is a form of art too, Mr. Widget.
+        Widget: That’s what Lady Poppet says. She says, "Widget..."
+        Widget: She says, "What we do is art defined. we dance up there, we give our hearts to the audience... like we're showing them everything."
+        Widget: *Pauses* Lady Poppet’s phrasing is more pretty.
+        You: I got the idea.
+    -> You: You wanted to be an artist too?
+        Widget: *shrugs* Widget didn’t want to be an artist until Mr. Waddles told Widget he isn’t one.
+        Widget: Widget just wanted to be widget.
+        Widget: *His eyes darken* But what if it’s not enough?
+        Widget: lady poppet says. she says widget...
+        Widget: She says "What we do is art defined. we dance up there, we give our hearts to the audience... like we're showing them everything."
+        Widget: *Pauses* Lady Poppet phrases is more pretty. Our bodies are our brushes. Or something like that?
+        You: I got the idea.
+You: So I can safely conclude that you and the victim were not friends?
+Widget: Sir... Madam detective... Erm, Your Majesty...
+You: Detective is enough, Mr. Widget.
+Widget: Detective... Widget doesn’t think Mr. Waddles had any friends.
+Widget: *thinks* Mr. Eduard did talk to him sometimes. So did Boss.
+Widget: Boss rarely looked happy about talking to him.
+Widget: Mr. Eduard never looked happy about talking to him.
+Widget: Widget wonders if that's just how Mr. Eduard looks.
+Widget: Widget was happy for Mr. Eduard... Mr. Eduard lives inside his head. Seems like a lonely place.
+Widget: *taps his temple* Widget doesn’t think that’s a nice place to be, Mr. Eduard's head.
+    -> You: What gets *you* out of your head, Widget?
+        Widget: Jumping. High. In the Air. And Lady Poppet.
+        Widget: *his face lightens* Lady Poppet is widget's best friend.
+        Widget: Widget would jump very very high for Lady Poppet.
+            <<jump Widget_Day_One>>
+    -> You: Do *you* have friends, Widget?
+        Widget: *his face lightens* Lady Poppet is widget's best friend.
+        Widget: Widget would jump very very high for Lady Poppet.
+            <<jump Widget_Day_One>>
+
+
+===
+title: Widg_NormalDay
+---
+
+Widget: Widget practices all day. Widget is very good at what Widget does...
+Widget: *nods knowingly* because he practices all day.
+You: ...
+You: And?
+Widget: *looks confused* That’s a normal day for Widget.
+Widget: Widget also washes his hair. *thinks* Not everyday. *thinks* Unless it's summer.
+You: That makes sense, Mr. Widget.
+Widget: He also sleeps... very late. Because Mr. Waddles likes to play his trumpet when everyone’s gone to bed.
+Widget: Sleep... will be easier now. *looks guilty* Not that Widget’s happy about what it took...
+    -> You: It's OK, Widget. Sleep is very important.
+        You: Apart from that, was there any other way the deceased made life harder for others?
+        Widget: *counts with his fingers* ... yes.
+    -> You: Would you say anyone got angrier than usual about the late-night rehearsals?
+        You: Or... angry about any other ways Mr. Waddles made things harder for others?
+        Widget: *thinks, then points to his chest* 
+        <<wait 1>> 
+        Widget: Widget?
+        You: Yes. Other than you.
+Widget: Widget doesn’t like talkin' bad about dead people... *looks uncomfortable*
+Widget: Mr. Waddles... wasn’t a very nice man. *hesitates* He took other people’s stuff... without asking.
+Widget: Widget never does that... or, at least... feels very, very bad about it.
+Widget: He made Widget feel bad. Talked bad about the circus. That’s not fair. The circus is home.
+Widget: *sighs* Maybe he was right to do so? *pauses* He seemed... very wealthy. Like, from a proper home. Went to school and all that.
+    -> You: Why would he join a circus, then?
+        Widget: *shrugs* Widget never asked.
+        Widget: But it’s nice here... you see the world, make people happy, there’s food and a place to sleep...
+        Widget: *looks confused* What more do people want?
+    -> You: Wealthy, well-educated people don’t usually join a traveling circus.
+        Widget: *looks sad*
+        You:  No offense. They also don’t usually become detectives.
+            Widget: But it’s nice here... you see the world, make people happy, there’s food and a place to sleep...
+            Widget: *looks confused* what more do people want? 
+    <<set $widg_normalday to true>>
+    <<jump Widget_Day_One>>
+===
+title: Widg_MurderDay
+---
+
+Widget: *Face brightens* Widget practiced all day.
+You: Did you notice anything unusual between your sessions?
+Widget: *thinks* ...Widget and Lady Poppet trained in the morning. Then Lady Poppet made sandwiches.
+Widget: Then Widget ate his sandwich.
+<<wait 0.5>> 
+You: *wait patiently*
+<<wait 0.5>> 
+Widget: ...After, Widget and Lady Poppet watched Mr. Eduard and Mr. Teddy practice their new routine.
+Widget: *nods* Was not going well. 
+Widget: Then Widget went for his afternoon run, took a bath, did his hair,
+    -> You: *look at his hair enviously and say nothing*
+    ->Y ou: You do have impressive hair, Mr. Widget.
+        Widget: *Blushes* Widget tries his best. 
+    Widget: Widget can share his hair routine with the detective.
+        -> You: Err, another time, perhaps.
+        -> You: I don't need a new routine... *push your hand in your hair expectantly*
+    Widget: *Stares at your head. Looks worried* That's what Mr. Eduard said.
+    Widget: ... Where was widget? *thinks*
+Widget: Then straight to wagon. Then beauty sleep. 
+Widget: No trumpet sound. Widget was happy caus did not know why there was no trumpet sound. *Looks apologetic.*
+Widget: Nothing unusual. *avoids eye contact*
+<<set $widg_murderday to true>>
+<<jump Widget_Day_One>>
+
+===
+title: Widg_JoinedCircus
+---
+    Widget: *looks proud* Yes.
+    Widget: Food and a place to sleep.
+        -> You: ... Thats it?
+            Widget: *looks confused* Is that not enough?
+            Widget: *shrugs*  Widget also likes makin’ people happy, or cheer, or hold their breath.
+            Widget: Widget likes people, as long as they are very far.
+        -> You: That makes sense.
+            Widget: *nods* Widget can talk to the Boss, put in good word—if detective wants.
+            Widget: *eyes you up and down* How far can detective jump?
+                -> You: Awfully low.
+                -> You: Very high.
+                Widget: *opens his arms* Detective and Widget can train together!
+                You: Very nice, Widget. But back to my question…
+                Widget: *shrugs* Widget likes makin’ people happy, or cheer, or hold their breath.
+                Widget: *flexes his muscles* Nothing can stop Widget when he is on the stage...
+You: Understood. And...
+    -> You: How long have you been here?
+    -> You: Do you see yourself staying after all this?
+Widget: *hugs his tail* Widget joined circus in early days.
+Widget: When Widget was a small monkey, and Boss was a kitten…
+Widget: *pauses*  Don’t tell him Widget said that.
+Widget: And Widget’s gonna stay here 'til long strong hands get too old to grab the pole.
+<<set $widg_joinedcircus to true>>
+<<jump Widget_Day_One>>
+===
+title: Widge_Nap
+---
+<<set $widge_nap to true>>
+You: You mentioned knowing him since childhood.
+Widget: *Nods cautiosly*
+You: What can you tell me about him?
+Widget: *Thinks*
+<<wait  1>>
+Widget: Widget can help better if detective asks questions.
+You: Very well. 
+    -> You: What kind of a man is he? I mean...
+        Widget: *Looks confused*
+        You: Alright. Lets break this down. Can you describe him in three words for me?
+        Widget: *thinks*
+        <<wait  2>>
+        Widget: Boss hates taxes. *looks proud*
+        <<wait  1>>
+        Widget: *Looks at your expression, confused* Three words. Boss... Hates... *starts counting with his fingers*
+        You: You're right Widget. Thank you for this useful information.
+        -> You: I recall you said your boss did talk with the late Mr. Waddles from time to time.
+        -> You: How was the relationship between your boss and Mr. Waddles?
+        Widget: *Cautiously* yes?
+        You: *take a deep breath*
+        -> You: Can you elaborate, Mr. Widget?
+        <<wait  2>>
+        Widget: No.
+        You: *Sigh*
+        <<jump Widget_Day_One>>
+
+===
+//            -> You: Do you want to take a break, Widget?
+
+
+//===

@@ -1,0 +1,429 @@
+﻿title: Po_Start_Day1
+---
+<<declare $po_initial_questions to false>>
+<<declare $po_dunsmoore to false>>
+<<if $po_initial_questions is false and $po_dunsmoore is false>>
+    ???: Welcome my dear. Your appearance in our humble encampment has caused quite the raucous. 
+    ???: Please don't take insult. I've merely been observing some stirrings in the rumor mill since you've taken up the investigation.
+    ???: Can't say that I am not intrigued by the mystery of it all. It is so very exiting!
+    ???: It's all a big *Whodunit*, isn't it? 
+    ???: Might it have been the jester, with his gloomy demeanor and tastes for the macabre? What about the greedy director? Is the magician truly as blundering as she seems?
+    ???: It might even have been the beautiful acrobat - larger than life with her graceful presence, it is difficult to get a glance behind those glimmering eyes without getting utterly lost in them.
+    ???: *gasp*
+    Poppet: Oh my goodness, please excuse my rudeness. I haven't even introduced myself properly. I am Lady Penelope of House Dunsmoore. But you may call me Poppet for short.
+<<elseif $po_initial_questions is true or $po_dunsmoore is true>>
+    Poppet: Anything else, detective?
+<<endif>>
+    -> You: I'm here to ask you a few questions, regarding the murder of the late Mister Waddles.<<if $po_initial_questions is false>>
+        <<jump Po_InitialQuestions>>
+    -> You: What is member of House Dunsmoore doing in this backwater enterprise? <<if $po_dunsmoore is false>>
+        <<jump Po_Dunsmoore>>
+    -> You: That would be all for today. Thank you very much for taking the time to talk to me.
+        Poppet: Now, now! I'm glad I could be of service. No need to thank me, it really was the least I could do.
+        Poppet: I'm looking forward to talking to you again tomorrow. Don't hesitate to bring a couple more questions either.
+===
+
+title: Po_InitialQuestions
+---
+<<declare $po_information_waddles to false>>
+<<declare $po_relationship_victim to false>>
+
+<<set $po_initial_questions to true>>
+
+<<if $po_information_waddles is false and $po_relationship_victim is false>>
+    Poppet: Oh yes, of course. It is all so very awful. But it is in times like these when we must look for the good in the bad:
+    Poppet: At least he did not leave behind any loved ones.
+<<elseif $po_information_waddles is true xor $po_relationship_victim is true>>
+    Poppet: I can tell, there is is more you want to ask.
+<<else>>
+    <<jump Po_Start_Day1>>               
+<<endif>>
+    -> You: What else do you know about the deceased? <<if $po_information_waddles is false>>
+        <<jump Po_InformationWaddles>>
+    -> You: What was the relationship between you and the victim like? <<if $po_relationship_victim is false>>
+        <<jump Po_RelationshipVictim>>
+===
+
+title: Po_Dunsmoore
+---
+<<declare $po_runaway to false>>
+<<declare $po_circus to false>>
+
+<<set $po_dunsmoore to true>>
+
+<<if $po_runaway is false and $po_circus is false>>
+    Poppet: Darn it, I really need to stop introducing myself by my full legal name. No one else here seems to have one.
+    Poppet: *sighs* Oh now that I have already floundered, I might as well tell you the whole story of how the heiress of the great house Dunsmoore ended up running away from a marriage proposal to follow her dreams of becoming a renowned circus acrobat.
+    Poppet: You might want to take a seat, because it is quite a long... 
+    Poppet: Oh.. 
+    Poppet: I guess I've actually summed it up really well.
+    Penelope Esmeralda Dunsmoore: *she clears her throat and makes a grand gesture with her arms* 
+    Poppet: And that was the story, of how the great Lady Penelope Esmeralda Dunsmoore joined this..
+    Penelope Esmeralda Dunsmoore: .. what did you call it again? 
+    Poppet: Oh, right!
+    Poppet Magnolia Dunsmoore: ..the story of how the great Lady Penelope Magnolia Dunsmoore joined this "backwater enterprise".
+<<elseif $po_runaway is true xor $po_circus is true>>
+    Poppet: But enough of that. I'm sure there are more burning questions to be answered.
+<<else>>
+    <<jump Po_Start_Day1>>
+<<endif>>
+    -> You: So you ran away from home. Has anyone come looking for you? <<if $po_runaway is false>>
+        <<jump Po_Runaway>>
+    -> You: How interesting. So you always intended on becoming a circus performer? <<if $po_circus is false>>
+       <<jump Po_Circus>>
+===
+
+title: Po_InformationWaddles
+---
+<<declare $po_stardom to false>>
+<<declare $po_replacement to false>>
+<<declare $po_monkey to false>>
+
+<<set $po_information_waddles to true>>
+
+<<if $po_stardom is false and $po_replacement is false and $po_monkey is false>>
+    Poppet: You, my dear, you have come the right ostrich.. I mean monkey. I know a thing or two about Waddles, some of which the rest of the crew might not even suspect.
+    Poppet: For one I have cause to belief that he used to have ambitions of becoming an actor of some sort. A young gentleman - we had gotten into conversation after he had been an attendee of one of our shows - insisted that he and Waddles used to be part of the same theatre ensemble.
+    Poppet: It seems to not a have been an elaborate production by any means, just a couple of amateurs performing in front of underwhelmed park-goers. Their only reward being a handful of coins collected inside of an upturned hat.
+    Poppet: According to my sources, Waddles left the ensemble, due to his higher ambitions.
+<<elseif $po_stardom is false or $po_replacement is false or $po_monkey is false>>
+    Poppet: There is so much more I could tell you. 
+<<else>>
+    <<jump Po_InitialQuestions>>
+<<endif>>
+    -> You: So he joined the circus to work towards his stardom? <<if $po_stardom is false>>
+        <<jump Po_Stardom>>
+    -> You: That is quite unfortunate. Do you know if the actors where able to find a replacement? <<if $po_replacement is false>>
+        <<jump Po_Replacement>>
+    -> You: I do not mean to offend, but you don't look like a monkey to me. <<if $po_monkey is false>>
+        <<jump Po_Monkey>>
+===
+
+title: Po_RelationshipVictim
+---
+<<declare $po_neutral_terms to false>>
+<<declare $po_other_members to false>>
+
+<<set $po_relationship_victim to true>>
+
+<<if $po_neutral_terms is false and $po_other_members is false>>
+    Poppet: I can't say we were particularly close. Waddles was not the kind of person who has...
+    Poppet: *scratches her head, thinking of the right word*
+    Poppet: ...Friends.
+<<elseif $po_neutral_terms is true xor $po_other_members is true>>
+    Poppet: Anyhow, I'm so glad I can be of service to this investigation.
+<<else>>
+    <<jump Po_InitialQuestions>>
+<<endif>>
+    -> You: So the two of you were on neutral terms?<<if $po_neutral_terms is false>>
+        <<jump Po_NeutralTerms>>
+    -> You: I'm sad to hear that Waddles led such a lonesome life. So he wasn't close to any of the other member of the circus either? <<if $po_other_members is false>>
+        <<jump Po_OtherMembers>>
+===
+
+title: Po_Runaway
+---
+<<set $po_runaway to true>>
+
+Poppet: Unfortunately, yes. Obviously I knew from the beginning that my mother would not idly sit around and watch as her only daughter refuses the hand of a very influential admirer to run off into the sunset and join the circus.
+Poppet: I was well aware that she would catch up eventually, her also being an ostrich and all that.
+Poppet: But I must admit, that she has come a little close to comfort a couple of times already and I do dread the day that she will drag me back by my tail.
+Poppet: I am sure she won't give me a second chance at this sweet, sweet freedom.
+Poppet: *She takes a deep breath of the musty circus air*
+<<jump Po_Dunsmoore>>
+===
+
+title: Po_Circus
+---
+<<set $po_circus to true>>
+
+Poppet: Absolutely, detective. Ever since I was young, I have had a deep appreciation for all of the performing arts, but especially for the mucky charm of the circus.
+Poppet: Sure, this kind of environment does take a little getting used to. But I have found that it helps greatly if you simply avoid looking at the ground at all costs.
+Poppet: You see, usually the filthy things gather at the bottom, so one best keeps their head held high.
+Poppet: Maybe that's why circuses have such beautifully bright colors - to distract the throng of attendees from the rubbish littering the ground.
+<<jump Po_Dunsmoore>>
+===
+
+title: Po_Stardom
+---
+<<set $po_stardom to true>>
+
+Poppet: It is hard to say. You can hardly see this place as an improvement to his previous employment. I can only imagine that he has settled for this position, given the high demand for trumpet penguins.
+Poppet: Maybe he was waiting for a different position to open up or until he found a new gig entirely.
+Poppet: All I can say for sure, is that he could not possibly have harbored any dreams of becoming a renowned trumpeter.
+Poppet: *shudders*
+Poppet: I have never heard anyone violate an instrument this badly before, and I cannot say I will miss it.
+<<jump Po_InformationWaddles>>
+===
+
+title: Po_Replacement
+---
+<<set $po_replacement to true>>
+
+Poppet: Yes, they actually became quite successful shortly after Waddles departure. I believe they are currently traveling the country, performing in front of a full house every night.
+<<jump Po_InformationWaddles>>
+===
+
+title: Po_Monkey
+---
+<<declare $po_monkey_reason to false>>
+<<declare $po_acrobat to false>>
+
+<<set $po_monkey to true>>
+
+<<if $po_monkey_reason is false and $po_acrobat is false>>
+    Poppet: Oh dear, it is so very hard to stay in character sometimes.
+    Poppet: It might be hard to tell right now, but trust me, I am a much more convincing monkey when I put on this mask.
+    Poppet: Sometimes, when I do my makeup before our nightly performances, my reflection even startles me a for a bit. I don't think there are very many people who are able to transform themselves thus.
+    Poppet: Teddy often admires how eerily similar me and Widget look. you must know, that I take quite a lot of pride in my artistry.
+<<elseif $po_monkey_reason is true xor $po_acrobat is true>>
+    Poppet: Any more question regarding this monkey-business?
+<<else>>
+    <<jump Po_InformationWaddles>>
+<<endif>>
+    -> You: Pardon me if I overstep, but why do you need to dress up as a monkey? <<if $po_monkey_reason is false>>
+        <<jump Po_MonkeyReason>>
+    -> You: What kind of a performance do you perform alongside Mr. Widget? <<if $po_acrobat is false>>
+        <<jump Po_Acrobat>>
+===
+
+title: Po_NeutralTerms
+---
+<<declare $po_honey_brittle to false>>
+
+<<set $po_neutral_terms to true>>
+
+Poppet: Some would say that. 
+You: You don't sound very convinced.
+Poppet: He is just very hard to like, that is all. He was the only person I've ever met, who did not enjoy my honey-brittle.
+Poppet: You realize the absurdity of that, don't you? How could one detest this sweet symphony of honey and peanuts? The way it just melts on your mouth and leaves you wishing for more?
+Poppet: It is a recipe passed down from my great grandpa. Teddy can't get enough of this delicious temptation and I don't blame him.
+<<if $honey_brittle is false>>
+    <<jump Po_RelationshipVictim>>
+<<endif>>
+-> You: \[honey brittle\] Oh that is very bizarre, because I have found this piece of honey-brittle on floor inside of Waddles wagon. <<if $honey_brittle is true and $po_honey_brittle is false>>
+   <<jump Po_HoneyBrittle>>
+===
+
+title: Po_OtherMembers
+---
+<<declare $po_grudge to false>>
+<<declare $po_information_gathering to false>>
+
+<<set $po_other_members to true>>
+
+<<if $po_grudge is false and $po_information_gathering is false>>
+    Poppet: I was just talking to Mort about that one time, Waddles "borrowed" her top hat from her wagon, without asking.
+    Poppet: Upon confronting him, he calmly explained to her, that his hat had been wrinkly in a dissatisfactory manner when he had reached for it that morning. He had subsequently felt forced into action and taken the liberty of sporting Morts hat until the issue with his own was resolved.
+    Poppet: According to Mort, he was very confused as to why she was upset with him. 
+    Poppet: You see, Mort doesn't wear that hat very much, if ever, so Waddles felt entitled to it.
+    Poppet: *ponders*
+    Poppet: I think that sums him up very well, actually. Waddles was a very entitled man and his relationship to most everyone was therefore strained, to put it nicely.
+    Poppet: Apart from Eduard, that is. Those two seemed to share a special bond, but I don't know if "friendship" would fit to describe it.
+    Poppet: It was simultaneously more and less than that. I can't put it into words very well, but I'm not sure if they could either.
+<<elseif $po_grudge is true xor $po_information_gathering is true>>
+    Poppet: Is there anything else I can help you with?
+<<else>>
+    <<jump Po_RelationshipVictim>>
+<<endif>>
+    -> You: I hate to ask so bluntly, but you seem very informed about the goings-on in the circus. Is there anyone who held a particularly strong grudge against the deceased? <<if $po_grudge is false>>
+        <<jump Po_Grudge>>
+    -> You: How do you gather so much information? <<if $po_information_gathering is false>>
+        <<jump Po_InformationGathering>>
+===
+
+title: Po_MonkeyReason
+---
+<<declare $po_monkey_actual_reason to false>>
+<<declare $po_predecessor to false>>
+
+<<set $po_monkey_reason to true>>
+
+<<if $po_monkey_actual_reason is false and $po_predecessor is false>>
+    Poppet: Oh, well I guess you are not wrong to ask. It is quite the peculiar thing but everyone else seems to have grown accustomed to it by now.
+    Poppet: You know, when I auditioned to become part of the ensemble, I wasn't aware that would entail wearing a false tail.
+    Poppet: I only found out after the fact, when Napoleon tld me that I needed to bring my own monkey costume since their previous monkey apparently took the costume with him when he left.
+    Poppet: *Sighs* Do you know how hard it is to find a seamstress willing to take up a commission like that? And on short notice too.
+    Poppet: It did turn out very nicely, though, I must say. 
+<<elseif $po_monkey_actual_reason is true xor $po_predecessor is true>>
+    Poppet: But hat's enough of that.
+<<else>>
+    <<jump Po_Monkey>>
+<<endif>>
+    -> You: That doesn't fully answer my question. Why do you need to look like a monkey to begin with. <<if $po_monkey_actual_reason is false>>
+        <<jump Po_MonkeyActualReason>>
+    -> You: Do you know what made your predecessor leave? <<if $po_predecessor is false>>
+        <<jump Po_Predecessor>>
+===
+
+title: Po_Acrobat
+---
+<<declare $po_airborne to false>>
+<<declare $po_widget to false>>
+
+<<set $po_acrobat to true>>
+
+<<if $po_airborne is false and $po_widget is false>>
+    Poppet: I don't know how this is related to the case in any way, but I appreciate you showing interest in our craft.
+    Poppet: Widget and I form a dynamic acrobat duo, performing all kinds of flips and twists and bends.
+    Poppet: There used to be an airborne section of the show, which had the audience on the edge of their seats. *her eyes begin to sparkle as she stares into the distance.*
+    Poppet: It must have been a mesmerizing sight to behold, to witness such a skillful dance in precarious heights.
+    Poppet: A single unfortunate grip, the slightest misjudgment of distance a promise for disaster.
+    Poppet: *sighs*
+    Poppet: It truly is a pity that Napoleon told us to cut it from the routine. Certainly very disheartening to say the least. <<if $po_airborne is false>>
+<<elseif $po_airborne is true xor $po_widget is true>>
+    Poppet: Let us move on from that.
+<<else>>
+    <<jump Po_Monkey>>
+<<endif>>
+    -> You: So the director got rid of the airborne act? That sounds like a strange choice to make, given that the audience apparently enjoyed it. <<if $po_airborne is false>>
+        <<jump Po_Airborne>>
+    -> You: So I take it, that you and Mr. Widget get along well. <<if $po_widget is false>>
+        <<jump Po_Widget>>
+===
+
+title: Po_HoneyBrittle
+---
+<<set $po_honey_brittle to true>>
+
+Poppet: That is indeed very bizarre. *she looks visibly confused* 
+Poppet: Maybe it was one of the initial pieces he tried before he decided to dislike them. That must be it.
+Poppet: Surely, he dropped it then and it just got discovered now upon closer inspection.
+Poppet: Hell, I wouldn't put it past him to just lie about not liking them. He had the tendency to act much more fancy than he actually was.
+<<jump Po_RelationshipVictim>>
+===
+
+title: Po_Grudge
+---
+<<declare $po_killing_method to false>>
+<<declare $po_serious_allegations to false>>
+
+<<set $po_grudge to true>>
+
+Poppet: What a straight-forward thing to ask. You must realize that you are asking me to accuse one of my trusted colleagues of murder.
+Poppet: *she shakes her head disapprovingly* You, Mister Detective, have some nerve, storming into this quiet camp and asking me to do the job for you. I have a high sense of morality and pride myself of being a loyal friend to to those around me.
+Poppet: That being said, I do think that Mort did it. She just gives off that vibe and I never quite believed her clumsy act.
+    -> You: Oh... How do you think she did it? <<if $po_killing_method is false>>
+        <<jump Po_KillingMethod>>
+    -> You: Those are some very serious allegations. I Don't believe I have found quite enough evidence to support that. <<if $po_serious_allegations is false>>
+        <<jump Po_SeriousAllegations>>
+    -> You: Thank you, I will note that down.
+        <<jump Po_OtherMembers>>
+===
+
+title: Po_InformationGathering
+---
+<<set $po_information_gathering to true>>
+Poppet: Feeling a bit intimidated, aren't we detective? *she giggles*
+Poppet: I'm just playing with you, love. We each have our own little tricks up our sleeve.
+Poppet: I have this special gift of making people feel at ease when they are around me. The secrets just bubble out of them if you offer up a nice cup of tea, some scones and good company.
+<<jump Po_OtherMembers>>
+===
+
+
+title: Po_MonkeyActualReason
+---
+<<set $po_monkey_actual_reason to true>>
+Poppet: *she scratches her chin*
+Poppet: I'm not sure I know the answer to that question. I guess it never occurred to me to ask Napoleon about it.
+<<jump Po_MonkeyReason>>
+===
+
+title: Po_Predecessor
+---
+<<set $po_predecessor to true>>
+Poppet: I happened to also be curious about his departure, which is why I did some digging of my own.
+Poppet: Most of the others seemed just as clueless as I was then. But all of them agreed that his decision to leave the circus had come very sudden.
+Poppet: Eduard was the only one who was able to offer me first-hand information. He moved in close proximity to my predecessor and they had gotten along quite well.
+Poppet: According to him, the guy had found new gig that paid better. It was required that he started this new position within the same week, or else he would have been replaced by one of the numerous other applicants.
+Poppet: I don't think I fully buy it though. Who else would hire an acrobat around those parts? And with such urgency?
+Poppet: No way of telling who is lying here, but I don't like the smell of it.
+<<jump Po_MonkeyReason>>
+===
+
+title: Po_Airborne
+---
+<<set $po_airborne to true>>
+
+Poppet: Strange is one way to describe it. 
+Poppet: I can't seem to remember the reasoning he put forth at the time. But if you ask me, he just cheapened out of insurance for this quarter and is trying to get away with it without causing a big scandal in the newspaper.
+Poppet: *gasp*
+Poppet: Don't tell him I said that! I don't want to be sent back home.
+<<jump Po_Acrobat>>
+===
+
+title: Po_Widget
+---
+<<set $po_widget to true>>
+
+Poppet: Oh yes, Widget is like the brother I've always wished for when I was just a young chick.
+Poppet: I honestly find it strange just how well we get along sometimes. Him and I don't share an awful lot of interests and I'm not sure what we chat about half of the time.
+Poppet: But there is this deep familiarity. The kind where you already know what the other is thinking, without them needing to say it aloud.
+Poppet: He is my partner in crime.
+Poppet: ...
+Poppet: *gasp* Oh dear, that must have sounded very suspicious given the circumstances. I apologize.
+Poppet: I meant to tell you that he is the kind of friend I would call when I needed to hide a body.
+Poppet: *she clasps her hands in front of her beak and looks at you in utter shock*
+Poppet: It... it is just a saying. The first thing that came to mind, really. There was no deeper reason in me saying that other than..
+You: I think it would be best if we left it at that.
+Poppet: I agree.
+<<jump Po_Acrobat>>
+===
+title: Po_KillingMethod
+---
+<<declare $po_handkerchief to false>>
+<<declare $po_interesting_theory to false>>
+<<declare $po_comical to false>>
+
+<<set $po_killing_method to true>>
+
+<<if $po_handkerchief is false and $po_interesting_theory is false and $po_comical is false>>
+    Poppet: I can't possibly...
+    Poppet: Napoleon mentioned bruising around Waddles neck when his body was discovered, which leads me to believe that Mort has strangled him with that really long handkerchief of hers. You know, the kind magicians use, that just never seem to end.
+<<elseif $po_handkerchief is false or $po_interesting_theory is false or $po_comical is false>>
+    Poppet: I think I've got time to answer another one.
+<<else>>
+    <<jump Po_Grudge>>
+<<endif>>
+    -> You: \[handkerchief\] I did actually find one of those on the crime scene. <<if $handkerchief is true and $po_handkerchief is false>>
+        <<jump Po_Handkerchief>>
+    -> You: An interesting theory. I will keep it in mind. <<if $po_interesting_theory is false>>
+        <<jump PO_InterestingTheory>>
+    -> You: That sounds almost comical. I'm not sure I believe it. <<if $po_comical is false>>
+        <<jump Po_Comical>>
+===
+
+title: Po_SeriousAllegations
+---
+<<set $po_serious_allegations to true>>
+
+Poppet: Yes, it is very unfortunate that you need evidence for this sort of thing. I tend to enjoy a mixture of intuition and hear-say a lot more.
+<<jump Po_OtherMembers>>
+===
+
+title: Po_Handkerchief
+---
+<<set $po_handkerchief to true>>
+
+Poppet: How interesting. I cannot say I am surprised. I have always been good at reading people Mort never seemed trustworthy to me.
+Poppet: Too bad, we had a girls night planned for wednesday and I was looking forward to that quite a bit.
+Poppet: Oh well, maybe I can ask Teddy if he wants to come over for some tea and biscuits instead.
+<<jump Po_OtherMembers>>
+===
+
+title: PO_InterestingTheory
+---
+<<set $po_interesting_theory to true>>
+
+Poppet: Oh I hope I am wrong this once, but I'm afraid I'm not often mistaken. 
+<<jump Po_OtherMembers>>
+===
+
+title: Po_Comical
+---
+<<set $po_comical to true>>
+
+Poppet: *she giggles* It does paint an amusing picture, if the matter was not as serious.
+Poppet: Poor Waddles, he did have his flaws, but I don't think he deserved to go out in such a silly way.
+<<jump Po_OtherMembers>>
+===

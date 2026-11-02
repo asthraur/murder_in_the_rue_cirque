@@ -1,0 +1,167 @@
+title: Wi_Start_Day2
+---
+Widget: Detective is back already?
+You: The case is still open, Mr. Widget. And hello.
+Widget: But Widget doesn't have anything new to say.
+<<wait 1>>
+Widget: And hello.
+You: See, it’s about me having new questions... not you having new information.
+Widget: *thinks*
+<<wait 1>>
+Widget: OK.
+You: Thank you, Mr. Widget.
+Widget: *Shyly* Call Widget Widget? MESTER stresses Widget out. As if Widget has done something wrong and is being scolded... *pauses abruptly*
+You: *Deep breath* Very well, Widget...
+    -> You: Are you expecting to be scolded?
+        <<jump Widg_Skipped>>
+    -> You: You look like you didn’t sleep well, Widget.
+        Widget: *nods* Widget didn’t sleep well. Widget’s sleep showed up at the training ground.
+        Widget: *his face darkens* But Widget... couldn’t do it.
+        <<jump Widg_Skipped>>
+    -> You: You know what, let's talk another time.
+        <<stop>>
+===
+title: Widg_Skipped
+---
+<<declare $widg_goodhairday to false>>
+<<declare $widg_wad_hair to false>>
+
+Widget: *Looks down at his tail* Widget skipped training today.
+Widget: Because Widget had a bad hair day.
+Widget: Bad hair day makes Widget anxious. Widget can't focus when anxious.
+Widget: So Widget...
+You: I got the picture, Widget.
+You: But I have to say, your hair looks spectacular today.
+    <<jump Widg_GoodHairDay>>
+===
+title: Widg_GoodHairDay
+---
+<<set $widg_goodhairday to true>>
+
+Widget: *His face brightens up* Widget knows. Want Widget to share his hair routine?
+    -> You: *Nod gratefully* You know what, Widget... 
+        -> You: Im going you hold you to that offer.   
+            You: *Gesture at his shiny hair* If Mr. Waddles really appreciated artistry, he would have asked you to teach him.
+            <<jump Widg_Wad_Hair>>
+        -> You: Your routine is probably too advanced for me. 
+            You: *Gesture at his shiny hair* If Mr. Waddles really appreciated artistry, he would have asked you to teach him.
+            <<jump Widg_Wad_Hair>>
+    -> You: Let's talk another time.
+        <<stop>>
+===
+title: Widg_Wad_Hair
+---
+<<set $widg_wad_hair to true>>
+
+Widget: *Bitterly* Mr. Waddles never asked Widget anything. He <i>ordered</i>.
+Widget: *Thinks* Mr. Waddles didn't have hair anyway.
+Widget: Even Widget couldn't help.
+    -> You: What kind of this did Mr. Waddles order you to do?
+        Widget: Moving heavy things, *he rubs his shoulder, as if still feeling the weight*
+        You: That sounds unfair, Widget. What was the last time you moved a heavy thing for him?
+        <<jump Widg_Heavythings>>
+    -> You: Did he ever reward you for the things you did for him?
+        Widget: *laughs darkly* last time, Mr.Waddles shut the door in Widget's face.
+        Widget: Widget was only hoping to use the big makeup table...
+        You: That's very rude, Widget. Care to tell me what happened?
+        <<jump Widg_Heavythings>>
+===
+title: Widg_Heavythings
+---
+Widget: *Thinks* Mr. Waddles asked Widget to move his wagon to the other side of the camp.
+<<wait  2>>
+    -> You: Pardon?
+    -> You: You moved the wagon. Of course.
+Widget: *Nods, as if hes remembering*  We stopped to set camp. Boss had accidentally parked Mr. Waddles’ wagon on the other side.
+Widget: Said "We need one damned night of proper sleep, for the devil’s sake!"
+Widget: *Pauses. Looks uncomfortable for cursing* Mr. Waddles was unhappy. Said practicing trumpet doesn’t feel the same.
+Widget: *As fast as he can* o Widget carried his wagon to the spot between Mr. Edward’s wagon and the boss’s. Where he told Widget. Then he left. Closed the door in Widget’s face.
+    -> You: That's very rude, Widget. You know what else is rude?
+        You: TTaking other people’s things without asking, which Mr. Waddles did...
+        Widget: *looks unsure where this is going* Yes?
+        You: Tell me Widget..
+    -> You: *Nod* Mr. Waddles felt quite entitled to your labor.
+        Widget: *Looks sad* He did.
+You: Was he feeling entitled to your belongings too?
+Widget: *Thinks* Widget... does not have many belongings.
+Widget: Widget thinks Mr. Waddles wouldn’t have wanted them if Widget had any.
+You: You have that impressing and delicate hair comb.
+Widget: *Smiles and reaches for the combs in his hair* Widget got them...
+<<jump Widg_Comb>>
+===
+title: Widg_Comb
+---
+Widget: *His eyes get wider in horror as he feels the empty space in his hair*
+Widget: Oh.
+    -> You: Where is your comb, Widget? <<if $comb is false>>
+        You: Am I going to find it on the murder scene?
+    -> You: I have your comb, Widget. *take the comb our of your suitcase* <<if $comb is true>>
+        -> You: Do you need me to tell you where I found it?
+        -> You: Do you want me to tell you why I think It's not where it should be?
+        -> You: I have so many questions, Widget. Where should I start?
+Widget: *eyes wide, his tail shaking constantly* No.
+You: You were not friends with Mr. Widget. He wouldn't even invite you inside his wagon... 
+    -> You: What would you say if we search the wagon right. now. And find your comb? <<if $comb is false>>
+    -> You: \[comb\] Why did I find your hair comb in the now murder scene, then, Widget? <<if $comb is true>>
+    -> You: [bluff]\[pocket mirror\] Why are your fingerprints on mirror he always carried? <<if $pocket_mirror is true>>
+    -> You: \[pocket mirror|comb\]*Say nothing. Looks at him expectantly* <<if $pocket_mirror is true or $comb is true>>
+Widget: *Shaking* Mr. Waddles... stole... Widget's hair comb?
+You: Even you yourself don't believe it, Widget.
+Widget: No.
+<<wait  2>>
+Widget: *Shaking sigh* Widget is tired of hiding. Widget cant do this anymore. * takes a deep breath*
+<<wait  1>>
+Widget: *In one breath* Widget broke Mr. Waddles’ trumpet, but it was an accident. Widget wanted to play it. Widget actually played it... played it better than Mr. Waddles himself...
+You: ...
+You: Ok, Widget. Slow down...
+Widget: *in the same breath*  Widget felt very sad. Widget wanted to make up for it, so Widget skipped training and went to the town and got a brand new trumpet. It was very shiny...
+Widget: *pauses* Widget had no idea stuff is so expensive.
+Widget: *Almost out of breath* Widget sneaked into Mr. Waddles’ wagon that night to replace the trumpet. Widget can be very sneaky if he wants. Mr. Waddles didn’t even wake up.
+Widget: then widget got distracted...
+Widget: *pauses, finally out of breath*
+    -> You: *softly* It’s OK, Widget. I’m sure it was an accident...
+    -> You: *firmly* let me tell you what happened next, Widget...
+You: He spotted you, and you got in a fight... And in the heat of the moment, your comb fell off.
+You: And you didn’t even notice. You were seeing red, finally so close to the man who did nothing but humiliate you...
+Widget: *voice so low it sounds like a scream* NO
+Widget: Mr. Waddles was dead when Widget got in! The wagon was quiet. So quiet. Widget got distracted. By stuff.
+Widget: Mr. waddles had so many stuff.
+Widget: *almost moans* Widget saw Mr. Waddles’ small mirror, the one he always used to correct his tie and his hat and his eyeglasses and his gentleman-y stuff...
+Widget: Widget wanted to know how Widget looks in that mirror.
+Widget: *cries* Widget was having a good hair day!
+You: So your defense, Mr. Widget, is that you ignored a dead body to check yourself out in a mirror?
+Widget: *his face twists in pain when you call him Mr* WIDGET DIDN’T IGNORE IT! WIDGET DIDN’T SEE IT!
+Widget: Widget only saw the dead Mr. Waddles when he heard Lady Poppet scream...
+<<wait  1>>
+Widget: Oh.
+Widget: *He looks drained* Widget did not want to cause Lady Poppet any trouble.
+Widget: But Widget and Lady Poppet didn't kill mr. waddles. *almost begs*
+Widget:  Detective needs to understand...
+    -> You: *clap your notebook closed* Detective understand very well, Mr. Widget.
+        You: I think I just need to talk to lady Poppet to clear some details.
+    -> You: *Slowly close your notebook and sigh* Im trying to understand, Widget.
+        You: I need to think this through, and also have a chat with your friend.
+Widget: *eyes on a point in distance, whispering*
+Widget: Widget just wanted to play the trumpet.
+<<stop>>
+    
+===
+title: Widg_NoConfession
+---
+<<declare $widg_saidnothing to false>>
+
+You: Let's see...
+    -> You: Were you aware that Mr. Waddles had his trumpet broken?
+        Widget: *His eyes widens* Tr... Trumpet? Broken?
+        Widget: *Takes a deep breath* Widget is sorry to hear it.
+        Widget: *sighs* Trumpets are very very expensive.
+        You: ... How do you know that, Widget?
+        Widget: B... Boss asks Widget to buy stuff for the circus. When stuff is broken.
+        Widget: *explains* Widget can carry heavy things very far.
+        Widget: Widget has many responsibilities in the circus. *looks uncomfortable*
+        You: Noted, Widget.
+        You: Anything you want to share with me?
+        Widget: *moves his head left and right* Widget has nothing to share.
+        <<set $widg_saidnothing to true>>
+        <<stop>>
+===

@@ -1,0 +1,315 @@
+
+title: Ed_Start_Day3
+---
+
+Eduard: Ah, Detective, what a pleasure.
+Eduard: The boss has ordered us to start packing, but rest assured—no one has disturbed your precious crime scene.
+Eduard: We’re drawing lots to decide who gets the unfortunate task of cleaning it up.
+    -> You:  You might feel less grim about it knowing the culprit will be held accountable.
+        Eduard: Will they, though?
+        You: Of course. I'm here to erase the last traces of doubt.
+    -> You: Is it fear that keeps you away, or mourning for your late friend?
+        Eduard: If I'm honest, it's mostly the mess—always cluttered, then a murder scene, and now torn apart by an investigator.
+        Eduard: But, well… murder scenes are rarely a pleasure to work in.
+        You: I understand. And I’m here to clear away the last shreds of doubt.
+Eduard: *smirks* Of course you are. Shall we begin, then? I assume you have more questions.
+Eduard: Third time’s the charm.
+<<jump Eduard_Questions_3>>
+
+===
+title: Eduard_Questions_3
+---
+<<declare $ed_clown_nose to false>>
+<<declare $ed_torn_flyers to false>>
+<<declare $ed_pocket_watch to false>>
+<<declare $ed_pile_of_suits to false>>
+
+
+    <<if $clown_nose is false and $crumpled_flyer is false and $pocket_watch is false>>
+You: ... Actually, I have nothing as of now.
+Eduard: Wow.
+        <<jump Ed_Day3_End>>
+    <<elseif $ed_clown_nose is false and $ed_torn_flyers is false and $ed_pocket_watch is false>>
+You: *Open your notebook* let's see...
+    <<elseif $ed_clown_nose is true xor $ed_torn_flyers is true xor $ed_pocket_watch is true>>
+Eduard: Is there anything else? I don't have all day, you know.
+    <<else>>
+You: We're almost done, Eduard...
+Eduard: You keep saying that.
+    <<endif>>
+
+-> You: \[pocket watch\] Is this one of the late Mr. Waddles' possessions? <<if $pocket_watch is true and $ed_pocket_watch is false>>
+    <<jump Ed_Pocket_Watch>>
+-> You: I assume Mr. Waddles took good care of his clothes, right? <<if $ed_pile_of_suits is false>>
+    <<jump Ed_Pile_Of_Suits>>
+-> You: \[torn flyer\] This has your name on it. <<if $crumpled_flyer is true and $ed_torn_flyers is false>>
+    <<jump Ed_Torn_Flyers>>
+-> You: \[clown nose] This doesn't seem like something Mr. Waddles would own. Is it yours? <<if $clown_nose is true and $ed_clown_nose is false>>
+    <<jump Ed_Clown_Nose>>
+-> You: Let us call it a day.
+    <<jump Ed_Day3_End>>
+
+    <<if ($clown_nose is false or $ed_clown_nose is true) and ($pocket_watch is false or $ed_pocket_watch is true) and ($clown_nose is false or $ed_clown_nose is true)>>  
+<<jump Ed_Day3_End>>  
+    <<endif>>  
+
+
+
+===
+title: Ed_Pocket_Watch
+---
+Eduard: ...
+Eduard: *looks flushed beneath the pale makeup, pressing lips against another* No comment?
+You: Was that a question?
+Edaurd: I dont know. its just... *his gaze is fixed on the watch, as if watching a stray child*
+    -> You: Look, if you're hiding something, I *will* find out. Some of your colleagues love to gossip.
+        Eduard: They do, dont they?
+    -> You: Alright. I’m filing this as evidence. You’ll never set eyes on it again...
+        Eduard: *frustrated* Wait, no. Let’s not get ahead of ourselves.
+Eduard: *signs* Okay, it’s mine. It is mine. Where did you find it, and... am I once again a suspect?
+        -> You: In the crime scene. And yes.
+            Eduard: Here we go again.
+        -> You: In the crim scene, and no.
+            Eduard: Not very helpful, though at least reassuring.
+        -> You: In the crime scene, and maybe.
+            Eduard: Mysterious, aren’t we?
+Eduard: Very well. I lost it days ago—long before the incident.
+Edaurd: I looked everywhere, turned every stone. Though, perhaps not everyone noticed me.
+Eduard: I can be quite discreet about my business.
+Eduard: Ah, our dear trumpet penguin... Quite the crow, was he not? Filling his nest with whatever shone and gleamed.
+    -> You: So, you think he stole it?
+        Eduard: A possession of mine found among his belongings? Yes. That that is called theft.
+    -> You: Maybe someone planted it there...
+        Eduard: *thinks* you suggest a scheme to make it appear as though I killed him to reclaim my watch?
+        Eduard:  A bit dramatic, don’t you think?
+Eduard: Poor little waddles couldn’t handle people having nice things, I suppose.
+Eduard: I’m not like him. I don’t rub my belongings in other people’s faces.
+You: Did you tell anyone your watch was missing?
+Eduard: Not particularly. I tend to keep such matters to myself.
+Eduard: I told maybe four... no, five people. Six if you count the deceased.
+    -> You: Thats... *check notes* everyone.
+        Eduard: *shrugs* They’re clowns. They all look the same to me.
+    -> You: You’re very discreet.
+        Eduard: *nods*
+Eduard: Anyway... Can I have it back? I'm not the type to care much about material things...
+Eduard: But this, this does hold some significance for me.
+<<if $ed_pocket_mirror is true>>
+Eduard: *smirks*  Even though I didn’t get it from my great-great-great-grandfather. 
+<<endif>>
+You:  I’m afraid not. I have to keep everything until I close the case.
+    -> You:  You’ll get it back then, I promise.
+        You: Unless, of course, you happen to be the killer.
+    -> You: Even then, I cannot promise you will see it again.
+        You: Not if you’re the killer, for instance.
+Eduard:  Ah, to be caught and to lose the very object for which one committed murder.
+Eduard: *winks* Now that, I would consider a fine jest for the stage.
+Eduard: *His gaze lingers on the watch as you place it carefully into your suitcase, his eyes heavy with a trace of sorrow.*
+    <<set $ed_pocket_watch to true>>
+    <<jump Eduard_Questions_3>>
+===
+title: Ed_Pile_Of_Suits
+---
+
+Eduard: You'd be right to assume that, yes.
+Eduard: One of his better qualities.
+You:  I noticed his suits are sort of scattered in front of the rack.
+Eduard:  Hm, it is indeed strange. He didn’t care about making a mess wherever he went,
+Eduard:  But he was very careful about sorting his belongings.
+Eduard:  He once asked the... you know... little one with the big hat? *gestures to show a big hat*
+You: Teddy.
+Edaurd: Was that his name?
+Eduard: ... Asked that guy to head to his wagon and bring him his <i> Saturday hat</i>
+Eduard: Then got mad that the wrong hat was brought to him.
+Eduard: Fifteen minutes of this till he went to get the damn hat himself.
+Eduard: *Pauses dramatically* They all looked the same. 
+Eduard: He said the Saturday hat was precisely dusted for that day. 
+Eduard: *Pauses* How dreadfully tedious as evidence. What else have you found? The murder weapon, perhaps? A letter brimming with vengeance?
+Eduard: *Opens his arms theatrically* Another body?
+You: Sorry to disappoint. 
+        <<set $ed_pile_of_suits to true>>
+        <<jump Eduard_Questions_3>>
+===
+title: Ed_Torn_Flyers
+---
+Eduard: *reaches his hand to get the flyer* Oh, yes. The now pretty much dead idea of our two-man show
+Eduard: Though you must really look to see the name of the second man, yours truly.
+Eduard: The dear, departed Waddles’ name, along with his trumpet and ego, have taken most of the page.
+Eduard: *look at you* Pray, where did you come across it? We had not yet begun the distribution of these.
+You: I found several torn and quite crumpled copies within the confines of the wagon.
+    -> You: Was anyone else involved in this performance?
+        Edaurd: No, it was solely the two of us. We have been rehearsing for quite some time, you see.
+        Eduard: Waddles, in particular, was looking forward to it. *his expression turns wistful*
+        You: You were not?
+        Eduard:  Quite the contrary.. I was, indeed. It was, in all truth, a most serious, profound, and meaningful thing.
+        Eduard: Unlike the majority of the shallow, trifling performances I am compelled to do as part of my job.
+        Eduard: *sighs* We funded the flyers ourselves, from our own humble pockets. were all of them destroyed?
+        You: That's all I found.
+        Eduard: A shame. To think that such a humble flyer could trigger such fury in the hearts of some.
+        Eduard: The people here, it seems, have no understanding of true art.
+        Eduard: This, in and of itself, ought to be a crime. *he shakes the torn flyer with theatrical frustration.*
+        -> You: Who else knew of your preparations for the performance??
+            Eduard: *pauses to consider* We practiced in our spare time. Well, I did. Waddles didn't care much for rehearsals.
+            Eduard: Unless, of course, it was past midnight.
+            Eduard: I personally told no one, as far as I can remember.
+            Eduard: *shrugs nonchalantly* 
+                <<set $ed_torn_flyers to true>>
+                <<jump Eduard_Questions_3>>
+    -> You: Who else knew of your preparations for the performance??
+            Eduard: *pauses to consider* We practiced in our spare time. Well, I did. Waddles didn't care much for rehearsals.
+            Eduard: Unless, of course, it was past midnight.
+            Eduard: I personally told no one, as far as I can remember.
+            Eduard: *shrugs nonchalantly* I suppose someone may have been following me, or some such thing.
+            -> You: Was anyone else involved in this performance?
+                Edaurd: No, it was solely the two of us. We have been rehearsing for quite some time, you see.
+                Eduard: Waddles, in particular, was looking forward to it. *his expression turns wistful*
+                You: You were not?
+                Eduard:  Quite the contrary.. I was, indeed. It was, in all truth, a most serious, profound, and meaningful thing.
+                Eduard: Unlike the majority of the shallow, trifling performances I am compelled to do as part of my job.
+                Eduard: *sighs* We funded the flyers ourselves, from our own humble pockets. were all of them destroyed?
+                You: That's all I found.
+                Eduard: A shame. To think that such a humble flyer could trigger such fury in the hearts of some.
+                Eduard: The people here, it seems, have no understanding of true art.
+                Eduard: This, in and of itself, ought to be a crime. *he shakes the torn flyer with theatrical frustration.*
+                <<set $ed_torn_flyers to true>>
+                <<jump Eduard_Questions_3>>
+
+
+
+===
+title: Ed_Clown_Nose
+---
+
+Eduard: It is not indeed. Though we did try to convince him.
+Eduard: It is not mine, though.
+You: Given the location where it was found, it could cast the owner in an unfortunate light, I dare say.
+Eduard:  Yes, these things are quite tricky, as you might imagine.
+Eduard: t’s no easy task removing it, you see. I’ve spent many a night battling with my trunk until I mastered the art of it...
+Eduard: *Pauses abruptly* oh.
+    -> You: You are aware of what that implies, are you not?
+    -> You: Do you want me to tell you what it means?
+Eduard: *coldly*  It could have fallen off the killer in the midst of a struggle, no doubt.
+Eduard: And yet, I must remind you... it was found in the repair and storage wagon.
+Eduard: It might have been placed there entirely unrelated to the tragedy.
+    -> You: *say nothing*
+    -> You: The place of its discovery strongly suggests it may have been rolling toward there.
+        Eduard: It is a round object, after all. Round things have a tendency to roll.
+    -> You: There are slight marks or impressions on it, likely from pressure applied.
+        Eduard: More reasons for it to be simply left at the repair wagon.
+Eduard: *swings his trunk anxiously*
+Eduard:  I must admit, this is the first time I truly feel... uneasy. 
+Eduard: And I cannot quite place why.
+Eduard: But that nose is not mine.
+Eduard: I should like to believe I am the sort of man who would remove his clown nose before committing such a heinous act.
+You:  People often forget things in the heat of the moment.
+Eduard: *Lifts his trunk, positioning it between the two of you* Hard to forget this, trust me.
+Eduard: Also, I cannot be the only one cursed with such a peculiar part of a costume, can I?
+Eduard: After all, this is a circus. Surely you can find another clown to accuse.
+    -> You: Are you attempting to send me down a misguided path?
+        Eduard: I’m merely reminding you that as a detective, you must consider every possibility.
+    -> You:  Is this truly the full extent of your defense? Other clowns?
+        Eduard: *gestures towards the clown nose*  Is this your entire case, then? One clown nose?
+You: Dont worry.  I am taking all factors into account. As for the clown nose...
+    -> You: It may indeed prove to be irrelevant in the grand scheme of things.
+        Eduard: *nods* Quite so, I imagine.
+        You: But just in case- Do you have another clown in mind?
+        Eduard: *Shrugs*
+        You: Can't think of any other clowns?
+    -> You: I have another clown in mind, I confess.
+        Eduard: oh. *looks relieved* Oh? Might I inquire who, pray tell?
+    You: Teddy, your partner?
+    Eduard: *looks confused* Teddy, my.. oh. Big hat?
+    -> ‌You: big hat.
+    -> You: You truly do not recall your own partner?
+    Eduard: Truth be told, I try to forget being in this circus every day. Some things just end up slipping away first.
+    Eduard: Yes, now that you mention it, the little one does wear a clown nose, doesn't he?
+    Eduard: Come to think of it, I cannot say I have ever seen him without it.
+    Eduard: *looks at you* Now, I am not in the business of casting aspersions, detective.
+    Eduard: I still think that the nose is entirely irrelevant to this matter.
+    Eduard: But, if you insist on making it central to the case... well, yes.
+    Eduard: Then by all means, investigate another nose. Leave mine in peace.
+You: Wouldn’t it be quite the irony if it were the very thing to undo you in the end?
+Eduard: *Gestures dramatically* Indeed, detective. A fitting end for a clown’s career—brought low by a mere nose.
+<<set $ed_clown_nose to true>>
+<<jump Eduard_Questions_3>>
+
+===
+
+title: Ed_Day3_End
+---
+Eduard: Ah, so that settles it, does it?
+You: Before we tie things up neatly, do you happen to know what little Teddy was up to at the time of the crime?
+    Eduard: ...
+    Eduard: ...
+    You: *gesture your hands to illustrate someone small and round*
+    Eduard: Ah, that fellow. No, I do not. And why should I?
+    You: You... sort of share a wagon?
+    Eduard: *Blinks* Do we?  I hadn't noticed him.
+    Eduard: I'm afraid I can't help you with his whereabouts last night-or, for that matter, at any other time.
+    You: *slowly nod and close you notebook*
+Eduard: Wait... What happens now?
+    -> You: You will know when the time is right. 
+        You: After I report to your boss.
+    -> You: I need to speak with the others.
+        You: Then report to your boss. 
+    Eduard: Report with a name, I assume?
+    You: Hopefully.
+    Eduard: So you haven't made up your mind?
+    -> You: Hmm. No.
+        You: You're suddenly very inquisitive.
+    -> You: Hmm. Yes.
+        You: You're suddenly very inquisitive.
+Eduard: Naturally. Someone’s life—mine, perhaps—may be ruined if you misstep.
+Eduard: Not to mention, a murderer would walk free. Lurking among us. 
+Eduard: You're not saying more, are you?
+Eduard:  I can only assume you don’t think it was me…
+Eduard: Otherwise, you'd still be clawing for a confession.
+    -> You: Or I’m gathering my witnesses and coming back for you.
+        Eduard: Witnesses, now? This should be entertaining.
+        Eduard: I'm relieved your're not building your case solely upon the random trinkets you pocketed.
+        Eduard: I half expected to be interrogated over a misplaced carrot, given your methods.
+        Eduard: But it won't come to a trial with witnesses... Boss will likely just shoot whoever you name. Less paperwork than an arrest.
+        <<jump Ed_Day3_EndEnd>>
+    -> You: Or my case is solid enough that I don’t need a confession.
+        Eduard: Ah, yes. The grand deductions built upon the random trinkets you pocketed.
+        Eduard: I half expected to be interrogated over a misplaced carrot, given your methods.
+        Eduard: But it won't come to a confession... Boss will likely just shoot whoever you name. Less paperwork than an arrest.
+        <<jump Ed_Day3_EndEnd>>
+            
+===
+title: Ed_Day3_EndEnd
+---
+
+        -> You:  *Lie* But I truly don’t think you did it, Eduard.
+        -> You:  *Mean it* But I truly don’t think you did it, Eduard.
+    Eduard: *Amused smirk.* Truly? And why is that?
+         -> You: You just dont have it in you. 
+            Eduard: Unclear if that’s meant to flatter or offend.
+         -> You: You would have done it differently.
+            Eduard: What kind of murderer do you take me for?
+            -> You: You’d have been less messy.
+            -> You: You’d have been more brutal.
+    Eduard: *Eyes set on you, nods*
+    You: But really *tap on your notebook* because you were friends.
+    Eduard: ...
+    -> You: Enough to bring him books... <<if $eduard_russian_classic is true>>
+    -> You: Enough to plan a two-man show <<if $ed_torn_flyers is true>>
+    -> You: Enough to get emotional over a mirror... <<if $ed_pocket_mirror is true>>
+    -> You: I can see your grief.
+    Eduard: *Shifts uncomfortably.* Hmph. Perhaps.
+    Eduard: He had a talent for burrowing under one’s skin.
+    Eduard: His endless, pathetic attempts to seem grander than he was—exhausting.
+    Eduard: And yet... I understood. He was just another trumpet penguin.
+    Eduard: Step into Napoleon’s office, and you’ll see a thousand Waddles just like him, ready to take his place.
+    Eduard: But he wanted more, you see.
+    Eduard: He didn’t want to be just another trumpet penguin.
+    You: *You eye him carefully*
+    <<wait  2>>
+    Eduard: *Pauses, then exhales.* Shame it was him who died, detective.
+    Eduard: You would have loved interrogating him.
+        -> You: Preferably I’d rather watch a circus perform than unravel a murder within one.
+             Eduard: You know what's even better? Joining a circus! *opens his arms dramatically, his facial expression blank*
+             Eduard: And I heard we just got one wagon free.
+        -> You: The ones I’ve questioned have been… entertaining enough. Really.
+             Eduard: You know what's even more entertaining? Joining a circus! *opens his arms dramatically, his facial expression blank*
+             Eduard: And I heard we just got one wagon free.
+===

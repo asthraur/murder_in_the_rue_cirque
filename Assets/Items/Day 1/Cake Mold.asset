@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cae5af2f3c62f54bb9245cb40ae2bdb, type: 3}
+  m_Name: Cake Mold
+  m_EditorClassIdentifier: 
+  id: 0
+  itemName: Cake Mold
+  infoText: The mold in which an adept baker would make a cake. Very shiny, so most
+    likely not in much use.
+  info1: the mold in which and adept bake would make a cake. Very shiny, so most
+    likely not in much use.
+  info2: 
+  info3: 
+  info4: 
+  info5: 
+  info6: 
+  day: 1
+  variableName: cake_mold
+  itemIcon: {fileID: 4495604684672462806, guid: 8d34e77f88524cf44af59cb6d79afb2f, type: 3}

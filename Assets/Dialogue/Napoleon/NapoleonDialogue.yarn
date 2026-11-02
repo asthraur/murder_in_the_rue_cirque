@@ -1,0 +1,191 @@
+﻿
+title: Na_Start_Day1
+/// first time you talk to him after interviewing everyone at the end of day ONE
+---
+//<<declare $honey_brittle=false>>
+//<<declare $russian_classic=false>>
+//<<declare $parting_letter=false>>
+//<<declare $waddles_portrait=false>>
+<<declare $honey_nap_var=false>>
+<<declare $naped_dayone_var=false>>
+<<declare $nap_letter_var=false>>
+
+
+Napoleon: *Seated behind a large, ornate desk, its golden details tarnished with age. His head is buried deep in a mountain of papers, his attention absorbed. He barely notices your arrival.*
+You: *Clear your throat audibly.*
+Napoleon: *Glances up, an eyebrow arched, a faint smirk tugging at his lips.* Ah, detective. Was about to come find you. But, you know.
+Napoleon: *He taps a section of papers, each of them adorned with an old photograph of a penguin holding a trumpet.*
+You: How are you doing?
+Napoleon: *Waves his hand nonchalantly, voice dripping with sarcasm.* es, yes, I am quite well. Interviewing no less than six trumpet penguins an hour—it's a delight. 
+Napoleon: Got any news for me?
+<<jump NapNewsDayOne>>
+===
+title: NapNewsDayOne
+---
+<<declare $nap_wad_pics to false>>
+<<declare $nap_waddles_actor to false>>
+<<declare $nap_figurine to false>>
+<<declare $nap_newspaper to false>>
+
+<<if $nap_wad_pics is false or $nap_figurine is false or $nap_newspaper is false or $naped_dayone_var is false>>
+    You: *Open your notebook* Let me see.
+<<else>>
+    <<jump Nap_End_DayOne>>
+<<endif>>
+    
+    -> You: \[russian classic\]Eduard did visit the victim on the day of the murder..<<if $russian_classic is true and $naped_dayone_var is false>>
+        <<jump NapEd_DayOne>>
+    -> You: I heard something rather curious about your behavior on the day of the murder. <<if $nap_newspaper is false>>
+        <<jump Nap_NewsPaper>>
+    -> You: \[figurine\]Is this circus property? I found it in the wagon. <<if $fancy_figurine is true and $nap_figurine is false>>
+        <<jump Nap_Figurine>>
+    -> You: \[waddles portraits\] Mr. Waddles appears to have an... extensive collection of portraits of himself <<if $waddles_portrait is true and $nap_wad_pics is false>>
+        <<jump Nap_WadPics>>
+    -> You: I need more time to solve the case. Let us call it a day.
+            Napoleon: I see. I suppose expecting this to vanish in a single day was rather too hopeful.*sighs*
+            Napoleon: Then I should hope we see each other tomorrow, detective. 
+            Napoleon: Keep the key to the wagon, there <i>must</i> be something you are missing.
+            You: See you tomorrow, then.
+            <<stop>>
+        
+===
+title: NapEd_DayOne
+---
+Napoleon: Mmhm. Does it prove anything, though? They seem cut from the same old, heavy, dusty fabric.
+        You: He was bringing Mr. Waddles a book, it seems. A russian classic.
+        Napoleon: That tracks. *Hooks his hands behind his neck, reclining with ease* I am not one to pry into my employees' private affairs...
+        Napoleon: But it is difficult not to notice Eduard's fixation with the morbid and the oppressively bleak. He ensures you notice it, in fact.
+            -> You: Bad for business, I assume?
+                Napoleon: Quite the opposite.
+            -> You: I'm somewhat concerned for the young man.
+                Napoleon: Oh, don't be. His skin is thicker than the covers of the books he wastes his salary on.
+                Napoleon: He revels in every minute of his so-called endless suffering. And, I must admit...
+        Napoleon: People love his mannerisms. 
+        Napoleon: I happily let him collect misfortune the way others collect trinkets. So long as he hauls himself onto that stage and does <i>what he does best</i>, I don't particularly care.
+            -> Acrobat?
+                Napoleon: Dear god, no. Can you imagine that?
+            -> Joggling?
+                Napoleon: Dear god, no. Can you imagine that?
+            -> Magic tricks?
+                Napoleon: Dear god, no. Can you imagine that?
+            -> Nothing?
+                Napoleon: Precisely.
+        Napoleon: He mostly does nothing but looking miserable. And for some reason, that alone charms the audience.
+        Napoleon: *Taps his fingers absentmindedly against a photograph of a penguin holding a trumpet* Misery likes company, detective.
+        Napoleon: *A pause* Is there anything else?
+        <<set $naped_dayone_var to true>>
+        <<jump NapNewsDayOne>>
+
+
+
+===
+title: Nap_NewsPaper
+---
+<<set $nap_newspaper to true>>
+
+Napoleon: *looks tired* Can not wait to hear it.
+    You: First, how do you think Mr. Waddles felt about the circus?
+        Napoleon: He loved playing his trumpet. I paid him handsomely to play his trumpet. Nothing could stop him from playing his trumpet.
+        Napoleon: Dream life, if you ask me.
+        -> You: Did you have any reason to believe he might have wanted to leave the circus?
+        -> You: I could not help but notice that the résumés arrived with remarkable speed. 
+        Napoleon: Ah. *leans back* I know where this is going.
+        Napoleon: I presume you’ve been informed of the trumpet penguin open-call I placed to the local press.
+        Napoleon: I have taken to issuing routine calls for trumpet penguins, as they possess a most unfortunate tendency to... disappear.
+        Napoleon: Though, I must confess, this is the first instance in which one has done so by way of murder.
+        Napoleon: *Looks at you expectantly*
+        -> You: \[letter\] I must warn you... This does not reflect favorably upon you. <<if $parting_letter is true>>
+            <<jump NapLetter>>
+        -> You: This suffice. We can move on.
+            <<jump NapNewsDayOne>>
+===
+
+title: NapLetter
+---
+    Napoleon: Must be good, then.
+    -> You: *Say nothing. Throw the resignation letter on his desk making sure to emphasize the gesture dramatically*
+    Napoleon: *Looks at the letter, then at your face with amusement* Couldn't wait to do that, huh?
+    Napoleon: *Napoleon carefully examines the letter, his eyebrows rising with each line.*
+    Napoleon: Good heavens. And I thought Eduard was the dramatic one.
+    Napoleon: *Pauses, sighing* I confess, he doesn't sound terribly happy here.
+    -> You: Does that surprise you?
+    Napoleon: My dear detective, there are two entire paragraphs comparing my refusal to offer five-course gourmet meal as a dinner option every night to using a medieval torture device...
+    Napoleon: Am I surprised? No, it is as I expected. Classic Waddles. Did I think this might cause him to leave the circus? Admittedly, no.
+    Napoleon: I've never had anyone formally resign. They tend to disappear rather than confront me directly.
+        -> You: Pardon?
+            Napoleon: *is not listening*
+        -> You: *don't interrupt him*
+    Napoleon:  I wouldn't have even known how to respond, had I known. He was likely hoping I would beg him to reconsider.
+    You: *Curiously* Would you?
+    Napoleon: Of course. Anything to avoid the infernal pile of resumes. *Gestures to the disorganized pile of trumpet penguin applications on his desk.*
+    You: And if he had not listened... would you have become angry enough to...
+    Napoleon: *Fixes you with a steady gaze, his eyes narrowing with an ominous look* choose your next words very carefully, detective.
+        -> You: *Pause, then speak slowly* Never mind. For now.
+        -> You: To resort to violence?
+    Napoleon: *Looks aggrieved* Very well. No sense in delaying the inevitable.
+    Napoleon: It was about time to speak plainly. I could see that infernal detective gleam in your eyes, and I find it insufferable.
+    Napoleon: *He entwines his fingers and rests his chin upon them, speaking with the deliberate slowness of one addressing a particularly obtuse child.*
+    Napoleon: Fine. Let us imagine that I killed him. Then left the letter at the scene, and then I, in an act of sheer lunacy, personally hired the first detective I found to solve the case.
+    Napoleon: I can only hope to be more cunning with my next crime.
+    Napoleon: *he leans back and folds his arms*
+        -> You: Every murderer must begin somewhere. *smile stupidly*
+            Napoleon: Perhaps you should grab a clown costume on your way out.*Stares*
+        -> You: I was merely asking. No need for such defensiveness.
+            Napoleon: *Stares, then sighs* You are correct. You are, after all, merely doing your job.
+    Napoleon: I should not presume myself above suspicion, of course.
+    Napoleon: It's clear that I am reveling in boundless delight now that he is dead. *Gestures at the mountain of papers upon his desk with an expression of undisguised loathing.*
+    Napoleon: Shall we proceed, or have you yet more evidence against me to lay at my feet? *looks more amused than angry*
+                <<set $nap_letter_var to true>>
+                <<jump NapNewsDayOne>>
+
+                   
+===
+title: Nap_WadPics
+---
+    Napoleon: Does he now?
+        You: They really have not caught your eyes?
+        Napoleon: *raises an eyebrow* Oh, those were portraits of Waddles <i>himself</i>?
+        Napoleon: Good God. I thought they were his family.
+        Napoleon: I was even-dare I say-a touch moved by what I assumed was an exceptional level of filial devotion.
+        Napoleon: *A pause* What an interesting man the world has lost.
+        Napoleon: What else do you have?
+        <<set $nap_wad_pics to true>>
+        <<jump NapNewsDayOne>>                 
+===
+title: Nap_Figurine
+---
+
+Napoleon: *reaches and examines the figurine* Not familiar to me. Must have been his.
+    -> You: Looks quite expensive and fine in details.
+        Napoleon: *Sets the figurine aside* Emphasis on <i>looks.</i>
+    -> You:  Probably had sentimental value.
+        Napoleon: i doubt it.
+        <<if $nap_wad_pics is true>>
+        Napoleon: The man carried a suitcase full of his own portraits. I can’t imagine him appreciating any visual art that wasn’t a life-sized statue of himself.
+        Napoleon: Double the size, come to think of it.
+        <<endif>>
+Napoleon: See, spend enough time away from home, and you start clawing at anything that <i>resembles</i> meaning.
+Napoleon: Waddles found meaning in pretending to be someone else. Trinkets like these…
+Napoleon: They exude an air of wealth, of worldliness. One places them on a shelf and weaves a story—a life they might have lived.
+Napoleon: A life worth returning to.
+-> You: … That turned darker than I anticipated.
+-> You: And your crew do not have such a life?
+Napoleon: *leans forward* There’s something about donning clown attire and joining a travelling circus that doesn’t exactly scream "fulfilling existence."
+Napoleon: We are all running from something, my dear detective.
+You: And you? What are you running from?
+Napoleon:  *slight hesitation*. My taxes. Only to be met with road tolls, fairground fees, and an ungodly amount of paperwork
+You: That’s not what you were going to say…
+Napoleon: I did have a wittier response in mind. But alas, it’s a circus with a dead body. I fear jokes are still on hold.
+Napoleon: *taps on the pile of paper* is there anything else?
+<<set $nap_figurine to true>>
+<<jump NapNewsDayOne>>
+===
+
+title: Nap_End_DayOne
+---
+You: Nothing else to report.
+Napoleon: I see. I suppose expecting this to vanish in a single day was rather too hopeful.*sighs*
+Napoleon: Then I should hope we see each other tomorrow, detective. 
+Napoleon: Keep the key to the wagon, there <i>must</i> be something you are missing.
+You: See you tomorrow, then.
+===

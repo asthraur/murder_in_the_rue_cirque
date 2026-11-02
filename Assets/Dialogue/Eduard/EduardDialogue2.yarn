@@ -1,0 +1,199 @@
+
+
+title: Ed_Start_Day2
+---
+Eduard: Ah. You have returned. *His expression betrays no particular sentiment—neither surprise nor interest.*
+Edaurd: I cannot say I am shocked.
+You: Why is that?
+Eduard: *shrugs* A murder solved in a single day? Even a man with no particular love for crime novels knows better than to expect such efficiency.
+Eduard: Must we do this again?
+You: I have come across new evidence that requires clarification.
+Eduard: *sighs* Very well. Let us proceed, then.
+<<jump Eduard_Questions_2>>
+===
+title: Eduard_Questions_2
+---
+<<declare $ed_pocket_mirror to false>>
+<<declare $ed_fancy_gloves to false>>
+<<declare $ed_playing_cards to false>>
+
+    <<if $ed_fancy_gloves is false and $ed_pocket_mirror is false and $ed_playing_cards is false>>
+Eduard: Please, do make it quick. I have… *reaches into his pocket, expecting something, then pause*
+Eduard: …a limited amount of time, though the precise amount eludes me.
+    <<elseif $ed_fancy_gloves is false or $ed_pocket_mirror is false or $ed_playing_cards is false>>
+Eduard: *Tries to look aloof* Found anything else?
+     <<elseif ($fancy_gloves is false or $ed_fancy_gloves is true) and ($pocket_mirror is false or $ed_pocket_mirror is true) and  ($playing_cards is false or $ed_playing_cards is true)>>  
+        <<jump Ed_Day2_End>>
+<<endif>>
+    -> You: \[playing cards\]I found these tucked away in Mr. Waddle’s wagon. Do they mean anything to you? <<if $playing_cards is true and $ed_playing_cards is false>>
+        <<jump Ed_Playing_Cards>>
+    -> You: \[fancy gloves\] I believe they may belong to you... <<if $fancy_gloves is true and $ed_fancy_gloves is false>>
+        <<jump Ed_Fancy_Gloves>>
+    -> You: \[pocket mirror\] This mirror—does it look familiar? <<if $pocket_mirror is true and $ed_pocket_mirror is false>>
+        Eduard: Oh, indeed. That would be poor old Waddles’ prized possession.
+        Eduard: He claimed it was a family treasure, passed down from his great-great-great-grandfather.
+        Eduard: Did people even have mirrors back then?
+        <<jump Ed_Pocket_Mirror>>
+    -> You: I can't say I have anything new to ask. We'll talk later.
+        <<jump Ed_Day2_End>>        
+===
+title: Ed_Playing_Cards
+---
+<<set $ed_playing_cards to true>>
+
+Eduard: *Moves to reach for a card but hesitates, withdrawing his hand awkwardly.* Ah. Yes, these belong to Mort.
+Eduard: The carrots rather give it away, don't they?
+Eduard: That, and the fact that they’re playing cards. Not exactly anyone else’s specialty or interest.
+You: You don’t care for playing cards?
+Eduard:  I find some use for them—I rather enjoy building those fragile little houses. Calms my nerves.
+Eduard: But magic tricks? Boring. Predictable... and *loud*
+    -> You: Boring?
+        Eduard: If you've seen one, you've seen them all.
+        -> You: Loud?
+    -> You: Predictable?
+        Eduard: A trick is only as good as the magician’s ability to distract. Most fail miserably at it.
+        -> You: Loud?
+    -> You: Loud?
+Eduard: Oh yes. I can only assume this is why Waddles saw fit to shove her cards somewhere.
+Eduard: Mort used to practice several times a day. Quite the distraction.
+You: Was Mort annoyed at their disappearance?
+Eduard: I don't know if she even noticed. And if she did, the annoyance wouldn’t be directed at Waddles—Mort misplaces things constantly.
+    <<jump Eduard_Questions_2>>
+
+===
+title: Ed_Fancy_Gloves
+---
+<<set $ed_fancy_gloves to true>>
+
+Eduard: *His eyes flick to the gloves, then to your face, then back to the gloves.* And why would you believe that?
+    -> You: They’re finely made, with detailed embroidery—seems like the kind of thing you’d appreciate.
+        Eduard: I’m flattered. Waddles also had a taste for things like this.
+        You: He didn't have fingers, though.
+        Eduard: *Nods* He didn't have fingers.
+    -> You: Purple feels like your color.
+        Eduard: *blinks* My work costume is black and white.
+        You: ou don’t walk around in your clown costume after work, do you?
+        Eduard: For no sum of money, nor divine intervention, could anyone convince me to wear that hideous outfit a moment longer than necessary.
+You: ... So?
+Eduard: Right. They’re still not mine. I don’t know why you’d pick up random objects and tie it to your little case.
+Eduard: They belong to our boss.
+You: Napoleon? He visits the wagon often?
+Eduard: He doesn’t care for sewing or repairs, and he wasn’t exactly fond of Waddles’ company.
+Eduard: What he is a fan of, however, is free labor.
+Eduard: He’d leave his personal belongings there to be mended by whoever was unfortunate enough to find themselves in possession of the wagon at the time.
+    -> You: And how did the late Mr. Waddles feel about this arrangement?
+        Eduard: The topic never came up, but I doubt he was particularly fond of it.
+        Eduard: The man came here to play the trumpet, and play the trumpet he did—he never so much as lifted a finger for any of our shared chores.
+    -> You: And you never complained?
+        Eduard: *sighs* it's a circus, dear detective. One loses the luxury of pickiness the moment they join.
+        Eduard: But yes, it was an annoyance. Just not a conversation anyone particularly wished to have with the boss.
+Eduard: Waddles was probably planning to push the task onto someone else, anyway.
+Eduard: It's a vicious cycle. 
+    <<jump Eduard_Questions_2>>
+===
+title: Ed_Pocket_Mirror
+---
+<<declare $ed_mirror_used to false>>
+<<declare $ed_mirror_wanted to false>>
+
+<<set $ed_pocket_mirror to true>>
+
+    -> You: Did he make frequent use of the mirror?? <<if $ed_mirror_used is false>>
+        Eduard: Oh, constantly. The man was quite fond of checking his reflection.
+        Eduard: He enjoyed showing off, really. Everything he possessed, he flaunted.
+        Eduard: *pauses* As if anyone here is worth impressing.
+            <<set $ed_mirror_used to true>>
+            <<jump Ed_Pocket_Mirror>>
+    -> You: Had anyone else ever expressed interest in the mirror?  <<if $ed_mirror_wanted is false>>
+        Eduard: Not to my knowledge. Mirrors are practical, I suppose.
+        Eduard: And vanity is a rather popular way to pass the time.
+        Eduard: But I should not think that anyone desired it enough to kill him over it.
+        Eduard: No one ever bought into his stories of priceless heirlooms.
+        Eduard: A man of two passions—playing trumpet and collecting trinkets.
+            <<set $ed_mirror_wanted to true>>
+            <<jump Ed_Pocket_Mirror>>
+    -> You: Now, here is the intriguing part. There are fingerprints upon the mirror... <<if $ed_mirror_wanted is true and $ed_mirror_used is true>>
+        Eduard: *Blinks*
+        -> You: Is this not curious?
+            Eduard: *Carefully* Waddles didn’t have fingers, last I checked.
+            Eduard: And he never let that mirror out of his sight. *pauses*
+        -> You: ... And Waddles did not have fingers.
+            Eduard: *Cautiously* He didn't. Last I saw him.
+            Eduard: And he never let that mirror out of his sight. *pauses*
+        You: You watch him carefully. There’s a shadow on his white-painted face—something unreadable. Guilt? Sorrow?
+            -> You: You look troubled.
+                Eduard: *looks like he had forgotten about your presence* Sorry? Did you say something?
+            -> You: Mind to share your thoughts?
+                Eduard: *looks like he had forgotten about your presence* Sorry. Did you say something?
+        Eduard: I was reflecting on Waddles and the things that seemed to matter to him.
+        Eduard: That miserable-looking trumpet. The mirror. His collection of worn-out suits.
+        Eduard: They weren’t just objects to him. They were *him.*
+        Eduard: And now, they’re just… evidence.
+            -> You: *say nothing*
+                Eduard: Death has a way of forcing one to recognize the pointlessness of it all.
+                Eduard: *sighs* Your silence is unsettling. Do you have more questions?
+            -> You: These objects are not pointless. They may yet serve to bring justice for Mr. Waddles.
+                Eduard:  Justice will come and go, and Waddles will still be just as dead.
+                Eduard: This is making me uncomfortable. Do you have more questions?
+        You: Do you have any idea whose fingerprints these might be?
+        Eduard: I mean… someone with fingers? That does narrow your suspects, I suppose.
+            -> You: Any particular fingers in  mind?
+                Eduard: *Relieved sigh*  I appreciate that you’re not accusing my fingers, at least.
+                    -> You: I trust you. 
+                        Eduard: *smirks* Already? 
+                        Eduard: But of course, I wear gloves. 
+                        Eduard: Imagine taking them off, only to leave fingerprints behind.
+                    -> You: Don't feel too comfortable.
+                        You: It's because you own gloves— doubt you'd take them *off* before doing something… unsavory.
+                        Eduard: *smirks* You don't just trust me, detective? I thought we were having a moment.
+                        Eduard: But at least you don’t think I’m a complete fool.
+                Eduard: Still, are these fingerprints truly tied to Waddles' murder?
+                    -> You: Not necessarily.
+                        You: The individual may have arrived after the murder.
+                        Eduard: *thinks* And decided to spend their time rifling through his things instead of raising the alarm?
+                        Eduard: Yes… I can see that happening.
+                    -> You: Of course. 
+                        You: You mentioned he always carried it with him.
+                        Eduard: *thinks*  So the murderer just… took their time going through Waddles’ belongings?
+                        Eduard: : Yes… I can see that happening.
+                        
+            -> You: You seem to have rather functional fingers yourself.
+                Eduard: Functional as they may be, dear detective, I prefer to use them for turning pages and writing poetry.
+                Eduard: *wiggles his fingers in front of your face* My gloves are part of my costume, you see.
+                Eduard: Do you really think I’d be foolish enough to remove them before committing a crime?
+                    -> You: ... This actually makes sense.
+                        Eduard: *sighs* A reasonable mind—what a refreshing change.
+                        Eduard: Speaking of reasonable...
+                    -> You: It doesn’t take a genius to commit a crime.
+                        Eduard: *Rolls his eyes* Nor does it take one to solve it, apparently.
+                        Edaurd: Humor me, detective…
+                Eduard: Are these fingerprints necessarily tied to Waddles' murder?
+                    -> You: Not necessarily.
+                            You: The person could have arrived after the murder.
+                            Eduard: *thinks* And decided to spend their time rifling through his things instead of raising the alarm?
+                            Eduard: Yes… I can see that happening.
+                    -> You: Of course. 
+                            You: You said he always carried it with him.
+                            Eduard: *thinks*  So the murderer just… took their time going through Waddles’ belongings?
+                            Eduard: Yes… I can see that happening.
+    <<jump Eduard_Questions_2>>
+===
+title: Ed_Day2_End
+---
+You: That shall be all for today.
+Eduard: Mmmhm.You shall return tomorrow, I presume?
+    -> You: What if, by some miracle, I solve the case today?
+        Eduard: It would be wise, I dare say, to return regardless. Napoleon has engaged your services for three days, and three days it shall be.
+    -> You: I’m afraid so. There is still much to uncover.
+Eduard: *Brushes some imaginary dust from his shoulder* I must confess, this has proven far more entertaining than I had anticipated.
+Eduard: It’s... enlightening, though I can’t find a better word for it. 
+Eduard: Watching the crew carry on as if nothing’s changed... I wonder if it speaks of the darkness within us, or if it's just...
+    -> You: It's shame.
+    -> You: It's denial.
+    -> You: It's cruelty.
+    -> You: It's life.
+Eduard: *Two sides of his mouth lower even further, if possible It is.* It is.
+<<wait  1>>
+Eduard: In any case... the unbearable lightness of being is just a little more bearable when one isn’t screaming to drown out the sound of a trumpet.
+Eduard: *A familiar smirk returns to his face* So there is that.
+===

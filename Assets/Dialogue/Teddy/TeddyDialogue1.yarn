@@ -1,0 +1,277 @@
+title: Te_Start_Day1
+position: -48,-437
+---
+
+<<declare $te_clown to false>>
+<<declare $te_waddles to false>>
+<<declare $te_circus to false>>
+
+<<if $te_clown is false and $te_waddles is false and $te_circus is false>>
+    ???: Knock knock!
+        -> You: Who's there?
+            Teddy: Teddy! *jazz hands*
+            You: *clap excitedly*
+        -> You: I don't have time for jokes.
+            Teddy: Teddy... Oh, darn it. I'm sorry.
+            Teddy: I was really looking forward to doing jazz hands if you had chosen the other option.
+            You: My apologies, Teddy.
+    You: I'm investigating the recent murder the late Mr. Waddles. Surely the news of his untimely passing have already reached you.
+    Teddy: Oh yes, Eduard told me about it when we were playing cards earlier. I won you know!
+        -> You: Very well ...
+        -> You: I'm pleased to hear that.
+    Teddy: I'm really good at playing cards. My favorite is Memory but I also enjoy...
+    You: Would you be willing to answer a few question concerning the circumstances of Mr. Waddles passing?
+    Teddy: Oh. *he looks a little disappointed* Alright.
+<<elseif $te_clown is true or $te_waddles is true or $te_circus is true>>
+    Teddy: I need to leave soon. Eduard is probably already looking for me.
+<<endif>>
+    -> What exactly do you do as a... *checks notes* a clown? <<if $te_clown is false>>
+        <<jump Te_Clown>>
+    -> Were you close to the late Mr. Waddles. <<if $te_waddles is false>>
+        <<jump Te_Waddles>>
+    -> Why did you join the circus? <<if $te_circus is false>>
+        <<jump Te_Circus>>
+    -> You: That should suffice for today. Thank you for your time.
+        Teddy: We should do that again tomorrow! It made me feel kind of important *he looks really proud*.
+===
+
+
+title: Te_Clown
+---
+<<set $te_clown to true>>
+
+Teddy: Every fun thing imaginable! I make balloon animals and spend time with my best friend Eduard and I make all the people happy and sometimes I even get to eat cake! *his eyes light up*
+You: You seem to be spending a lot of time with Mr. Eduard.
+Teddy: Yes, we are the greatest clown duo west of the great sea. And we even get to share a wagon! Isn't that incredible?
+Teddy: Eduard always tells lots of funny jokes when we hang out.
+Teddy: But he is not just funny, he is also very smart and has way too many books to even count.
+<<if $russian_classic is true>>
+    You: \[weird russian classic\] Speaking of books, do you know if this one might belong to Eduard as well? <<if $russian_classic is true>>
+    Teddy: It certainly looks <i>smart</i>, but I'm not sure if it belongs to Eduard. *he starts pondering*
+    Teddy: Hmmm.. *still pondering*
+    Teddy: I think... *he seems to have made up his mind*
+    Teddy: No, sorry. I can't read.
+    You: Oh, don't worry about it. We move on to the next question then.
+    <<jump Te_Start_Day1>>
+<<else>>
+    <<jump Te_Start_Day1>>
+<<endif>>
+===
+
+title: Te_Waddles
+---
+<<declare $te_enemies to false>>
+<<declare $te_parting_letter to false>>
+<<declare $te_observations to false>>
+
+<<set $te_waddles to true>>
+
+<<if $te_enemies is false and $te_parting_letter is false and $te_observations is false>>
+    Teddy: Not as close as I am to Eduard, but we were friendly.
+<<elseif $te_enemies is false or $te_parting_letter is false or $te_observations is false>>
+    Teddy: I'm getting a little hungry. But I think I can manage a few more questions.
+<<else>>
+    <<jump Te_Start_Day1>>
+<<endif>>
+    -> You: Did the deceased have any enemies that you are aware of? <<if $te_enemies is false>>
+        <<jump Te_Enemies>>
+    -> You: \[parting letter\] Did Mr. Waddles appear fulfilled by his position as a trumpeter to you? <<if $te_parting_letter is false and $parting_letter is true>>
+        <<jump Te_PartingLetter>>
+    -> You: Did you notice any unusual behaviors from Mr.Waddles yesterday? <<if $te_observations is false>>
+        <<jump Te_Observations>>
+===
+
+title: Te_Circus
+---
+<<set $te_circus to true>>
+
+Teddy: Oh, I love to tell that story! So it was a warm afternoon in august.
+Teddy: No wait! It was february and the forecast had just announced that the hail wouldn't be stopping anytime soon.
+Teddy: Anyways... where was I? Oh, right. So I had just woken up from my midday slumber when...
+You: I'll take the abbreviated version if possible.
+Teddy: Oh, of course! I saw a flyer and thought that it looked fun.
+<<jump Te_Start_Day1>>
+===
+
+title: Te_Enemies
+---
+<<set $te_enemies to true>>
+
+<<declare $te_enemies_reason to false>>
+<<declare $te_enemies_teddy to false>>
+
+<<if $te_enemies_reason is false and $te_enemies_teddy is false>>
+    Teddy: Enemies? What do you mean?
+    You: Did anyone wish ill upon him?
+    Teddy: Oh, why didn't you just say that in the first place? If you put it that way, almost everyone was his enemy.
+<<elseif $te_enemies_reason is false or $te_enemies_teddy is false>>
+    Teddy: I'm sorry, I don't know what else to say about that.
+<<else>>
+    <<jump Te_Waddles>>
+<<endif>>
+    -> You: Why do you think everyone disliked the late Mr. Waddles? <<if $te_enemies_reason is false>>
+        <<jump Te_Enemies_Reason>>
+    -> You: Would you consider yourself one of those enemies. <<if $te_enemies_teddy is false>>
+        <<jump Te_Enemies_Teddy>>
+===
+
+title: Te_PartingLetter
+---
+<<set $te_parting_letter to true>>
+
+Teddy: He used to look at his trumpet really lovingly so he must have been, right?
+<<jump Te_Waddles>>
+===
+
+title: Te_Observations
+---
+<<set $te_observations to true>>
+
+<<declare $te_supposition to false>>
+<<declare $te_suspect to false>>
+<<declare $te_day to false>>
+<<declare $te_performance to false>>
+
+<<if $te_supposition is false and $te_suspect is false and $te_day is false and $te_performance is false>>
+    Teddy: You're right! I did see him do something weird yesterday. Or rather didn't see him do anything. 
+    Teddy: I didn't see him all day up until our evening performance was about to start. He must have been in his wagon the whole time.
+<<elseif $te_supposition is false or $te_suspect is false or $te_day is false or $te_performance is false>>
+    Teddy: *stomach grumbles*
+<<else>>
+    <<jump Te_Questions>>
+<<endif>>
+    -> You: Do you have any idea what he could have been doing in there? <<if $te_supposition is false>>
+        <<jump Te_Supposition>>
+    -> You: Did you see anyone entering or leaving the wagon of Mr. Waddles throughout the day? <<if $te_suspect is false>>
+        <<jump Te_Suspect>>
+    -> You: What have you been busying yourself with yesterday? <<if $te_day is false>>
+        <<jump Te_Day>>
+    -> You: Did anything unusual happen during last nights performance? <<if $te_performance is false>>
+        <<jump Te_Performance>>
+===
+
+title: Te_Enemies_Reason
+---
+<<set $te_enemies_reason to true>>
+
+Teddy: Hmm, good question. He had a weird sense of humor. Maybe they didn't understand his jokes.
+<<jump Te_Enemies>>
+===
+
+title: Te_Enemies_Teddy
+---
+<<set $te_enemies_teddy to true>>
+
+Teddy: Could I maybe talk to Eduard before I choose?
+Teddy: I like to make sure that we are on the same page when it comes to those things.
+<<jump Te_Enemies>>
+===
+
+title: Te_Supposition
+---
+<<set $te_supposition to true>>
+
+Teddy: Hmmm... I believe he could have done anything if he put his mind to it, really.
+Teddy: But if I had to say, he was probably polishing his trumpet. He liked to do that.
+<<jump Te_Observations>>
+===
+
+title: Te_Suspect
+---
+<<set $te_suspect to true>>
+
+Teddy: Not that I know of, no. But maybe I did see someone and forgot.
+Teddy: Would I be in trouble if I forgot?
+<<jump Te_Observations>>
+===
+
+title: Te_Day
+---
+<<set $te_day to true>>
+
+Teddy: I ran into Poppet right after I woke up and she gifted me a sandwich. Then I took the sandwich back to the wagon and shared it with Eduard.
+Teddy: Wait, I forgot to tell you how I left the wagon to begin with. 
+Teddy: It was through the door.
+Teddy: Alright, now back to where I left off. Eduard and I spent most of the day practicing our new routine. 
+Teddy: Oh and Eduard was taking notes I think.
+Teddy: Then I tried to repair some costumes but I gave up on that quickly.
+Teddy: Would you like for me to demonstrate the routine to you?
+You: No, that was quite sufficient.
+<<jump Te_Observations>>
+===
+
+title: Te_Performance
+---
+<<set $te_performance to true>>
+
+Teddy: I'm not so sure, if anything weird happened during the performance. But the monkeys acted strange when I met them backstage after the show.
+You: Can you specify further?
+Teddy: I can't put my finger on it, but they certainly acted <i>weeiird</i>. *he squints his eyes in suspicion*.
+<<jump Te_Observations>>
+===
+
+title: Te_Questions
+---
+<<declare $te_honey_brittle to false>>
+<<declare $te_costumes to false>>
+<<declare $te_alibi to false>>
+
+<<if $te_honey_brittle is false and $te_costumes is false and $te_alibi is false>>
+    Teddy: Would you like to hear a joke?
+    You: I'm afraid we've got not time to waste.
+    Teddy: Oh, right.
+<<elseif $te_honey_brittle is false or $te_costumes is false or $te_alibi is false>>
+    Teddy: How about now? Do we have time for a joke now?
+<<elseif ($honey_brittle is false or $te_honey_brittle is true) and $te_costumes is true and $te_alibi is true>>
+    <<jump Te_Waddles>>
+<<endif>>
+-> You: \[honey brittle\] Do you know what this is? <<if $te_honey_brittle is false and $honey_brittle is true>>
+    <<jump Te_HoneyBrittle>>
+-> You: You mentioned the repairing of costumes earlier. Am I correct to assume, that the clothing rack was in your possession until it was returned to the late Mr. Waddles? <<if $te_costumes is false>>
+    <<jump Te_Costumes>>
+-> You: What were you doing during the time of the murder? <<if $te_alibi is false>>
+    <<jump Te_Alibi>>
+===
+
+title: Te_HoneyBrittle
+---
+<<set $te_honey_brittle to true>>
+Teddy: Oh golly, did Lady Poppet give those to you? I haven't had them in so long.
+    -> You: No, I found them at the crime scene.
+       Teddy: That's weird. They do certainly look like the ones that Poppet makes.
+    -> You: Yes and I'll let you have them if you tell me a funny joke.
+       Teddy: Knock knock.
+       -> You: Who is there?
+           Teddy: It's me, honey!
+           Teddy: ...
+           Teddy: You need to say "honey who?"
+           -> You: *Exhales* Honey who?
+               Teddy: HONEY BRITTLE!!! *chuckles*
+               -> *give him the honey_brittle*
+                   Teddy: *lunges for the honey brittle and starts chewing* Wou aw won wucky beaw, Teddy.
+               -> *return the honey brittle back to your suitcase*
+                   Teddy: Oh, darn it.
+<<jump Te_Questions>>
+===
+
+title: Te_Costumes
+---
+<<set $te_costumes to true>>
+
+Teddy: Yes, that's right. We take turns you know! It's one of Waddle's jokes that no one finds funny.
+    -> You: Please elaborate
+        Teddy: The manager told Waddles to do the costume work, but he just took the wagon and all of us take turns doing the work now.
+        Teddy: It's not fair at all, but he threatened to poke holes in all of my pointy hats if I tell on him.
+        Teddy: Puh *he looks upset*. And now I'm stuck trying to sew with those useless paws.
+<<jump Te_Questions>>
+===
+
+title: Te_Alibi
+---
+<<set $te_alibi to true>>
+
+Teddy: Eduard and I were hanging out and I was practicing my juggling!
+    -> You: Do you recall what Eduard was doing in the meantime?
+        Teddy: He was reading one of his smart books I think. He tends to do that.
+<<jump Te_Questions>>
+===

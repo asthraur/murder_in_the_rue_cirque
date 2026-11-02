@@ -1,0 +1,161 @@
+﻿title: Te_Start_Day3
+---
+<<declare  $te_conversations to false>>
+<<declare $te_clown_nose to false>>
+<<declare $te_morts_hat to false>>
+
+<<if $te_conversations is false and $te_clown_nose is false and $te_morts_hat is false>>
+    Teddy: Hello, colleague!
+    Teddy: Do you mind if we try to keep it a little bit short today?
+    Teddy: Eduard asked me the rehearse our new set!
+    Teddy: *he is shaking with excitement*
+    You: Of course, I will try to keep my questions brief.
+    Teddy: Oh, that's right. It is your turn being the officer today.
+    You: I prefer the term detective.
+    Teddy: Why?
+    You: It just speaks to me more, encapsulates the mysterious aura I'm going for.
+    Teddy: Huh, sounds fun.
+    Teddy: Talking about mysterious, what kind of animal are you anyways?
+    You: Are you ready for your final questioning Teddy?
+    Teddy: Hey! You've ignored my question!
+<<elseif $te_conversations is false or $te_clown_nose is false or $te_morts_hat is false>>
+    Teddy: One more question okay? But just because it's fun.
+<<endif>>
+    -> You: Did you overhear any suspicious conversations since the investigation took up? <<if $te_conversations is false>>
+        <<jump Te_Conversations>>
+    -> You: \[clown nose\] Does tis belong to you? *squishes red nose to release a squeaking sound* <<if $te_clown_nose is false and $clown_nose is true>>
+        <<jump Te_ClownNose>>
+    -> You: \[top hat\] Was this hat already on the clothing rack, when you brought it into the wagon of the late Mr. Waddles a few days ago. <<if $te_morts_hat is false and $morts_hat is true>>
+        <<jump Te_MortsHat>>
+    -> You: That would be all Teddy. You can go now.
+        Teddy: *startled* Oh.. right. I guess i do need to be on my way.
+        Teddy: But it was really fun! are we doing this again tomorrow.
+        You: No, I will accuse one of you for murder later and then probably take the next train north.
+        Teddy: I see. I hope you get a nice seat on the train then!
+        Teddy: GOODBYEEEEE!
+        Teddy: *almost falls over his own feet multiple times as he keeps turning around to wave at you while he departs*
+===
+
+title: Te_Conversations
+---
+<<set $te_conversations to true>>
+
+<<declare $te_private to false>>
+<<declare $te_eduard to false>>
+
+<<if $te_private is false and $te_eduard is false>>
+    Teddy: I didn't head anything strange, but even if I had heard something, I would be silent as a grave.
+    Teddy: It is not nice to tell on people.
+    <<wait 2>>
+    Teddy: But now that I think of it, Poppet and Widget were talking really loudly outside of the kitchen wagon yesterday evening.
+    Teddy: I just wanted to check on my cream puff.
+    Teddy: Poppet made a huge batch last week and they were so yummy that I put some of them into my secret hiding spot!
+    Teddy: I can show it to you if you would like to see. You seem like someone who can hold a secret.
+    You: Strictly speaking, it is my job to expose secrets.
+    Teddy: darn it, you are right. I almost spilled all my beans*
+    Teddy: *knocks his paw against his head* I need to be more careful.
+    <<wait  1>>
+    You: So what were the acrobats talking about?
+    Teddy: Oh, right! I don't know what they were saying, but both of them looked troubled and stopped talking when they saw me.
+    Teddy: Did they mention something during your interviews?
+<<elseif $te_private is true xor $te_eduard is true>>
+    Teddy: *looks at you vacantly*
+<<else>>
+    <<jump Te_Start_Day3>>
+<<endif>>
+    -> You: This is a private investigation, Teddy. I can and will not tell you details. <<if $te_private is false>>
+        <<jump Te_Private>>
+        Teddy: Ha! I knew you were good at keeping secrets. *he looks pleased with himself*
+    -> Would you mind if we switched gears and spoke about Mr. Eduard instead? <<if $te_eduard is false>>
+        <<jump Te_Eduard>>
+===
+
+title: Te_ClownNose
+---
+<<set $te_clown_nose to true>>
+
+Teddy: Hey, you've got my nose! Give it back!
+You: So this really is your nose? How did it end up on the crime scene, Teddy?
+Teddy: Huh?
+<<wait  2>>
+Teddy: Crime scene? *visible confusion*
+Teddy: So you didn't just steal my nose?
+Teddy: *hesitantly feels for the clown nose in his face*
+Teddy: *squishes twice*
+Teddy: *relaxes*
+Teddy: That was scary. Please don't do that again detective.
+    -> You: So I take it that this is not your nose after all?
+        Teddy: No, mine is right were it belongs. *smiles happily*
+        Teddy: I'm sorry for freaking out the way I did. Mort sometimes does this trick were she steals my nose and I thought you were doing the same thing.
+        Teddy: *shudders*
+        -> You: My apologies, Teddy. Might this clown nose belong to Eduard then?
+            Teddy: Hmm.. No I don't think so. He still had is when we were eating breakfast earlier.
+            You: I wouldn't find it inconceivable for him to won multiple of these, given his occupation.
+            Teddy: Don't be silly detective. No one has more than one nose!
+            Teddy: It only grows once.
+            <<wait  2>>
+            You: *unsettled silence*
+<<jump Te_Start_Day3>>
+===
+
+title: Te_MortsHat
+---
+<<set $te_morts_hat to true>>
+Teddy: Yes, that's Mort's hat! She gave it to me to mend it but it wa so very hard to hold the needle that I couldn't finish it before it was Waddles turn again.
+Teddy: I'm sorry. *he looks disappointed in himself*
+You: ...
+You: That's alright, Teddy.
+You: It is good that we found it. Mrs. Mort was probably already wondering where it went.
+<<jump Te_Start_Day3>>
+===
+
+title: Te_Eduard
+---
+<<declare $te_eduard_grief to false>>
+<<declare $te_crumpled_flyer to false>>
+
+<<if $te_eduard_grief is false and $te_crumpled_flyer is false>>
+    Teddy: Oh Golly, I love talking about Eduard! He is my best friend you know!
+    You: Yes, I am aware.
+    Teddy: What do you want to know about him? I know a lot of things! Maybe even everything. At least it would be my goal to know everything.
+    Teddy: For example, he moves more slowly when it rains to "make the gloominess more potent" *makes air quotes with his paws*
+    Teddy: *shakes his head* That was a bad example. I don't even know what he means by that.
+    You: I am not certain I know either.
+    Teddy: Want me to try a different one.
+    You: No, no, that will suffice. Please just try to answer my questions.
+    Teddy: Alright. *waits expectantly*
+<<elseif $te_eduard_grief is true xor $te_crumpled_flyer is true>>
+    Teddy: is there anything else I can help with? Otherwise I should be on my way now.
+<<else>>
+    <<jump Te_Conversations>>
+<<endif>>
+    -> You: Has Mr. Eduard shown any signs of being affected by the loss of the late Mr. Waddles? <<if $te_eduard_grief is false>>
+        <<jump Te_EduardGrief>>
+    -> You: \[crumpled flyer\] Were you aware that there was a two man show starring Mr. Eduard and the deceased in the works? <<if $te_crumpled_flyer is false and $crumpled_flyer is true>>
+        <<jump Te_CrumplesFlyer>>
+===
+
+title: Te_EduardGrief
+---
+<<set $te_eduard_grief to true>>
+
+Teddy: Let me think.
+<<wait  2>>
+Teddy: *thinks for way too long*
+Teddy: He was reading a book in a really sad color today and he kind of looked like a wilted daisy as was bent over reading it.
+Teddy: Bu he does that every other day. So it is hard to tell by appearances alone.
+Teddy: As his best friend, however, I can tell you that he is happy!
+<<jump Te_Eduard>>
+===
+
+title: Te_CrumplesFlyer
+---
+<<set $te_crumpled_flyer to true>>
+
+Teddy: Oh... he didn't tell me about that.
+Teddy: He is really ambitioned like that and super creative too! so I guess it is no wonder he wants to expand his art is this way. *he seems really uncertain*
+Teddy: I wonder when he would have made time for our rehearsals next to organizing aa whole new performance. *ponders*
+Teddy: But it wont happen anymore now, so no need to drain our brain juices on it.
+<<jump Te_Eduard>>
+===
+

@@ -1,0 +1,17 @@
+{
+  "projectFileVersion": 2,
+  "sourceFiles": [
+    "**/*.yarn",
+    "**/*.mp3"
+  ],
+  "excludeFiles": [
+    "**/*~/*"
+  ],
+  "localisation": {
+    "en": {
+      "assets": "..\\Music"
+    }
+  },
+  "baseLanguage": "en",
+  "compilerOptions": {}
+}

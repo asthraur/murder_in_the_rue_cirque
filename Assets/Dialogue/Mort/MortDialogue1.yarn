@@ -1,0 +1,231 @@
+﻿title: Mo_Start_Day1
+---
+
+<<declare $mort_handkerchief_var = false>>
+<<declare $waddles_glasses = false>>
+
+<<declare $mo_wake_up to false>>
+<<declare $mo_victim to false>>
+<<declare $mo_suspicious to false>>
+<<declare $mo_handkerchief to false>>
+
+<<if $mo_wake_up is false and $mo_victim is false and $mo_suspicious is false and $mo_handkerchief is false>>
+    ???: *yawns*
+    ???: God, it is so awfully early.
+        -> You: My apologies.
+            ???: It should be fine, as long as we wrap this up in a timely matter.
+            ???: I usually have a twenty minute window in which I can resume the dream I was having.
+                -> You: Then we must hurry.
+                    ???: It is of utmost importance that we do.
+        -> You: It is way past noon already.
+            ???: No reason to be so judgemental about it. *she scratches her ear*
+            ???: I prefer to sleep in, that is all.
+        -> You: You didn't ask me to introduce myself.
+            ???: You are being quite demanding at this hour of the day.
+            ???: Be my guest and introduce yourself then.
+            ???: *she makes a lazy hand gesture, signaling you to go ahead*
+    You: *you adjust your suit (or whatever it is you are wearing)* 
+    You: I am the private investigator commissioned to solve the murder of the late Mr. Waddles.
+    You: *you look at her expectantly*
+    ???: ...
+    ???: Waddles is dead?
+    You: I assumed you knew. Everyone else seemed to have been informed by now.
+    ???: Ä.. now that you mention it, Napoleon might have said something of the sort when he shoo'ed me out of bed a couple minutes ago.
+    ???: What happened?
+        -> You: That's what I am trying to puzzle out.
+            ???: Go do that then. You don't need me for that. *yawns*
+            You: I am afraid that is not how an interrogation works.
+            ???: *she looks startled*
+            ???: This is an interrogation? That sounds like a very time consuming ordeal.
+            ???: I'm not sure I am up for it.
+            You: You do not really get a choice in this matter, Mrs. ...
+            ???: ....
+            You: ....
+            ???: ....
+            You: What is your name?
+            ???: Oh.. right. 
+            Mort: I am Mort. I'm the magician around these parts.
+            You: Thank you for taking the time to talk to me Mrs. Mort. I'm going to commence by asking you a few questions regarding the aforementioned crime now.
+            Mort: If you must.
+<<elseif $mo_wake_up is true or $mo_victim is true or $mo_suspicious is true or $mo_handkerchief is true>>
+    Mort: Are we done now?
+<<endif>>
+    -> You: When do you usually wake up? <<if $mo_wake_up is false>>
+        <<jump Mo_WakeUp>>
+    -> You: What was your relationship to the victim like? <<if $mo_victim is false>>
+        <<jump Mo_Victim>>
+    -> You: Did you notice anything suspicious on the day of the murder or leading up to it. <<if $mo_suspicious is false>>
+        <<jump Mo_Suspicious>>
+    -> You: \[handkerchief\] I have found this handkerchief at the crime scene. You don't happen to know how it got there by any chance? <<if $mo_handkerchief is false and $handkerchief is true>>
+        <<jump Mo_Handkerchief>>
+    -> You: I think this should conclude todays interrogation. I expect to see you tomorrow.
+        Mort: You can't be serious. I thought this was a one time thing.
+        Mort: *sighs*
+        Mort: I am off to bed then. Goodnight detective.
+===
+
+title: Mo_WakeUp
+---
+<<set $mo_wake_up to true>>
+
+<<declare $mo_reason_late to false>>
+<<declare $mo_practice to false>>
+
+<<if $mo_reason_late is false and $mo_practice is false>>
+    Mort: Around eight. I believe that is around the time when our shows start.
+<<elseif $mo_reason_late is true xor $mo_practice is true>>
+    Mort: Now let us please move on to the next question. I can feel my energy levels dwindling by the second.
+<<else>>
+    <<jump Mo_Start_Day1>>
+<<endif>>
+    -> You: Is there a reason why you get up so very late? <<if $mo_reason_late is false>>
+        <<jump Mo_ReasonLate>>
+    -> You: Don't you need to practice throughout the day? <<if $mo_practice is false>>
+        <<jump Mo_Practice>>
+===
+
+title: Mo_Victim
+---
+<<set $mo_victim to true>>
+
+Mort: Relationship is a very big word to describe the minimal amount of interactions that we had.
+Mort: Non of them were ever pleasant.
+Mort: Waddles was not the kind of man that one looked forward to meeting. He always took great offense to the most minute sounds anyone would make, especially at night.
+Mort: I never understood the logic behind that. That man never shied away from a trumpet solo when I was trying to sleep peacefully.
+Mort: Where is the fairness in that?
+    -> You: You do sleep from sunrise to sundown.
+        Mort: *shrugs*
+    -> You: That's very inconsiderate of Mr. Waddles.
+        Mort: Right? That's what I've been saying all this time.
+Mort: Anyhow, it looks like I will get a good head of sleep today, once we are done here.
+<<jump Mo_Start_Day1>>
+===
+
+title: Mo_Suspicious
+---
+<<set $mo_suspicious to true>>
+
+<<declare $mo_alibi to false>>
+<<declare $mo_observations to false>>
+
+<<if $mo_alibi is false and $mo_observations is false>>
+    Mort: Not unless you want me to recount that one strange dream of Teddy wearing a top hat.
+        -> You: I take it that you've spend the day of the murder in bed as well?
+            Mort: You wouldn't be wrong in assuming that.
+            -> You: which in turn means that you were awake at the time of the murder.
+                Mort: ...
+                Mort: I was, but that doesn't mean anything.
+<<elseif $mo_alibi is true xor $mo_observations is true>>
+    Mort: Are we done now?
+<<else>>
+    <<jump Mo_Start_Day1>>
+<<endif>>
+    -> You: What were you doing that night? <<if $mo_alibi is false>>
+        <<jump Mo_Alibi>>
+    -> You: Did you notice any odd sounds? <<if $mo_observations is false>>
+        <<jump Mo_Observations>>
+===
+
+title: Mo_Handkerchief
+---
+<<set $mo_handkerchief to true>>
+
+Mort: Oh, you found that at the crime scene you say?
+Mort: The old pickpocket probably stole it from me when I wasn't looking.
+Mort: *a creepy smile sneaks across her face*
+Mort: Well, he got what he deserved in the end.
+<<jump Mo_Start_Day1>>
+===
+
+title: Mo_ReasonLate
+---
+<<set $mo_reason_late to true>>
+
+Mort: There actually is a reason. I don't really like to talk about it. 
+Mort: However, I am going to make an exception just for you.
+Mort: But only because I like your bow tie, if that is what you are wearing.
+Mort: So, there is this hat I own. It's a top hat made for magic shows that I bought at a yard sale a couple of years ago.
+Mort: It terrifies me. It is such an awful, awful thing and I wish I had never crossed paths with it.
+Mort: I keep it inside of the box that it came in at all times - a necessary measure I took, that turns out be quite effective.
+Mort: But at night I can hear it rattling in there, trying to break free, trying to consume me.
+Mort: And that is why I made the choice to quit sleeping at night.
+Mort: Best decision I ever made. *her eyes make a crunchy sound as she blinks*
+    -> You: What exactly are you referring to, when you say that it wants to consume you?
+    -> You: Who sold this hat to you?
+    -> You: Why are you keeping the hat if it terrifies you so much?
+Mort: I am done talking about the hat.
+Mort: My hat didn't kill Waddles so any further information regarding it is not of importance to you right now.
+<<jump Mo_WakeUp>>
+===
+
+title: Mo_Practice
+---
+<<set $mo_practice to true>>
+Mort: I am a magician..
+Mort: How exactly is one supposed to practice magic? You can either wield it or you can't and I don't know of a way to teach it.
+You: So you employ some sort of witchery?
+Mort: Not witchery! Magic.
+Mort: I'm a magician, not a witch. Please try to remember that, as I am currently trying to push for a rebrand.
+You: I see.
+<<jump Mo_WakeUp>>
+===
+
+title: Mo_Alibi
+---
+<<set $mo_alibi to true>>
+
+Mort: I certainly wasn't killing a fancy penguin, if that is what you are implying.
+Mort: Although, I can't recall what I was doing precisely, I do know that it wasn't coldblooded murder.
+Mort: *she squeezes her eyes shut in effort to focus*
+Mort: No, I can't remember. Sometimes I like to play cards by myself. Maybe that's what I was doing.
+Mort: Let's just go with that as an alibi.
+    -> You: I don't think that will suffice.
+        Mort: Trust me, if I had wanted Waddles to disappear, I would have.. 
+        Mort: You know...
+        Mort: ...actually made him disappear.
+        -> You: That's a very scary thing to say.
+            Mort: *smiles menacingly*
+    -> You: That sounds very plausible, thank you.
+        Mort: Does it? I mean of course it makes sense.
+<<jump Mo_Suspicious>>
+===
+
+title: Mo_Observations
+---
+<<set $mo_observations to true>>
+
+<<declare $mo_scream to false>>
+<<declare $mo_silence to false>>
+
+<<if $mo_scream is false and $mo_silence is false>>
+    Mort: Now that you mention it, I did hear a really loud, bloodcurdling scream coming from outside.
+    Mort: Wait..
+    Mort: No, I take that back. While that did happen, I don't think it was last night. The scream happened maybe two nights ago.
+<<elseif $mo_scream is true xor $mo_silence is true>>
+    Mort: *grins*
+<<else>>
+    <<jump Mo_Suspicious>>
+<<endif>>
+    -> You: Where did the scream come from? <<if $mo_scream is false>>
+        <<jump Mo_Scream>>
+    -> You: So you didn't hear or see anything noteworthy last night? <<if $mo_silence is false>>
+        <<jump Mo_Silence>>
+===
+
+title: Mo_Scream
+---
+<<set $mo_scream to true>>
+
+Mort: Oh it was just Teddy. He was wandering about outside of my wagon and tripped over a wire.
+<<jump Mo_Observations>>
+===
+
+title: Mo_Silence
+---
+<<set $mo_silence to true>>
+
+Mort: The rattling of the train drowns out most other sounds. *shrugs*
+Mort: That might have been to the determent of old Waddles, but I was actually enjoying the peace and quiet.
+Mort: I didn't even hear the scrapping of the hat for once.
+<<jump Mo_Observations>>
+===

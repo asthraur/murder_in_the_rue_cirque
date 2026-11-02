@@ -1,0 +1,112 @@
+title: Wi_Start_Day3
+---
+Widget: *The monkey sits on a tree trunk behind his wagon, woefully gazing at his reflection in a small pool of water.*
+Widget: *To himself* Bad widget. Stupid...
+Widget: *Notices you and tries to remain as still as possible*
+    -> You: You're not exactly blending in, Widget.
+        You: The best way to prove your honesty is by talking to me.
+    -> You: I was expecting you, Mr. Widget.
+        You: wWithholding information and avoiding interrogation is not a good look.
+Widget: *Head down* Widget is embarrassed. Clumsy. Widget might lose his job.
+You: Napoleon is going to fire you?
+    <<if $nap_monkey_secret is true>>
+You: I didnt tell him anything, Widget.
+    <<endif>>
+Widget: *is not listening* 
+Widget:  Boss said Widget can't jump and run in the big tent anymore...
+<<wait  0.5>>
+Widget: Boss wants Widget to play the trumpet!!
+<<wait  0.5>>
+You: ...
+You: I am pretty sure he was joking.
+Widget: *Another whimper* Boss doesn’t joke...
+Widget: *Looks serious* And Boss is disappointed in Widget. Lady Poppet too. Everyone.
+Widget: *Stops talking abruptly and stares at his tail.*
+You: ...
+You: I’m not disappointed in you.
+    -> You: But I need you to be honest with me today. Can you do that, Widget?
+    -> You: But I need you to be honest with me today. Can you do that, Mr. Widget?
+        Widget: *Looks pained.*
+        You: If you want me to stop calling you 'Mister,' you’ll have to earn my trust.
+Widget: *Gulps and stands tall.*
+Widget: Detective can trust Widget. Everyone can.
+<<jump Widg_DayThree_Questions>>
+===
+title: Widg_DayThree_Questions
+---
+<<declare $widget_flyer to false>>
+<<declare $widget_thatnight to false>>
+
+<<if $widget_flyer is false and $widget_thatnight is false>>
+    You: I'm sure we can, Widget.
+    You: Now, let’s continue where we left off yesterday...
+    Widget: *Makes a desperate noise.*
+    You: Okay. Let’s have a fresh start.
+<<elseif $widget_flyer is true or $widget_thatnight is true>>
+    You: You're doing good, Widget. We're almost done.
+<<else>>
+    <<jump Widg_EndCon>>
+<<endif>>
+    -> You: \[flyer\] Did you know about this upcoming show?  <<if $crumpled_flyer is true and $widget_flyer is false>>
+        <<jump Widg_Flyer>>
+    -> You:  I don’t want to startle you, but we need to talk about that night... <<if $widget_thatnight is false>>
+        <<jump Widg_ThatNight>>
+    -> You: I don't have further questions, Widget.
+        <<jump Widg_EndCon>>
+===
+title: Widg_Flyer
+---
+<<set $widget_flyer to true>>
+
+Widget: *Reaches his hand to take the flyer* 
+Widget: *Examines the flyer*
+<<wait  1>>
+Widget: Widget cant read.
+Widget: *looks at the flyer again*  But Widget thinks it’s about a show where Mr. Waddles is very big and Mr. Eduard is very small.
+Widget: And there are trumpets.*looks pleased with himself*
+You: That is, in fact, an excellent observation, Widget.
+You: So I take it this is new to you?
+Widget: *nods* This is new to Widget. But Widget is not surprised.
+You: How come?
+Widget: *shrugs* Widget saw Mr. Eduard sneaking into the rehearsal tent after hours. He tried to be sneaky. But he is tall. Hard to miss. *Shrugs again.*
+Widget: No one practices after work except Widget. Because Widget loves what Widget does.
+Widget: Widget thought Boss gave Mr. Eduard a new act. Something to make him happier.
+<<wait  1>>
+Widget: Widget feels sad for Mr. Eduard now.
+Widget:  *Quickly* And for Mr. Waddles.
+Widget: *Apologetically* But less.
+You: Thanks for being honest Widget. 
+<<jump Widg_DayThree_Questions>>
+===
+title: Widg_ThatNight
+---
+<<set $widget_thatnight to true>>
+
+Widget: *Gulps* Widget is ready.
+You: *Look at your notebook* Actually, Lady Poppet gave me a decent... summary of what went down. Still, just in case...
+You: Did you notice anything strange during your short visit to the wagon?
+Widget: *Thinks* dead mr. waddles?
+You: ... yes. besides that.
+Widget: *Thinks harder* the wagon was very messy.
+    -> You: Well, there might had been a fight.
+    -> You: Mr. Waddles had too many stuff.
+Widget: *Tries hard to think* Not that. Something else. Widget can’t put his long finger on it.
+Widget: Something felt very... <i>not-Mr.-Waddles-ish</i>. *Nods firmly.*
+You:  Are you saying you sensed another person?
+Widget: Not another person. Nothing moved but candlelight. And it was quiet.
+Widget: *Shudders* <i>too</i> quite.
+<<jump Widg_DayThree_Questions>>
+
+
+===
+title: Widg_EndCon
+---
+You: Very well, widget. Thank you for your help.
+Widget: *happy* widget tried his best.
+Widget: *suddenly looks frightened* is widget a suspect?
+    -> You: You know I cant answer this question, widget.
+    -> You: Everyone is a suspect until the end of this day.
+Widget: *Nods understandingly*
+Widget: Widget waits, yes?
+Widget: Hugs his tail* its painful.
+===

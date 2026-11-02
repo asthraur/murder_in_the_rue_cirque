@@ -1,0 +1,87 @@
+﻿title: Po_Start_Day3
+---
+<<declare $po_clothing_pile to false>>
+<<declare $po_morts_hat to false>>
+<<declare $po_crumpled_flyer to false>>
+    
+<<if $po_clothing_pile is false and $po_morts_hat is false and $po_crumpled_flyer is false>>
+    Poppet: It is very good to see you again. I must admit that I was little bit worried when you left yesterday.
+    Poppet: Not that I do not trust your judgement, but it is a very demanding case and even a seasoned professional like you can end up on a wild goose-chase.
+    Poppet: But enough of that, let us find the real culprit.
+<<elseif $po_clothing_pile is true or $po_morts_hat is true or $po_crumpled_flyer is true>>
+    Poppet: *angles her head* Any more questions, darling?
+<<endif>>
+    -> You: I noticed a pile of scattered suits in front of the clothing rack while I was searching the crime scene earlier. Mr. waddles never made the impression of being a messy man to me. <<if $po_clothing_pile is false>>
+        <<jump Po_ClothingPile>>
+    -> You: \[top hat\] Does this hat belong to the lat Mr. Waddles? <<if $po_morts_hat is false and $morts_hat is true>>
+        <<jump Po_MortsHat>>
+    -> You: \[crumpled flyer\] Did you know there was a two man show with Mr. Waddles and Mr. Eduard in the making? <<if $po_crumpled_flyer is false and $crumpled_flyer is true>>
+        <<jump Po_CrumpledFlyer>>
+    -> You: I'm afraid, I have run out of questions, so this we shall leave it off at that. Thank you so much for your time Mrs. Poppet.
+        Poppet: Oh goodness, I must admit that I didn't expect our time together to end so soon.
+        Poppet: It was quite adventuresome. I am looking forwards to the next times our paths cross.
+        You: I am a private investigator...
+        You: My presence almost always indicates that a crime took place.
+        Poppet: How exciting!
+===
+
+title: Po_ClothingPile
+---
+<<set $po_clothing_pile to true>>
+
+Poppet: That does indeed seem odd. Our Waddles wasn't the most...
+<<wait  1>>
+Poppet: ..neat person by any means. ut he did prefer to keep his quarters in a sort of organized chaos. A pile of strewn clothing does not fit the eclectic persona which Waddles craved to embody so badly.
+Poppet: The pile could stem from a fight between the victim and his murderer, but hen again, I don't feel like the old penguin would have put up a grand fight.
+Poppet: Scrambling to find the most dramatic pose in which to die in would have been more his style.
+You: Very interesting, indeed. Thank you, Mrs. Poppet.
+Poppet: Oh, not for that. *waves her hand in a averting gesture*
+
+<<jump Po_Start_Day3>>
+===
+
+title: Po_MortsHat
+---
+<<set $po_morts_hat to true>>
+
+Poppet: No, that certainly is Mort's hat. I know it when I see it, you can trust me on that.
+You: How can you be so sure?
+Poppet: Can you not feel the cold aura emanating from it?
+Poppet: *shudders*
+You: *puzzled* No, not in the least.
+Poppet: That does make sense,given all of... *looks you up and down*
+Poppet: ... this.
+You: So this hat belongs to Mort, yes?
+Poppet: Correct. I have only seen it a handful of times before. she usually keeps it looked up in its box.
+Poppet: Maybe she meant to look her sundays best when ending the trumpeter, who knows? *shrugs*
+<<if $magic_wand is true>>
+    Poppet: You look like there is more.
+    -> You: I take it that this magic wand belongs to Mrs. Mort as well?
+        Poppet: Oh goodness, you found that at the crime seem too? How awful.
+        Poppet: It is one thing to strangle a colleague to death, but it is a whole different ball game to be so nonchalant about it.
+        Poppet: She might as well could have a left a business card with her contact information at that point.
+        Poppet: Yes, this definitely does belong to Mort. She leaves it in different places all the time and then proceeds to search for it for hours.
+        Poppet: It was quite fun to watch in the beginning, but I must say that it grew tiresome fairly quickly.
+        Poppet: All that is to say, that I wouldn't put it past her to also loose it at the scene of her crime.
+        You: *furious note taking noises*
+        <<jump Po_Start_Day3>>
+<<else>>
+    <<jump Po_Start_Day3>>
+<<endif>>
+===
+
+title: Po_CrumpledFlyer
+---
+<<set $po_crumpled_flyer to true>>
+
+Poppet: Would you look at that. No, Napoleon didn't mention a thing, but I cant imagine that would be a very fun show to watch if I'm being honest.
+Poppet: What sort of performance were they going to do?
+You: It does not become apparent by looking at the flyer, so I'm not sure.
+Poppet: Well, it certainly sounds very unappealing to watch a sad clown while listening to a mistuned trumpet.
+Poppet: Maybe the murderer did do a service to the community at the end of the day. *chuckles*
+Poppet: Oh, don't look at me like that now. You can't tell me you've never made a dark joke before. I'm sure you've gotten more than enough material for it.
+Poppet: Anyways, I find it very surprising that Napoleon would approve of such a business venture. It doesn't strike me as something that would be too profitable.
+Poppet: But then again, there is a market for odd things sometimes.
+You: Right.
+<<jump Po_Start_Day3>>
+===

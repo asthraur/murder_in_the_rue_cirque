@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cae5af2f3c62f54bb9245cb40ae2bdb, type: 3}
+  m_Name: Fancy_Gloves
+  m_EditorClassIdentifier: 
+  id: 0
+  itemName: Fancy Gloves
+  infoText: A must-have for the autumn season. Handy to avoid leaving fingerprints.
+  info1: A must-have for the autumn season. Handy to avoid leaving fingerprints.
+  info2: 
+  info3: 
+  info4: 
+  info5: 
+  info6: 
+  day: 2
+  variableName: fancy_gloves
+  itemIcon: {fileID: 21300000, guid: 7fc6a2c58bb69cb4ca0b0b7efac58ad4, type: 3}
